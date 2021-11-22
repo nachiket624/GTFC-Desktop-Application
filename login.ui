@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Dialog</class>
+ <widget class="QDialog" name="Dialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>650</width>
+    <height>650</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <widget class="QWidget" name="bgWidget" native="true">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1041</width>
+     <height>971</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QWidget#bgWidget{background-color:qlineargradient(spread:pad, x1:0.069, y1:0.205, x2:1, y2:0.346, stop:0.0107794 rgba(21, 76, 105, 255), stop:1 rgba(255, 255, 255, 255))}</string>
+   </property>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>240</x>
+      <y>80</y>
+      <width>151</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font:  24pt &quot;Verdana&quot;;
+color:rgb(255, 255, 255)</string>
+    </property>
+    <property name="text">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;Login&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_2">
+    <property name="geometry">
+     <rect>
+      <x>190</x>
+      <y>190</y>
+      <width>251</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 18pt &quot;Verdana&quot;;
+color:rgb(255, 255, 255)</string>
+    </property>
+    <property name="text">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:16pt;&quot;&gt;Username&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="usernamefield">
+    <property name="geometry">
+     <rect>
+      <x>140</x>
+      <y>250</y>
+      <width>381</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 11pt &quot;Terminal&quot;;</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_3">
+    <property name="geometry">
+     <rect>
+      <x>190</x>
+      <y>320</y>
+      <width>251</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 18pt &quot;Verdana&quot;;
+color:rgb(255, 255, 255)</string>
+    </property>
+    <property name="text">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:16pt;&quot;&gt;Password&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="passwordfield">
+    <property name="geometry">
+     <rect>
+      <x>150</x>
+      <y>390</y>
+      <width>371</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 11pt &quot;Terminal&quot;;</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="login">
+    <property name="geometry">
+     <rect>
+      <x>220</x>
+      <y>520</y>
+      <width>211</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 12pt &quot;Verdana&quot;;
+background-color:rgb(170, 255, 255);
+border-radius:20;</string>
+    </property>
+    <property name="text">
+     <string>Sing In</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="error">
+    <property name="geometry">
+     <rect>
+      <x>160</x>
+      <y>480</y>
+      <width>361</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 12pt &quot;Terminal&quot;;color:rgb(255, 0, 0)</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
