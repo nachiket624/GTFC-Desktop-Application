@@ -200,23 +200,7 @@ class Ui_MainWindow(object):
         self.gridLayout_3.setObjectName(u"gridLayout_3")
         self.stackedWidget = QStackedWidget(self.frame_2)
         self.stackedWidget.setObjectName(u"stackedWidget")
-        self.stackedWidget.setStyleSheet(u"\n"
-"QPushButton {\n"
-"font: 14pt \"Verdana\";\n"
-"	\n"
-"	  background-color: rgb(170, 255, 255);\n"
-"    border-style: outset;\n"
-"    border-width: 2px;\n"
-"    border-radius: 40px;\n"
-"    border-color: beige;\n"
-"    font: bold 14px;\n"
-"    min-width: 10em;\n"
-"    padding: 6px;\n"
-"}\n"
-"QPushButton:pressed {\n"
-"    background-color: rgb(85, 255, 127);\n"
-"    border-style: inset;\n"
-"}")
+        self.stackedWidget.setStyleSheet(u"")
         self.dashboard_page = QWidget()
         self.dashboard_page.setObjectName(u"dashboard_page")
         self.total_member = QLabel(self.dashboard_page)
@@ -1100,7 +1084,7 @@ class Ui_MainWindow(object):
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QMenuBar(MainWindow)
         self.menubar.setObjectName(u"menubar")
-        self.menubar.setGeometry(QRect(0, 0, 1161, 26))
+        self.menubar.setGeometry(QRect(0, 0, 1161, 21))
         MainWindow.setMenuBar(self.menubar)
         QWidget.setTabOrder(self.dashboard_btn, self.Manage_btn)
         QWidget.setTabOrder(self.Manage_btn, self.view_btn)

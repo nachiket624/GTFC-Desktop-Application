@@ -39,7 +39,7 @@
          </widget>
         </item>
         <item row="0" column="1">
-         <widget class="QLineEdit" name="lineEdit"/>
+         <widget class="QLineEdit" name="collect_lone_no"/>
         </item>
         <item row="1" column="0">
          <widget class="QLabel" name="label_2">
@@ -49,7 +49,7 @@
          </widget>
         </item>
         <item row="1" column="1">
-         <widget class="QLineEdit" name="lineEdit_2"/>
+         <widget class="QLineEdit" name="collect_id"/>
         </item>
         <item row="2" column="0">
          <widget class="QLabel" name="label_3">
@@ -59,7 +59,7 @@
          </widget>
         </item>
         <item row="2" column="1">
-         <widget class="QLineEdit" name="lineEdit_3"/>
+         <widget class="QLineEdit" name="collect_name"/>
         </item>
         <item row="3" column="0">
          <widget class="QLabel" name="label_4">
@@ -69,7 +69,7 @@
          </widget>
         </item>
         <item row="3" column="1">
-         <widget class="QLineEdit" name="lineEdit_4"/>
+         <widget class="QLineEdit" name="collect_addher_no"/>
         </item>
         <item row="4" column="0">
          <widget class="QLabel" name="label_5">
@@ -79,7 +79,14 @@
          </widget>
         </item>
         <item row="4" column="1">
-         <widget class="QDateEdit" name="dateEdit"/>
+         <widget class="QDateEdit" name="collec_date">
+          <property name="displayFormat">
+           <string>yyyy/M/d</string>
+          </property>
+          <property name="calendarPopup">
+           <bool>true</bool>
+          </property>
+         </widget>
         </item>
         <item row="5" column="0">
          <widget class="QLabel" name="label_6">
@@ -89,25 +96,23 @@
          </widget>
         </item>
         <item row="5" column="1">
-         <widget class="QLineEdit" name="lineEdit_5"/>
-        </item>
-        <item row="6" column="0">
-         <spacer name="verticalSpacer">
-          <property name="orientation">
-           <enum>Qt::Vertical</enum>
-          </property>
-          <property name="sizeHint" stdset="0">
-           <size>
-            <width>20</width>
-            <height>40</height>
-           </size>
-          </property>
-         </spacer>
+         <widget class="QLineEdit" name="collect_amount"/>
         </item>
         <item row="7" column="1">
-         <widget class="QPushButton" name="pushButton">
+         <widget class="QPushButton" name="collect_collect">
           <property name="text">
-           <string>PushButton</string>
+           <string>collect</string>
+          </property>
+         </widget>
+        </item>
+        <item row="6" column="1">
+         <widget class="QLabel" name="lone_error">
+          <property name="styleSheet">
+           <string notr="true">font: 87 10pt &quot;Arial Black&quot;;
+color:rgb(255, 0, 4)</string>
+          </property>
+          <property name="text">
+           <string/>
           </property>
          </widget>
         </item>

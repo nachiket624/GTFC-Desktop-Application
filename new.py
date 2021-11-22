@@ -246,6 +246,31 @@ class lone(QtWidgets.QDialog, Ui_Dialog):
    def __init__(self):
         super(lone, self).__init__()
         self.setupUi(self)
+        self.setWindowTitle("Lone Collection")
+        self.collect_collect.clicked.connect(self.lone_collection)
+   def lone_collection(self):
+       # self.stackedWidget.setCurrentWidget(self.dashboard_page)
+       lone_no = self.collect_lone_no.text()
+       lone_id = self.collect_id.text()
+       lone_name = self.collect_name.text()
+       lone_addher = self.collect_addher_no.text()
+       lone_data = str(self.collec_date.text())
+       lone_amount = self.collect_amount.text()
+       lone_collection_data =(lone_no,lone_id,lone_name,lone_addher,lone_data,lone_amount)
+       if len(lone_no) == 0 or len(lone_id) == 0 or len(lone_name) == 0 or len(lone_addher) == 0 or len(
+               lone_amount) == 0:
+           self.lone_error.setText("Place input all the filed")
+       else:
+           username = os.environ.get('db_user')
+           userpass = os.environ.get('db_pass')
+           conn = mysql.connector.connect(host="localhost", user=username, password=userpass, database="green")
+           cur = conn.cursor()
+           cur.execute(
+               """INSERT INTO lone_collection(loen_no, id, name, addher_no, date, amount)VALUES(%s,%s,%s,%s,%s,%s)""",
+               lone_collection_data)
+           cur.close()
+           conn.commit()
+           conn.close()
 #*************************************Main*************************************
 app = QtWidgets.QApplication(sys.argv)
 window = MainWindow()

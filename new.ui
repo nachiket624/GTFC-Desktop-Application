@@ -405,23 +405,7 @@ QPushButton:pressed {
        <item row="0" column="0">
         <widget class="QStackedWidget" name="stackedWidget">
          <property name="styleSheet">
-          <string notr="true">
-QPushButton {
-font: 14pt &quot;Verdana&quot;;
-	
-	  background-color: rgb(170, 255, 255);
-    border-style: outset;
-    border-width: 2px;
-    border-radius: 40px;
-    border-color: beige;
-    font: bold 14px;
-    min-width: 10em;
-    padding: 6px;
-}
-QPushButton:pressed {
-    background-color: rgb(85, 255, 127);
-    border-style: inset;
-}</string>
+          <string notr="true"/>
          </property>
          <property name="currentIndex">
           <number>2</number>
@@ -723,7 +707,6 @@ color:rgb(255, 85, 0)</string>
              <property name="font">
               <font>
                <family>Verdana</family>
-               <pointsize>-1</pointsize>
                <weight>75</weight>
                <italic>false</italic>
                <bold>true</bold>
@@ -1282,7 +1265,6 @@ color:rgb(255, 0, 0)</string>
              <property name="font">
               <font>
                <family>Verdana</family>
-               <pointsize>-1</pointsize>
                <weight>75</weight>
                <italic>false</italic>
                <bold>true</bold>
@@ -1316,7 +1298,6 @@ color:rgb(255, 0, 0)</string>
              <property name="font">
               <font>
                <family>Verdana</family>
-               <pointsize>-1</pointsize>
                <weight>75</weight>
                <italic>false</italic>
                <bold>true</bold>
@@ -1350,7 +1331,6 @@ color:rgb(255, 0, 0)</string>
              <property name="font">
               <font>
                <family>Verdana</family>
-               <pointsize>-1</pointsize>
                <weight>75</weight>
                <italic>false</italic>
                <bold>true</bold>
@@ -2215,7 +2195,7 @@ color:rgb(255, 0, 0)</string>
      <x>0</x>
      <y>0</y>
      <width>1161</width>
-     <height>26</height>
+     <height>21</height>
     </rect>
    </property>
   </widget>

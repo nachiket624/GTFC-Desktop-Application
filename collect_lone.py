@@ -35,69 +35,73 @@ class Ui_Dialog(object):
 
         self.formLayout.setWidget(0, QFormLayout.LabelRole, self.label)
 
-        self.lineEdit = QLineEdit(self.frame)
-        self.lineEdit.setObjectName(u"lineEdit")
+        self.collect_lone_no = QLineEdit(self.frame)
+        self.collect_lone_no.setObjectName(u"collect_lone_no")
 
-        self.formLayout.setWidget(0, QFormLayout.FieldRole, self.lineEdit)
+        self.formLayout.setWidget(0, QFormLayout.FieldRole, self.collect_lone_no)
 
         self.label_2 = QLabel(self.frame)
         self.label_2.setObjectName(u"label_2")
 
         self.formLayout.setWidget(1, QFormLayout.LabelRole, self.label_2)
 
-        self.lineEdit_2 = QLineEdit(self.frame)
-        self.lineEdit_2.setObjectName(u"lineEdit_2")
+        self.collect_id = QLineEdit(self.frame)
+        self.collect_id.setObjectName(u"collect_id")
 
-        self.formLayout.setWidget(1, QFormLayout.FieldRole, self.lineEdit_2)
+        self.formLayout.setWidget(1, QFormLayout.FieldRole, self.collect_id)
 
         self.label_3 = QLabel(self.frame)
         self.label_3.setObjectName(u"label_3")
 
         self.formLayout.setWidget(2, QFormLayout.LabelRole, self.label_3)
 
-        self.lineEdit_3 = QLineEdit(self.frame)
-        self.lineEdit_3.setObjectName(u"lineEdit_3")
+        self.collect_name = QLineEdit(self.frame)
+        self.collect_name.setObjectName(u"collect_name")
 
-        self.formLayout.setWidget(2, QFormLayout.FieldRole, self.lineEdit_3)
+        self.formLayout.setWidget(2, QFormLayout.FieldRole, self.collect_name)
 
         self.label_4 = QLabel(self.frame)
         self.label_4.setObjectName(u"label_4")
 
         self.formLayout.setWidget(3, QFormLayout.LabelRole, self.label_4)
 
-        self.lineEdit_4 = QLineEdit(self.frame)
-        self.lineEdit_4.setObjectName(u"lineEdit_4")
+        self.collect_addher_no = QLineEdit(self.frame)
+        self.collect_addher_no.setObjectName(u"collect_addher_no")
 
-        self.formLayout.setWidget(3, QFormLayout.FieldRole, self.lineEdit_4)
+        self.formLayout.setWidget(3, QFormLayout.FieldRole, self.collect_addher_no)
 
         self.label_5 = QLabel(self.frame)
         self.label_5.setObjectName(u"label_5")
 
         self.formLayout.setWidget(4, QFormLayout.LabelRole, self.label_5)
 
-        self.dateEdit = QDateEdit(self.frame)
-        self.dateEdit.setObjectName(u"dateEdit")
+        self.collec_date = QDateEdit(self.frame)
+        self.collec_date.setObjectName(u"collec_date")
+        self.collec_date.setCalendarPopup(True)
 
-        self.formLayout.setWidget(4, QFormLayout.FieldRole, self.dateEdit)
+        self.formLayout.setWidget(4, QFormLayout.FieldRole, self.collec_date)
 
         self.label_6 = QLabel(self.frame)
         self.label_6.setObjectName(u"label_6")
 
         self.formLayout.setWidget(5, QFormLayout.LabelRole, self.label_6)
 
-        self.lineEdit_5 = QLineEdit(self.frame)
-        self.lineEdit_5.setObjectName(u"lineEdit_5")
+        self.collect_amount = QLineEdit(self.frame)
+        self.collect_amount.setObjectName(u"collect_amount")
 
-        self.formLayout.setWidget(5, QFormLayout.FieldRole, self.lineEdit_5)
+        self.formLayout.setWidget(5, QFormLayout.FieldRole, self.collect_amount)
 
-        self.verticalSpacer = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
+        self.collect_collect = QPushButton(self.frame)
+        self.collect_collect.setObjectName(u"collect_collect")
 
-        self.formLayout.setItem(6, QFormLayout.LabelRole, self.verticalSpacer)
+        self.formLayout.setWidget(7, QFormLayout.FieldRole, self.collect_collect)
 
-        self.pushButton = QPushButton(self.frame)
-        self.pushButton.setObjectName(u"pushButton")
+        self.lone_error = QLabel(self.frame)
+        self.lone_error.setObjectName(u"lone_error")
+        self.lone_error.setStyleSheet(u"font: 87 10pt \"Arial Black\";\n"
+"color:rgb(255, 0, 4)")
 
-        self.formLayout.setWidget(7, QFormLayout.FieldRole, self.pushButton)
+        self.formLayout.setWidget(6, QFormLayout.FieldRole, self.lone_error)
 
 
         self.gridLayout.addLayout(self.formLayout, 0, 0, 1, 1)
@@ -118,7 +122,9 @@ class Ui_Dialog(object):
         self.label_3.setText(QCoreApplication.translate("Dialog", u"Name", None))
         self.label_4.setText(QCoreApplication.translate("Dialog", u"Addher No", None))
         self.label_5.setText(QCoreApplication.translate("Dialog", u"Date", None))
+        self.collec_date.setDisplayFormat(QCoreApplication.translate("Dialog", u"yyyy/M/d", None))
         self.label_6.setText(QCoreApplication.translate("Dialog", u"Amount", None))
-        self.pushButton.setText(QCoreApplication.translate("Dialog", u"PushButton", None))
+        self.collect_collect.setText(QCoreApplication.translate("Dialog", u"collect", None))
+        self.lone_error.setText("")
     # retranslateUi
 
