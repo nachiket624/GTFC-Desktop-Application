@@ -1,6 +1,8 @@
 import sys
 import os
 from PySide2 import QtWidgets
+
+import database
 from MainWindow import Ui_MainWindow
 from PySide2.QtWidgets import(QTableWidget, QTableWidgetItem)
 from collect_lone import Ui_Dialog
@@ -9,6 +11,8 @@ from PySide2.QtGui import QIcon
 from updatainformation import *
 import updatainformation
 
+username = os.environ.get('db_user')
+userpass = os.environ.get('db_pass')
 
 class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
     def __init__(self):
@@ -97,8 +101,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             opnningBalance) == 0:
             self.error.setText("Place input all filed")
         else:
-            username = os.environ.get('db_user')
-            userpass = os.environ.get('db_pass')
+
             conn = mysql.connector.connect(host="localhost", user= username, password= userpass, database="green")
 
             cur = conn.cursor()
@@ -116,8 +119,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
     def searchfun(self):
 
         id = self.id_2.text()
-        username = os.environ.get('db_user')
-        userpass = os.environ.get('db_pass')
+
         conn = mysql.connector.connect(host="localhost", user=username, password=userpass, database="green")
         cur = conn.cursor()
         cur.execute("select * from memberinfo where id = "+id)
@@ -184,6 +186,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.stackedWidget.setCurrentWidget(self.pagelone)
         lone_no1 = lastlonen()
         lone_no = self.loneno.setText(str(lone_no1))
+        lone_no = self.loneno.text()
         name = self.name.text()
         addher = self.addherno.text()
         amount = self.amount.text()
@@ -198,21 +201,25 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         if len(name) == 0 or len(jam1) == 0 or len(jam2) == 0 or len(amount) == 0:
             self.error_3.setText("Place input all filed")
         else:
-            username = os.environ.get('db_user')
-            userpass = os.environ.get('db_pass')
             conn = mysql.connector.connect(host="localhost", user=username, password=userpass, database="green")
             cur = conn.cursor()
             cur.execute("""INSERT INTO lone (lone_no, appliername, addherNo, amount, insrast_rate, check_number, lone_date, Jamindar1, Jamindar2, remark) values(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)""",lone_info)
+            print("this is lone_info ",lone_info)
             cur.close()
             conn.commit()
             conn.close()
- #  ******************************************************* View *******************************************************
+            totalAmounttopay = 100
+            totalIntersetpay = 1000
+            totalintersetamount = 1000
+            database.getdatalone(lone_no,name,addher,amount,totalAmounttopay,totalIntersetpay,totalintersetamount)
+
+    #  ******************************************************* View *******************************************************
 
     # ! ***************************** View Information table *****************************
     def viewallfunction(self):
         tableWidget = QTableWidget
         self.stackedWidget.setCurrentWidget(self.table_view)
-        conn = conn = mysql.connector.connect(host="localhost", user="root", password="1900340220", database="green")
+        conn = mysql.connector.connect(host="localhost", user=username, password=userpass, database="green")
         cur = conn.cursor()
         query = "SELECT * FROM memberinfo ORDER BY ID ASC"
         cur.execute(query)
@@ -250,13 +257,14 @@ class lone(QtWidgets.QDialog, Ui_Dialog):
         self.collect_collect.clicked.connect(self.lone_collection)
    def lone_collection(self):
        # self.stackedWidget.setCurrentWidget(self.dashboard_page)
+       trancation_no = self.lone_trancation_no.text()
        lone_no = self.collect_lone_no.text()
        lone_id = self.collect_id.text()
        lone_name = self.collect_name.text()
        lone_addher = self.collect_addher_no.text()
        lone_data = str(self.collec_date.text())
        lone_amount = self.collect_amount.text()
-       lone_collection_data =(lone_no,lone_id,lone_name,lone_addher,lone_data,lone_amount)
+       lone_collection_data =(trancation_no,lone_no,lone_id,lone_name,lone_addher,lone_data,lone_amount)
        if len(lone_no) == 0 or len(lone_id) == 0 or len(lone_name) == 0 or len(lone_addher) == 0 or len(
                lone_amount) == 0:
            self.lone_error.setText("Place input all the filed")
@@ -266,11 +274,17 @@ class lone(QtWidgets.QDialog, Ui_Dialog):
            conn = mysql.connector.connect(host="localhost", user=username, password=userpass, database="green")
            cur = conn.cursor()
            cur.execute(
-               """INSERT INTO lone_collection(loen_no, id, name, addher_no, date, amount)VALUES(%s,%s,%s,%s,%s,%s)""",
+               """INSERT INTO lone_collection(trancation_no,loen_no, id, name, addher_no, date, amount)VALUES(%s,%s,%s,%s,%s,%s,%s)""",
                lone_collection_data)
            cur.close()
            conn.commit()
            conn.close()
+
+class integration():
+    def __init__(self):
+        pass
+
+
 #*************************************Main*************************************
 app = QtWidgets.QApplication(sys.argv)
 window = MainWindow()

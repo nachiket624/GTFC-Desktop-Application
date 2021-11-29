@@ -1,7 +1,10 @@
 import mysql.connector
+import  os
+username = os.environ.get('db_user')
+userpass = os.environ.get('db_pass')
 
 def rowcount():
-    conn = mysql.connector.connect(host="localhost", user="root", password="1900340220", database="green")
+    conn = mysql.connector.connect(host="localhost", user=username, password=userpass, database="green")
     cur = conn.cursor()
     query = """SELECT * from memberinfo"""
     cur.execute(query)
@@ -15,7 +18,7 @@ def rowcount():
 
     return i+1
 def lonecount():
-    conn = mysql.connector.connect(host="localhost", user="root", password="1900340220", database="green")
+    conn = mysql.connector.connect(host="localhost", user=username, password=userpass, database="green")
     cur = conn.cursor()
     query = """SELECT * from lone"""
     cur.execute(query)
@@ -30,31 +33,55 @@ def lonecount():
 
 
 def loaddata():
-        conn = conn = mysql.connector.connect(host="localhost", user="root", password="1900340220", database="green")
+        conn = conn = mysql.connector.connect(host="localhost", user=username, password=userpass, database="green")
         cur = conn.cursor()
         query = "SELECT * FROM memberinfo"
         cur.execute(query)
         record = cur.fetchall()
 
 def lastlonen():
-    conn = conn = mysql.connector.connect(host="localhost", user="root", password="1900340220", database="green")
+    conn = conn = mysql.connector.connect(host="localhost", user=username, password=userpass, database="green")
     cur = conn.cursor()
     query = "select lone_no from lone"
     cur.execute(query)
     i = 0
     data = cur.fetchall()
-    print("Type of data",type(data))
     data.sort()
-    for i  in data:
+    for i in data:
         i
-    lone_no = i[-1]
-    return lone_no + 1
+    lone_no = i
+    lone_no2 = 1
+    if lone_no == 0:
+        lone_no = 1
+        print("if stament")
+        return lone_no
+    else:
+        return (lone_no[-1]) + 1
+
     # strlone = str(lone_no)
-    # return strlone
+    # # return strlone
     # print(strlone)
     # print(type(strlone))
-lastlonen()
 
+def getdatalone():
+    conn = conn = mysql.connector.connect(host="localhost", user=username, password=userpass, database="green")
+    cur = conn.cursor()
+    query = "select lone_no from lone"
+    cur.execute(query)
+    i = 0
+    data = cur.fetchall()
+    data.sort()
+    for i in data:
+        i
 
+def getdatalone(lone_no,name,addher,amount,totalAmounttopay,totalIntersetpay,totalintersetamount):
+    conn = mysql.connector.connect(host="localhost", user=username, password=userpass, database="green")
+    cur = conn.cursor()
+    print(lone_no)
+    getdatalonevalue1 = (lone_no,name,addher,amount,totalAmounttopay,totalIntersetpay,totalintersetamount)
+    cur.execute("""INSERT INTO lone_info (Lone_no,Name,AddherNo,Lone_take,total_ammount_to_pay,Total_interest_pay,Total_interest_amount) VALUES(%s,%s,%s,%s,%s,%s,%s)""",getdatalonevalue1)
+    cur.close()
+    conn.commit()
+    conn.close()
 
 
