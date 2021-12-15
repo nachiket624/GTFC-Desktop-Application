@@ -6,130 +6,286 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>489</width>
-    <height>527</height>
+    <width>745</width>
+    <height>606</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
-  <layout class="QGridLayout" name="gridLayout_2">
+  <layout class="QGridLayout" name="gridLayout_3">
    <item row="0" column="0">
-    <widget class="QFrame" name="frame">
-     <property name="frameShape">
-      <enum>QFrame::StyledPanel</enum>
-     </property>
-     <property name="frameShadow">
-      <enum>QFrame::Raised</enum>
-     </property>
-     <layout class="QGridLayout" name="gridLayout">
-      <item row="0" column="0">
-       <layout class="QFormLayout" name="formLayout">
-        <property name="labelAlignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-        <property name="verticalSpacing">
-         <number>15</number>
-        </property>
-        <item row="1" column="0">
-         <widget class="QLabel" name="label">
+    <layout class="QGridLayout" name="gridLayout_2">
+     <item row="0" column="0">
+      <layout class="QFormLayout" name="formLayout">
+       <item row="1" column="0">
+        <widget class="QLabel" name="label">
+         <property name="text">
+          <string>Lone No</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1">
+        <widget class="QLineEdit" name="lone_no">
+         <property name="maximumSize">
+          <size>
+           <width>100</width>
+           <height>16777215</height>
+          </size>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="1">
+        <widget class="QPushButton" name="find_btn">
+         <property name="maximumSize">
+          <size>
+           <width>120</width>
+           <height>16777215</height>
+          </size>
+         </property>
+         <property name="text">
+          <string>Find</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="0">
+        <widget class="QLabel" name="label_3">
+         <property name="text">
+          <string>Name</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="1">
+        <widget class="QLineEdit" name="lone_name">
+         <property name="maximumSize">
+          <size>
+           <width>100</width>
+           <height>16777215</height>
+          </size>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="0">
+        <widget class="QLabel" name="label_4">
+         <property name="text">
+          <string>Addher No</string>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="1">
+        <widget class="QLineEdit" name="addhere_no">
+         <property name="maximumSize">
+          <size>
+           <width>400</width>
+           <height>16777215</height>
+          </size>
+         </property>
+        </widget>
+       </item>
+       <item row="5" column="0">
+        <widget class="QLabel" name="label_5">
+         <property name="text">
+          <string>Date</string>
+         </property>
+        </widget>
+       </item>
+       <item row="5" column="1">
+        <widget class="QDateEdit" name="collect_date">
+         <property name="maximumSize">
+          <size>
+           <width>100</width>
+           <height>16777215</height>
+          </size>
+         </property>
+         <property name="displayFormat">
+          <string>yyyy/M/d</string>
+         </property>
+         <property name="calendarPopup">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="6" column="1">
+        <widget class="QRadioButton" name="radioButton">
+         <property name="text">
+          <string>System Date</string>
+         </property>
+        </widget>
+       </item>
+       <item row="7" column="0">
+        <widget class="QLabel" name="label_6">
+         <property name="text">
+          <string>Amount</string>
+         </property>
+        </widget>
+       </item>
+       <item row="7" column="1">
+        <widget class="QLineEdit" name="collect_ammount">
+         <property name="maximumSize">
+          <size>
+           <width>400</width>
+           <height>16777215</height>
+          </size>
+         </property>
+        </widget>
+       </item>
+       <item row="8" column="0">
+        <widget class="QLabel" name="label_8">
+         <property name="text">
+          <string>Interst</string>
+         </property>
+        </widget>
+       </item>
+       <item row="8" column="1">
+        <widget class="QLineEdit" name="Interst_rate">
+         <property name="maximumSize">
+          <size>
+           <width>400</width>
+           <height>16777215</height>
+          </size>
+         </property>
+        </widget>
+       </item>
+       <item row="9" column="1">
+        <layout class="QGridLayout" name="gridLayout">
+         <item row="0" column="0">
+          <widget class="QPushButton" name="print_btn">
+           <property name="text">
+            <string>Print Invoice</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="1">
+          <widget class="QPushButton" name="collect_btn">
+           <property name="text">
+            <string>collect</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item row="10" column="1">
+        <widget class="QTableWidget" name="tableWidget">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>300</height>
+          </size>
+         </property>
+         <property name="selectionMode">
+          <enum>QAbstractItemView::SingleSelection</enum>
+         </property>
+         <property name="textElideMode">
+          <enum>Qt::ElideMiddle</enum>
+         </property>
+         <property name="rowCount">
+          <number>12</number>
+         </property>
+         <attribute name="horizontalHeaderDefaultSectionSize">
+          <number>120</number>
+         </attribute>
+         <row/>
+         <row/>
+         <row/>
+         <row/>
+         <row/>
+         <row/>
+         <row/>
+         <row/>
+         <row/>
+         <row/>
+         <row/>
+         <row/>
+         <column>
           <property name="text">
-           <string>Lone No</string>
+           <string>Month</string>
           </property>
-         </widget>
-        </item>
-        <item row="1" column="1">
-         <widget class="QLineEdit" name="collect_lone_no"/>
-        </item>
-        <item row="2" column="0">
-         <widget class="QLabel" name="label_2">
-          <property name="text">
-           <string>ID</string>
-          </property>
-         </widget>
-        </item>
-        <item row="2" column="1">
-         <widget class="QLineEdit" name="collect_id"/>
-        </item>
-        <item row="3" column="0">
-         <widget class="QLabel" name="label_3">
-          <property name="text">
-           <string>Name</string>
-          </property>
-         </widget>
-        </item>
-        <item row="3" column="1">
-         <widget class="QLineEdit" name="collect_name"/>
-        </item>
-        <item row="4" column="0">
-         <widget class="QLabel" name="label_4">
-          <property name="text">
-           <string>Addher No</string>
-          </property>
-         </widget>
-        </item>
-        <item row="4" column="1">
-         <widget class="QLineEdit" name="collect_addher_no"/>
-        </item>
-        <item row="5" column="0">
-         <widget class="QLabel" name="label_5">
+         </column>
+         <column>
           <property name="text">
            <string>Date</string>
           </property>
-         </widget>
-        </item>
-        <item row="5" column="1">
-         <widget class="QDateEdit" name="collec_date">
-          <property name="displayFormat">
-           <string>yyyy/M/d</string>
-          </property>
-          <property name="calendarPopup">
-           <bool>true</bool>
-          </property>
-         </widget>
-        </item>
-        <item row="6" column="0">
-         <widget class="QLabel" name="label_6">
+         </column>
+         <column>
           <property name="text">
            <string>Amount</string>
           </property>
-         </widget>
-        </item>
-        <item row="6" column="1">
-         <widget class="QLineEdit" name="collect_amount"/>
-        </item>
-        <item row="8" column="1">
-         <widget class="QPushButton" name="collect_collect">
+         </column>
+         <column>
           <property name="text">
-           <string>collect</string>
+           <string>Interest</string>
           </property>
-         </widget>
-        </item>
-        <item row="7" column="1">
-         <widget class="QLabel" name="lone_error">
-          <property name="styleSheet">
-           <string notr="true">font: 87 10pt &quot;Arial Black&quot;;
-color:rgb(255, 0, 4)</string>
-          </property>
+         </column>
+         <column>
           <property name="text">
-           <string/>
+           <string>Total</string>
           </property>
-         </widget>
-        </item>
-        <item row="0" column="0">
-         <widget class="QLabel" name="label_7">
+         </column>
+         <item row="0" column="0">
           <property name="text">
-           <string>trancation No</string>
+           <string>January</string>
           </property>
-         </widget>
-        </item>
-        <item row="0" column="1">
-         <widget class="QLineEdit" name="lone_trancation_no"/>
-        </item>
-       </layout>
-      </item>
-     </layout>
-    </widget>
+         </item>
+         <item row="1" column="0">
+          <property name="text">
+           <string> February</string>
+          </property>
+         </item>
+         <item row="2" column="0">
+          <property name="text">
+           <string> March</string>
+          </property>
+         </item>
+         <item row="3" column="0">
+          <property name="text">
+           <string>April</string>
+          </property>
+         </item>
+         <item row="4" column="0">
+          <property name="text">
+           <string>May</string>
+          </property>
+         </item>
+         <item row="5" column="0">
+          <property name="text">
+           <string>June</string>
+          </property>
+         </item>
+         <item row="6" column="0">
+          <property name="text">
+           <string>July</string>
+          </property>
+         </item>
+         <item row="7" column="0">
+          <property name="text">
+           <string>August</string>
+          </property>
+         </item>
+         <item row="8" column="0">
+          <property name="text">
+           <string>September</string>
+          </property>
+         </item>
+         <item row="9" column="0">
+          <property name="text">
+           <string>October</string>
+          </property>
+         </item>
+         <item row="10" column="0">
+          <property name="text">
+           <string>November</string>
+          </property>
+         </item>
+         <item row="11" column="0">
+          <property name="text">
+           <string>December</string>
+          </property>
+         </item>
+        </widget>
+       </item>
+      </layout>
+     </item>
+    </layout>
    </item>
   </layout>
  </widget>

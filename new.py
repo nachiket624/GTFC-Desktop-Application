@@ -1,5 +1,7 @@
 import sys
 import os
+from datetime import date
+import datetime
 from PySide2 import QtWidgets
 
 import database
@@ -10,7 +12,7 @@ from database import *
 from PySide2.QtGui import QIcon
 from updatainformation import *
 import updatainformation
-
+from biodata import Ui_Dialog1
 username = os.environ.get('db_user')
 userpass = os.environ.get('db_pass')
 
@@ -67,6 +69,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
     def WinView(self):
         self.stackedWidget.setCurrentWidget(self.page_view)
         self.viewall_btn.clicked.connect(self.viewallfunction)
+        self.biodataview_btn.clicked.connect(self.ConnecttoBioData)
 
         # ! ***************************** Dashboard Function *****************************
     def windashboard(self):
@@ -246,39 +249,84 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
     def showlonedig(self):
         # self.stackedWidget.setCurrentWidget(self.showlonedig)
-        lonewin = lone()
+        lonewin = mydig()
         lonewin.show()
         lonewin.exec_()
-class lone(QtWidgets.QDialog, Ui_Dialog):
-   def __init__(self):
-        super(lone, self).__init__()
+    def ConnecttoBioData(self):
+        bio = biodata()
+        bio.show()
+        bio.exec_()
+class mydig(QtWidgets.QDialog,Ui_Dialog):
+    def __init__(self):
+        super(mydig, self).__init__()
+        self.setupUi(self)
+        self.find_btn.clicked.connect(self.find)
+        self.radioButton.clicked.connect(self.getdate)
+    def find(self):
+        id_field = self.lone_no.text()
+        conn = conn = mysql.connector.connect(host="localhost", user="root", password="1900340220", database="green")
+        cur = conn.cursor()
+        cur.execute("""select Name,AddherNo from lone_info where Lone_no = """+id_field)
+        for data in cur:
+            data
+        cur.close()
+        conn.commit()
+        conn.close()
+        self.lone_name.setText(str(data[0]))
+        self.addhere_no.setText(str(data[1]))
+        self.getdata()
+    def getdata(self):
+        id_field = self.lone_no.text()
+        conn = conn = mysql.connector.connect(host="localhost", user="root", password="1900340220", database="green")
+        cur = conn.cursor()
+        cur.execute("""select * from lone_info where lone_no = """+id_field)
+        for data in cur:
+            data
+        print(data)
+        print("Type",type(data))
+        row = 0
+        self.tableWidget.setRowCount(12)
+        # self.tableWidget.setRowCount(len(data))
+        count = database.calrow()
+        data1 = 4
+        data2 = 5
+        for index in range(12):
+            self.tableWidget.setItem(index, 2, QtWidgets.QTableWidgetItem(str(data[data1])))
+            self.tableWidget.setItem(index, 3, QtWidgets.QTableWidgetItem(str(data[data2])))
+            data1 = data1+2
+            data2 = data2+2
+        self.tableWidget.setItem(0, 4, QtWidgets.QTableWidgetItem(str(data[30])))
+    def getdate(self):
+        today = datetime.today()
+        self.collect_date.setDate(today)
+
+
+
+class biodata(QtWidgets.QDialog, Ui_Dialog1):
+    def __init__(self):
+        super(biodata, self).__init__()
         self.setupUi(self)
         self.setWindowTitle("Lone Collection")
-        self.collect_collect.clicked.connect(self.lone_collection)
-   def lone_collection(self):
-       # self.stackedWidget.setCurrentWidget(self.dashboard_page)
-       trancation_no = self.lone_trancation_no.text()
-       lone_no = self.collect_lone_no.text()
-       lone_id = self.collect_id.text()
-       lone_name = self.collect_name.text()
-       lone_addher = self.collect_addher_no.text()
-       lone_data = str(self.collec_date.text())
-       lone_amount = self.collect_amount.text()
-       lone_collection_data =(trancation_no,lone_no,lone_id,lone_name,lone_addher,lone_data,lone_amount)
-       if len(lone_no) == 0 or len(lone_id) == 0 or len(lone_name) == 0 or len(lone_addher) == 0 or len(
-               lone_amount) == 0:
-           self.lone_error.setText("Place input all the filed")
-       else:
-           username = os.environ.get('db_user')
-           userpass = os.environ.get('db_pass')
-           conn = mysql.connector.connect(host="localhost", user=username, password=userpass, database="green")
-           cur = conn.cursor()
-           cur.execute(
-               """INSERT INTO lone_collection(trancation_no,loen_no, id, name, addher_no, date, amount)VALUES(%s,%s,%s,%s,%s,%s,%s)""",
-               lone_collection_data)
-           cur.close()
-           conn.commit()
-           conn.close()
+        self.find_btn.clicked.connect(self.searchfun1)
+    def searchfun1(self):
+        loneno = self.bio_id.text()
+
+        conn = mysql.connector.connect(host="localhost", user=username, password=userpass, database="green")
+        cur = conn.cursor()
+        cur.execute("select * from lone_collection where id = " + loneno)
+        for data in cur:
+            data
+        print(data)
+        Name = data[0]
+        Addher = data[1]
+
+        # ? @@@@@@@@@@@ setting value to line edit @@@@@@@@@@@
+        self.bio_name.setText(str(Name)) # fname is line edit object name
+        self.bio_addher.setText(str(Addher))
+
+
+
+
 
 class integration():
     def __init__(self):

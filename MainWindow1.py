@@ -17,23 +17,26 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(800, 600)
+        MainWindow.resize(1161, 701)
         sizePolicy = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Minimum)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(MainWindow.sizePolicy().hasHeightForWidth())
         MainWindow.setSizePolicy(sizePolicy)
+        MainWindow.setMinimumSize(QSize(50, 40))
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
+        self.centralwidget.setStyleSheet(u"")
         self.gridLayout_2 = QGridLayout(self.centralwidget)
         self.gridLayout_2.setObjectName(u"gridLayout_2")
         self.frame = QFrame(self.centralwidget)
         self.frame.setObjectName(u"frame")
-        sizePolicy1 = QSizePolicy(QSizePolicy.Fixed, QSizePolicy.Preferred)
+        sizePolicy1 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Preferred)
         sizePolicy1.setHorizontalStretch(0)
         sizePolicy1.setVerticalStretch(0)
         sizePolicy1.setHeightForWidth(self.frame.sizePolicy().hasHeightForWidth())
         self.frame.setSizePolicy(sizePolicy1)
+        self.frame.setMinimumSize(QSize(150, 0))
         font = QFont()
         font.setPointSize(40)
         font.setBold(False)
@@ -44,24 +47,26 @@ class Ui_MainWindow(object):
         self.frame.setFrameShape(QFrame.StyledPanel)
         self.frame.setFrameShadow(QFrame.Raised)
         self.gridLayout = QGridLayout(self.frame)
-        self.gridLayout.setSpacing(1)
         self.gridLayout.setObjectName(u"gridLayout")
-        self.pushButton_5 = QPushButton(self.frame)
-        self.pushButton_5.setObjectName(u"pushButton_5")
-        sizePolicy2 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Preferred)
-        sizePolicy2.setHorizontalStretch(20)
-        sizePolicy2.setVerticalStretch(0)
-        sizePolicy2.setHeightForWidth(self.pushButton_5.sizePolicy().hasHeightForWidth())
-        self.pushButton_5.setSizePolicy(sizePolicy2)
+        self.verticalLayout = QVBoxLayout()
+        self.verticalLayout.setSpacing(0)
+        self.verticalLayout.setObjectName(u"verticalLayout")
+        self.verticalLayout.setContentsMargins(-1, -1, -1, 0)
+        self.dashboard_btn = QPushButton(self.frame)
+        self.dashboard_btn.setObjectName(u"dashboard_btn")
+        sizePolicy1.setHeightForWidth(self.dashboard_btn.sizePolicy().hasHeightForWidth())
+        self.dashboard_btn.setSizePolicy(sizePolicy1)
+        self.dashboard_btn.setMinimumSize(QSize(100, 50))
+        self.dashboard_btn.setMaximumSize(QSize(100, 40))
         font1 = QFont()
         font1.setFamily(u"Arial Black")
         font1.setPointSize(9)
         font1.setBold(True)
         font1.setWeight(75)
         font1.setKerning(True)
-        self.pushButton_5.setFont(font1)
-        self.pushButton_5.setLayoutDirection(Qt.LeftToRight)
-        self.pushButton_5.setStyleSheet(u"QPushButton {\n"
+        self.dashboard_btn.setFont(font1)
+        self.dashboard_btn.setLayoutDirection(Qt.LeftToRight)
+        self.dashboard_btn.setStyleSheet(u"QPushButton {\n"
 "	border: none;\n"
 "	background-color: rgba(13, 9, 36,0);\n"
 "	border-radius: 13;\n"
@@ -76,16 +81,85 @@ class Ui_MainWindow(object):
 "QPushButton:pressed {\n"
 "	background-color: rgb(0, 0, 0);\n"
 "}")
+        self.dashboard_btn.setAutoDefault(False)
+        self.dashboard_btn.setFlat(False)
 
-        self.gridLayout.addWidget(self.pushButton_5, 0, 0, 1, 1)
+        self.verticalLayout.addWidget(self.dashboard_btn)
+
+        self.verticalSpacer = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
+
+        self.verticalLayout.addItem(self.verticalSpacer)
+
+        self.Manage_btn = QPushButton(self.frame)
+        self.Manage_btn.setObjectName(u"Manage_btn")
+        sizePolicy1.setHeightForWidth(self.Manage_btn.sizePolicy().hasHeightForWidth())
+        self.Manage_btn.setSizePolicy(sizePolicy1)
+        self.Manage_btn.setMinimumSize(QSize(100, 40))
+        self.Manage_btn.setMaximumSize(QSize(100, 50))
+        self.Manage_btn.setFont(font1)
+        self.Manage_btn.setLayoutDirection(Qt.LeftToRight)
+        self.Manage_btn.setStyleSheet(u"QPushButton {\n"
+"	border: none;\n"
+"	background-color: rgba(13, 9, 36,0);\n"
+"	border-radius: 13;\n"
+"	color: rgb(0, 0, 0)\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"	background-colora: rgb(85, 0, 255,0);\n"
+"	color: rgb(218, 145, 0)\n"
+"}\n"
+"\n"
+"QPushButton:pressed {\n"
+"	background-color: rgb(0, 0, 0);\n"
+"}")
+        self.Manage_btn.setAutoDefault(False)
+        self.Manage_btn.setFlat(False)
+
+        self.verticalLayout.addWidget(self.Manage_btn)
+
+        self.verticalSpacer_3 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
+
+        self.verticalLayout.addItem(self.verticalSpacer_3)
+
+        self.view_btn = QPushButton(self.frame)
+        self.view_btn.setObjectName(u"view_btn")
+        sizePolicy1.setHeightForWidth(self.view_btn.sizePolicy().hasHeightForWidth())
+        self.view_btn.setSizePolicy(sizePolicy1)
+        self.view_btn.setMinimumSize(QSize(100, 40))
+        self.view_btn.setMaximumSize(QSize(100, 50))
+        self.view_btn.setFont(font1)
+        self.view_btn.setLayoutDirection(Qt.LeftToRight)
+        self.view_btn.setStyleSheet(u"QPushButton {\n"
+"	border: none;\n"
+"	background-color: rgba(13, 9, 36,0);\n"
+"	border-radius: 13;\n"
+"	color: rgb(0, 0, 0)\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"	background-colora: rgb(85, 0, 255,0);\n"
+"	color: rgb(218, 145, 0)\n"
+"}\n"
+"\n"
+"QPushButton:pressed {\n"
+"	background-color: rgb(0, 0, 0);\n"
+"}")
+        self.view_btn.setAutoDefault(False)
+        self.view_btn.setFlat(False)
+
+        self.verticalLayout.addWidget(self.view_btn)
+
+        self.verticalSpacer_4 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
+
+        self.verticalLayout.addItem(self.verticalSpacer_4)
 
         self.pushButton_8 = QPushButton(self.frame)
         self.pushButton_8.setObjectName(u"pushButton_8")
-        sizePolicy3 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Preferred)
-        sizePolicy3.setHorizontalStretch(0)
-        sizePolicy3.setVerticalStretch(0)
-        sizePolicy3.setHeightForWidth(self.pushButton_8.sizePolicy().hasHeightForWidth())
-        self.pushButton_8.setSizePolicy(sizePolicy3)
+        sizePolicy1.setHeightForWidth(self.pushButton_8.sizePolicy().hasHeightForWidth())
+        self.pushButton_8.setSizePolicy(sizePolicy1)
+        self.pushButton_8.setMinimumSize(QSize(100, 40))
+        self.pushButton_8.setMaximumSize(QSize(100, 40))
         self.pushButton_8.setFont(font1)
         self.pushButton_8.setLayoutDirection(Qt.LeftToRight)
         self.pushButton_8.setStyleSheet(u"QPushButton {\n"
@@ -103,64 +177,17 @@ class Ui_MainWindow(object):
 "QPushButton:pressed {\n"
 "	background-color: rgb(0, 0, 0);\n"
 "}")
+        self.pushButton_8.setAutoDefault(False)
+        self.pushButton_8.setFlat(False)
 
-        self.gridLayout.addWidget(self.pushButton_8, 3, 0, 1, 1)
+        self.verticalLayout.addWidget(self.pushButton_8)
 
-        self.pushButton_6 = QPushButton(self.frame)
-        self.pushButton_6.setObjectName(u"pushButton_6")
-        sizePolicy3.setHeightForWidth(self.pushButton_6.sizePolicy().hasHeightForWidth())
-        self.pushButton_6.setSizePolicy(sizePolicy3)
-        self.pushButton_6.setFont(font1)
-        self.pushButton_6.setLayoutDirection(Qt.LeftToRight)
-        self.pushButton_6.setStyleSheet(u"QPushButton {\n"
-"	border: none;\n"
-"	background-color: rgba(13, 9, 36,0);\n"
-"	border-radius: 13;\n"
-"	color: rgb(0, 0, 0)\n"
-"}\n"
-"\n"
-"QPushButton:hover {\n"
-"	background-colora: rgb(85, 0, 255,0);\n"
-"	color: rgb(218, 145, 0)\n"
-"}\n"
-"\n"
-"QPushButton:pressed {\n"
-"	background-color: rgb(0, 0, 0);\n"
-"}")
+        self.verticalSpacer_2 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
 
-        self.gridLayout.addWidget(self.pushButton_6, 1, 0, 1, 1)
+        self.verticalLayout.addItem(self.verticalSpacer_2)
 
-        self.pushButton_7 = QPushButton(self.frame)
-        self.pushButton_7.setObjectName(u"pushButton_7")
-        sizePolicy3.setHeightForWidth(self.pushButton_7.sizePolicy().hasHeightForWidth())
-        self.pushButton_7.setSizePolicy(sizePolicy3)
-        self.pushButton_7.setFont(font1)
-        self.pushButton_7.setLayoutDirection(Qt.LeftToRight)
-        self.pushButton_7.setStyleSheet(u"QPushButton {\n"
-"	border: none;\n"
-"	background-color: rgba(13, 9, 36,0);\n"
-"	border-radius: 13;\n"
-"	color: rgb(0, 0, 0)\n"
-"}\n"
-"\n"
-"QPushButton:hover {\n"
-"	background-colora: rgb(85, 0, 255,0);\n"
-"	color: rgb(218, 145, 0)\n"
-"}\n"
-"\n"
-"QPushButton:pressed {\n"
-"	background-color: rgb(0, 0, 0);\n"
-"}")
 
-        self.gridLayout.addWidget(self.pushButton_7, 2, 0, 1, 1)
-
-        self.horizontalSpacer = QSpacerItem(40, 20, QSizePolicy.Minimum, QSizePolicy.Minimum)
-
-        self.gridLayout.addItem(self.horizontalSpacer, 0, 1, 1, 1)
-
-        self.verticalSpacer = QSpacerItem(20, 180, QSizePolicy.Minimum, QSizePolicy.Fixed)
-
-        self.gridLayout.addItem(self.verticalSpacer, 4, 0, 1, 1)
+        self.gridLayout.addLayout(self.verticalLayout, 0, 0, 1, 1)
 
 
         self.gridLayout_2.addWidget(self.frame, 0, 0, 1, 1)
@@ -171,10 +198,889 @@ class Ui_MainWindow(object):
         self.frame_2.setFrameShadow(QFrame.Raised)
         self.gridLayout_3 = QGridLayout(self.frame_2)
         self.gridLayout_3.setObjectName(u"gridLayout_3")
-        self.tableView = QTableView(self.frame_2)
-        self.tableView.setObjectName(u"tableView")
+        self.stackedWidget = QStackedWidget(self.frame_2)
+        self.stackedWidget.setObjectName(u"stackedWidget")
+        self.stackedWidget.setStyleSheet(u"background-color:qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(211, 211, 211, 255), stop:0.661692 rgba(255, 255, 255, 255))")
+        self.dashboard_page = QWidget()
+        self.dashboard_page.setObjectName(u"dashboard_page")
+        self.total_member = QLabel(self.dashboard_page)
+        self.total_member.setObjectName(u"total_member")
+        self.total_member.setGeometry(QRect(50, 70, 251, 121))
+        self.total_member.setStyleSheet(u"padding: 2px;\n"
+"font: 75 22pt \"MS Sans Serif\";\n"
+"color:rgb(255, 85, 0);\n"
+"background-color:qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(198, 100, 206, 255), stop:1 rgba(255, 255, 255, 255));\n"
+" border-radius: 25px;")
+        self.label_3 = QLabel(self.dashboard_page)
+        self.label_3.setObjectName(u"label_3")
+        self.label_3.setGeometry(QRect(100, 40, 151, 31))
+        self.label_3.setStyleSheet(u"QLabel#label_3{\n"
+"font: 12pt \"MS Shell Dlg 2\";\n"
+"background-color: hsl(89, 43%, 51%,0.3)\n"
+"\n"
+"}")
+        self.label_4 = QLabel(self.dashboard_page)
+        self.label_4.setObjectName(u"label_4")
+        self.label_4.setGeometry(QRect(420, 40, 171, 21))
+        self.label_4.setStyleSheet(u"QLabel#label_4{\n"
+"font: 12pt \"MS Shell Dlg 2\";\n"
+"background-color: hsl(89, 43%, 51%,0.3)\n"
+"\n"
+"}")
+        self.total_lone = QLabel(self.dashboard_page)
+        self.total_lone.setObjectName(u"total_lone")
+        self.total_lone.setGeometry(QRect(360, 70, 251, 121))
+        self.total_lone.setStyleSheet(u"padding: 2px;\n"
+"font: 75 22pt \"MS Sans Serif\";\n"
+"color:rgb(255, 85, 0);\n"
+"background-color:qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(255, 218, 0, 255), stop:1 rgba(221, 83, 0, 255));\n"
+" border-radius: 25px;")
+        self.stackedWidget.addWidget(self.dashboard_page)
+        self.table_view = QWidget()
+        self.table_view.setObjectName(u"table_view")
+        self.gridLayout_4 = QGridLayout(self.table_view)
+        self.gridLayout_4.setObjectName(u"gridLayout_4")
+        self.frame_3 = QFrame(self.table_view)
+        self.frame_3.setObjectName(u"frame_3")
+        self.frame_3.setFrameShape(QFrame.StyledPanel)
+        self.frame_3.setFrameShadow(QFrame.Raised)
+        self.gridLayout_9 = QGridLayout(self.frame_3)
+        self.gridLayout_9.setObjectName(u"gridLayout_9")
+        self.label = QLabel(self.frame_3)
+        self.label.setObjectName(u"label")
+        font2 = QFont()
+        font2.setPointSize(12)
+        self.label.setFont(font2)
 
-        self.gridLayout_3.addWidget(self.tableView, 0, 0, 1, 1)
+        self.gridLayout_9.addWidget(self.label, 0, 0, 1, 1)
+
+        self.lineEdit = QLineEdit(self.frame_3)
+        self.lineEdit.setObjectName(u"lineEdit")
+        self.lineEdit.setFont(font2)
+
+        self.gridLayout_9.addWidget(self.lineEdit, 0, 1, 1, 1)
+
+        self.label_5 = QLabel(self.frame_3)
+        self.label_5.setObjectName(u"label_5")
+        self.label_5.setFont(font2)
+
+        self.gridLayout_9.addWidget(self.label_5, 0, 2, 1, 1)
+
+        self.comboBox_3 = QComboBox(self.frame_3)
+        self.comboBox_3.addItem("")
+        self.comboBox_3.addItem("")
+        self.comboBox_3.addItem("")
+        self.comboBox_3.setObjectName(u"comboBox_3")
+        self.comboBox_3.setFont(font2)
+
+        self.gridLayout_9.addWidget(self.comboBox_3, 0, 3, 1, 1)
+
+        self.label_6 = QLabel(self.frame_3)
+        self.label_6.setObjectName(u"label_6")
+        self.label_6.setFont(font2)
+
+        self.gridLayout_9.addWidget(self.label_6, 0, 4, 1, 1)
+
+        self.comboBox_4 = QComboBox(self.frame_3)
+        self.comboBox_4.addItem("")
+        self.comboBox_4.addItem("")
+        self.comboBox_4.setObjectName(u"comboBox_4")
+        self.comboBox_4.setFont(font2)
+
+        self.gridLayout_9.addWidget(self.comboBox_4, 0, 5, 1, 1)
+
+        self.tableWidget = QTableWidget(self.frame_3)
+        if (self.tableWidget.columnCount() < 14):
+            self.tableWidget.setColumnCount(14)
+        __qtablewidgetitem = QTableWidgetItem()
+        self.tableWidget.setHorizontalHeaderItem(0, __qtablewidgetitem)
+        __qtablewidgetitem1 = QTableWidgetItem()
+        self.tableWidget.setHorizontalHeaderItem(1, __qtablewidgetitem1)
+        __qtablewidgetitem2 = QTableWidgetItem()
+        self.tableWidget.setHorizontalHeaderItem(2, __qtablewidgetitem2)
+        __qtablewidgetitem3 = QTableWidgetItem()
+        self.tableWidget.setHorizontalHeaderItem(3, __qtablewidgetitem3)
+        __qtablewidgetitem4 = QTableWidgetItem()
+        self.tableWidget.setHorizontalHeaderItem(4, __qtablewidgetitem4)
+        __qtablewidgetitem5 = QTableWidgetItem()
+        self.tableWidget.setHorizontalHeaderItem(5, __qtablewidgetitem5)
+        __qtablewidgetitem6 = QTableWidgetItem()
+        self.tableWidget.setHorizontalHeaderItem(6, __qtablewidgetitem6)
+        __qtablewidgetitem7 = QTableWidgetItem()
+        self.tableWidget.setHorizontalHeaderItem(7, __qtablewidgetitem7)
+        __qtablewidgetitem8 = QTableWidgetItem()
+        self.tableWidget.setHorizontalHeaderItem(8, __qtablewidgetitem8)
+        __qtablewidgetitem9 = QTableWidgetItem()
+        self.tableWidget.setHorizontalHeaderItem(9, __qtablewidgetitem9)
+        __qtablewidgetitem10 = QTableWidgetItem()
+        self.tableWidget.setHorizontalHeaderItem(10, __qtablewidgetitem10)
+        __qtablewidgetitem11 = QTableWidgetItem()
+        self.tableWidget.setHorizontalHeaderItem(11, __qtablewidgetitem11)
+        __qtablewidgetitem12 = QTableWidgetItem()
+        self.tableWidget.setHorizontalHeaderItem(12, __qtablewidgetitem12)
+        __qtablewidgetitem13 = QTableWidgetItem()
+        self.tableWidget.setHorizontalHeaderItem(13, __qtablewidgetitem13)
+        self.tableWidget.setObjectName(u"tableWidget")
+        self.tableWidget.setEnabled(True)
+
+        self.gridLayout_9.addWidget(self.tableWidget, 1, 0, 1, 6)
+
+
+        self.gridLayout_4.addWidget(self.frame_3, 0, 0, 1, 1)
+
+        self.stackedWidget.addWidget(self.table_view)
+        self.pageManage = QWidget()
+        self.pageManage.setObjectName(u"pageManage")
+        self.gridLayout_6 = QGridLayout(self.pageManage)
+        self.gridLayout_6.setObjectName(u"gridLayout_6")
+        self.update_member_btn = QPushButton(self.pageManage)
+        self.update_member_btn.setObjectName(u"update_member_btn")
+        self.update_member_btn.setMinimumSize(QSize(186, 300))
+        self.update_member_btn.setMaximumSize(QSize(400, 500))
+
+        self.gridLayout_6.addWidget(self.update_member_btn, 0, 2, 1, 1, Qt.AlignTop)
+
+        self.new_member_btn = QPushButton(self.pageManage)
+        self.new_member_btn.setObjectName(u"new_member_btn")
+        self.new_member_btn.setMinimumSize(QSize(186, 300))
+        self.new_member_btn.setMaximumSize(QSize(400, 500))
+        font3 = QFont()
+        font3.setFamily(u"Verdana")
+        font3.setBold(True)
+        font3.setItalic(False)
+        font3.setWeight(75)
+        self.new_member_btn.setFont(font3)
+        self.new_member_btn.setStyleSheet(u"")
+
+        self.gridLayout_6.addWidget(self.new_member_btn, 0, 0, 1, 1, Qt.AlignTop)
+
+        self.remove_member_btn = QPushButton(self.pageManage)
+        self.remove_member_btn.setObjectName(u"remove_member_btn")
+        self.remove_member_btn.setMinimumSize(QSize(186, 300))
+        self.remove_member_btn.setMaximumSize(QSize(400, 500))
+
+        self.gridLayout_6.addWidget(self.remove_member_btn, 0, 1, 1, 1, Qt.AlignTop)
+
+        self.give_lone = QPushButton(self.pageManage)
+        self.give_lone.setObjectName(u"give_lone")
+        self.give_lone.setMinimumSize(QSize(186, 300))
+        self.give_lone.setMaximumSize(QSize(400, 500))
+
+        self.gridLayout_6.addWidget(self.give_lone, 1, 0, 1, 1)
+
+        self.collect_lone_btn = QPushButton(self.pageManage)
+        self.collect_lone_btn.setObjectName(u"collect_lone_btn")
+        self.collect_lone_btn.setMinimumSize(QSize(186, 300))
+        self.collect_lone_btn.setMaximumSize(QSize(400, 500))
+
+        self.gridLayout_6.addWidget(self.collect_lone_btn, 1, 1, 1, 1)
+
+        self.stackedWidget.addWidget(self.pageManage)
+        self.UpdateInformation = QWidget()
+        self.UpdateInformation.setObjectName(u"UpdateInformation")
+        self.gridLayout_15 = QGridLayout(self.UpdateInformation)
+        self.gridLayout_15.setObjectName(u"gridLayout_15")
+        self.groupBox_4 = QGroupBox(self.UpdateInformation)
+        self.groupBox_4.setObjectName(u"groupBox_4")
+        font4 = QFont()
+        font4.setFamily(u"Verdana")
+        font4.setPointSize(10)
+        self.groupBox_4.setFont(font4)
+        self.gridLayout_14 = QGridLayout(self.groupBox_4)
+        self.gridLayout_14.setObjectName(u"gridLayout_14")
+        self.formLayout_6 = QFormLayout()
+        self.formLayout_6.setObjectName(u"formLayout_6")
+        self.formLayout_6.setSizeConstraint(QLayout.SetDefaultConstraint)
+        self.formLayout_6.setRowWrapPolicy(QFormLayout.DontWrapRows)
+        self.formLayout_6.setLabelAlignment(Qt.AlignJustify|Qt.AlignTop)
+        self.formLayout_6.setFormAlignment(Qt.AlignCenter)
+        self.formLayout_6.setHorizontalSpacing(7)
+        self.formLayout_6.setVerticalSpacing(20)
+        self.formLayout_6.setContentsMargins(7, 7, 7, 7)
+        self.label_40 = QLabel(self.groupBox_4)
+        self.label_40.setObjectName(u"label_40")
+
+        self.formLayout_6.setWidget(0, QFormLayout.LabelRole, self.label_40)
+
+        self.id_2 = QLineEdit(self.groupBox_4)
+        self.id_2.setObjectName(u"id_2")
+        self.id_2.setEnabled(True)
+        sizePolicy1.setHeightForWidth(self.id_2.sizePolicy().hasHeightForWidth())
+        self.id_2.setSizePolicy(sizePolicy1)
+        self.id_2.setMaximumSize(QSize(80, 80))
+        self.id_2.setLayoutDirection(Qt.LeftToRight)
+        self.id_2.setAlignment(Qt.AlignCenter)
+        self.id_2.setReadOnly(False)
+
+        self.formLayout_6.setWidget(0, QFormLayout.FieldRole, self.id_2)
+
+        self.label_8 = QLabel(self.groupBox_4)
+        self.label_8.setObjectName(u"label_8")
+
+        self.formLayout_6.setWidget(2, QFormLayout.LabelRole, self.label_8)
+
+        self.firstname_2 = QLineEdit(self.groupBox_4)
+        self.firstname_2.setObjectName(u"firstname_2")
+        self.firstname_2.setEnabled(True)
+        sizePolicy1.setHeightForWidth(self.firstname_2.sizePolicy().hasHeightForWidth())
+        self.firstname_2.setSizePolicy(sizePolicy1)
+        self.firstname_2.setMaximumSize(QSize(500, 16777215))
+        self.firstname_2.setLayoutDirection(Qt.LeftToRight)
+        self.firstname_2.setAlignment(Qt.AlignCenter)
+
+        self.formLayout_6.setWidget(2, QFormLayout.FieldRole, self.firstname_2)
+
+        self.label_33 = QLabel(self.groupBox_4)
+        self.label_33.setObjectName(u"label_33")
+
+        self.formLayout_6.setWidget(3, QFormLayout.LabelRole, self.label_33)
+
+        self.middlename_2 = QLineEdit(self.groupBox_4)
+        self.middlename_2.setObjectName(u"middlename_2")
+        self.middlename_2.setMaximumSize(QSize(500, 16777215))
+        self.middlename_2.setAlignment(Qt.AlignCenter)
+
+        self.formLayout_6.setWidget(3, QFormLayout.FieldRole, self.middlename_2)
+
+        self.label_30 = QLabel(self.groupBox_4)
+        self.label_30.setObjectName(u"label_30")
+
+        self.formLayout_6.setWidget(4, QFormLayout.LabelRole, self.label_30)
+
+        self.lastname_2 = QLineEdit(self.groupBox_4)
+        self.lastname_2.setObjectName(u"lastname_2")
+        self.lastname_2.setMaximumSize(QSize(500, 16777215))
+        self.lastname_2.setAlignment(Qt.AlignCenter)
+
+        self.formLayout_6.setWidget(4, QFormLayout.FieldRole, self.lastname_2)
+
+        self.label_27 = QLabel(self.groupBox_4)
+        self.label_27.setObjectName(u"label_27")
+
+        self.formLayout_6.setWidget(5, QFormLayout.LabelRole, self.label_27)
+
+        self.bloodgroup_2 = QComboBox(self.groupBox_4)
+        self.bloodgroup_2.addItem("")
+        self.bloodgroup_2.addItem("")
+        self.bloodgroup_2.addItem("")
+        self.bloodgroup_2.addItem("")
+        self.bloodgroup_2.addItem("")
+        self.bloodgroup_2.addItem("")
+        self.bloodgroup_2.addItem("")
+        self.bloodgroup_2.addItem("")
+        self.bloodgroup_2.setObjectName(u"bloodgroup_2")
+        self.bloodgroup_2.setMaximumSize(QSize(500, 16777215))
+
+        self.formLayout_6.setWidget(5, QFormLayout.FieldRole, self.bloodgroup_2)
+
+        self.label_28 = QLabel(self.groupBox_4)
+        self.label_28.setObjectName(u"label_28")
+
+        self.formLayout_6.setWidget(6, QFormLayout.LabelRole, self.label_28)
+
+        self.nomine_2 = QLineEdit(self.groupBox_4)
+        self.nomine_2.setObjectName(u"nomine_2")
+        self.nomine_2.setMaximumSize(QSize(500, 16777215))
+        self.nomine_2.setAlignment(Qt.AlignCenter)
+
+        self.formLayout_6.setWidget(6, QFormLayout.FieldRole, self.nomine_2)
+
+        self.label_35 = QLabel(self.groupBox_4)
+        self.label_35.setObjectName(u"label_35")
+        self.label_35.setStyleSheet(u"")
+
+        self.formLayout_6.setWidget(7, QFormLayout.LabelRole, self.label_35)
+
+        self.dob_2 = QDateEdit(self.groupBox_4)
+        self.dob_2.setObjectName(u"dob_2")
+        self.dob_2.setMaximumSize(QSize(500, 16777215))
+        self.dob_2.setCalendarPopup(True)
+
+        self.formLayout_6.setWidget(7, QFormLayout.FieldRole, self.dob_2)
+
+        self.label_38 = QLabel(self.groupBox_4)
+        self.label_38.setObjectName(u"label_38")
+
+        self.formLayout_6.setWidget(8, QFormLayout.LabelRole, self.label_38)
+
+        self.doj_2 = QDateEdit(self.groupBox_4)
+        self.doj_2.setObjectName(u"doj_2")
+        self.doj_2.setMaximumSize(QSize(500, 16777215))
+        self.doj_2.setCalendarPopup(True)
+
+        self.formLayout_6.setWidget(8, QFormLayout.FieldRole, self.doj_2)
+
+        self.label_29 = QLabel(self.groupBox_4)
+        self.label_29.setObjectName(u"label_29")
+
+        self.formLayout_6.setWidget(9, QFormLayout.LabelRole, self.label_29)
+
+        self.addhernumber_2 = QLineEdit(self.groupBox_4)
+        self.addhernumber_2.setObjectName(u"addhernumber_2")
+        self.addhernumber_2.setMaximumSize(QSize(500, 16777215))
+        self.addhernumber_2.setAlignment(Qt.AlignCenter)
+
+        self.formLayout_6.setWidget(9, QFormLayout.FieldRole, self.addhernumber_2)
+
+        self.label_39 = QLabel(self.groupBox_4)
+        self.label_39.setObjectName(u"label_39")
+
+        self.formLayout_6.setWidget(10, QFormLayout.LabelRole, self.label_39)
+
+        self.accountno_2 = QLineEdit(self.groupBox_4)
+        self.accountno_2.setObjectName(u"accountno_2")
+        self.accountno_2.setMaximumSize(QSize(500, 16777215))
+        self.accountno_2.setAlignment(Qt.AlignCenter)
+
+        self.formLayout_6.setWidget(10, QFormLayout.FieldRole, self.accountno_2)
+
+        self.search = QPushButton(self.groupBox_4)
+        self.search.setObjectName(u"search")
+        self.search.setMinimumSize(QSize(186, 40))
+        self.search.setMaximumSize(QSize(150, 16777215))
+
+        self.formLayout_6.setWidget(1, QFormLayout.FieldRole, self.search)
+
+
+        self.gridLayout_14.addLayout(self.formLayout_6, 0, 0, 1, 1)
+
+
+        self.gridLayout_15.addWidget(self.groupBox_4, 1, 0, 1, 1)
+
+        self.groupBox_3 = QGroupBox(self.UpdateInformation)
+        self.groupBox_3.setObjectName(u"groupBox_3")
+        self.groupBox_3.setFont(font4)
+        self.gridLayout_13 = QGridLayout(self.groupBox_3)
+        self.gridLayout_13.setObjectName(u"gridLayout_13")
+        self.formLayout_9 = QFormLayout()
+        self.formLayout_9.setObjectName(u"formLayout_9")
+        self.formLayout_9.setFormAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
+        self.formLayout_9.setHorizontalSpacing(7)
+        self.formLayout_9.setVerticalSpacing(30)
+        self.formLayout_9.setContentsMargins(7, 7, 7, 7)
+        self.label_50 = QLabel(self.groupBox_3)
+        self.label_50.setObjectName(u"label_50")
+
+        self.formLayout_9.setWidget(0, QFormLayout.LabelRole, self.label_50)
+
+        self.mobile1_2 = QLineEdit(self.groupBox_3)
+        self.mobile1_2.setObjectName(u"mobile1_2")
+
+        self.formLayout_9.setWidget(0, QFormLayout.FieldRole, self.mobile1_2)
+
+        self.label_51 = QLabel(self.groupBox_3)
+        self.label_51.setObjectName(u"label_51")
+
+        self.formLayout_9.setWidget(1, QFormLayout.LabelRole, self.label_51)
+
+        self.mobile2_2 = QLineEdit(self.groupBox_3)
+        self.mobile2_2.setObjectName(u"mobile2_2")
+
+        self.formLayout_9.setWidget(1, QFormLayout.FieldRole, self.mobile2_2)
+
+        self.label_52 = QLabel(self.groupBox_3)
+        self.label_52.setObjectName(u"label_52")
+
+        self.formLayout_9.setWidget(2, QFormLayout.LabelRole, self.label_52)
+
+        self.email_2 = QLineEdit(self.groupBox_3)
+        self.email_2.setObjectName(u"email_2")
+
+        self.formLayout_9.setWidget(2, QFormLayout.FieldRole, self.email_2)
+
+        self.label_53 = QLabel(self.groupBox_3)
+        self.label_53.setObjectName(u"label_53")
+
+        self.formLayout_9.setWidget(3, QFormLayout.LabelRole, self.label_53)
+
+        self.balance_2 = QLineEdit(self.groupBox_3)
+        self.balance_2.setObjectName(u"balance_2")
+
+        self.formLayout_9.setWidget(3, QFormLayout.FieldRole, self.balance_2)
+
+        self.addinfo_2 = QPushButton(self.groupBox_3)
+        self.addinfo_2.setObjectName(u"addinfo_2")
+
+        self.formLayout_9.setWidget(4, QFormLayout.FieldRole, self.addinfo_2)
+
+        self.error_2 = QLabel(self.groupBox_3)
+        self.error_2.setObjectName(u"error_2")
+        self.error_2.setStyleSheet(u"font: 10pt \"Verdana\";\n"
+"color:rgb(255, 0, 0)")
+
+        self.formLayout_9.setWidget(5, QFormLayout.FieldRole, self.error_2)
+
+
+        self.gridLayout_13.addLayout(self.formLayout_9, 0, 0, 1, 1)
+
+
+        self.gridLayout_15.addWidget(self.groupBox_3, 1, 1, 1, 1)
+
+        self.label_7 = QLabel(self.UpdateInformation)
+        self.label_7.setObjectName(u"label_7")
+        self.label_7.setMaximumSize(QSize(1200, 40))
+        font5 = QFont()
+        font5.setFamily(u"Arial")
+        font5.setPointSize(12)
+        font5.setBold(True)
+        font5.setWeight(75)
+        self.label_7.setFont(font5)
+
+        self.gridLayout_15.addWidget(self.label_7, 0, 0, 1, 2)
+
+        self.stackedWidget.addWidget(self.UpdateInformation)
+        self.page_view = QWidget()
+        self.page_view.setObjectName(u"page_view")
+        self.gridLayout_7 = QGridLayout(self.page_view)
+        self.gridLayout_7.setObjectName(u"gridLayout_7")
+        self.loneview_btn = QPushButton(self.page_view)
+        self.loneview_btn.setObjectName(u"loneview_btn")
+        self.loneview_btn.setMinimumSize(QSize(186, 300))
+        self.loneview_btn.setMaximumSize(QSize(300, 300))
+        self.loneview_btn.setFont(font3)
+        self.loneview_btn.setStyleSheet(u"")
+
+        self.gridLayout_7.addWidget(self.loneview_btn, 0, 1, 1, 1)
+
+        self.biodataview_btn = QPushButton(self.page_view)
+        self.biodataview_btn.setObjectName(u"biodataview_btn")
+        self.biodataview_btn.setMinimumSize(QSize(186, 300))
+        self.biodataview_btn.setMaximumSize(QSize(300, 300))
+        self.biodataview_btn.setFont(font3)
+        self.biodataview_btn.setStyleSheet(u"")
+
+        self.gridLayout_7.addWidget(self.biodataview_btn, 0, 2, 1, 1)
+
+        self.viewall_btn = QPushButton(self.page_view)
+        self.viewall_btn.setObjectName(u"viewall_btn")
+        self.viewall_btn.setMinimumSize(QSize(186, 300))
+        self.viewall_btn.setMaximumSize(QSize(300, 300))
+        self.viewall_btn.setFont(font3)
+        self.viewall_btn.setStyleSheet(u"")
+
+        self.gridLayout_7.addWidget(self.viewall_btn, 0, 0, 1, 1)
+
+        self.stackedWidget.addWidget(self.page_view)
+        self.page_addnewmember = QWidget()
+        self.page_addnewmember.setObjectName(u"page_addnewmember")
+        self.gridLayout_5 = QGridLayout(self.page_addnewmember)
+        self.gridLayout_5.setObjectName(u"gridLayout_5")
+        self.groupBox = QGroupBox(self.page_addnewmember)
+        self.groupBox.setObjectName(u"groupBox")
+        self.groupBox.setFont(font4)
+        self.gridLayout_8 = QGridLayout(self.groupBox)
+        self.gridLayout_8.setObjectName(u"gridLayout_8")
+        self.formLayout_5 = QFormLayout()
+        self.formLayout_5.setObjectName(u"formLayout_5")
+        self.formLayout_5.setSizeConstraint(QLayout.SetDefaultConstraint)
+        self.formLayout_5.setRowWrapPolicy(QFormLayout.DontWrapRows)
+        self.formLayout_5.setLabelAlignment(Qt.AlignCenter)
+        self.formLayout_5.setFormAlignment(Qt.AlignCenter)
+        self.formLayout_5.setHorizontalSpacing(7)
+        self.formLayout_5.setVerticalSpacing(30)
+        self.formLayout_5.setContentsMargins(7, 7, 7, 7)
+        self.label_2 = QLabel(self.groupBox)
+        self.label_2.setObjectName(u"label_2")
+
+        self.formLayout_5.setWidget(1, QFormLayout.LabelRole, self.label_2)
+
+        self.firstname = QLineEdit(self.groupBox)
+        self.firstname.setObjectName(u"firstname")
+        self.firstname.setEnabled(True)
+        sizePolicy1.setHeightForWidth(self.firstname.sizePolicy().hasHeightForWidth())
+        self.firstname.setSizePolicy(sizePolicy1)
+        self.firstname.setMaximumSize(QSize(500, 16777215))
+        self.firstname.setLayoutDirection(Qt.LeftToRight)
+        self.firstname.setAlignment(Qt.AlignCenter)
+
+        self.formLayout_5.setWidget(1, QFormLayout.FieldRole, self.firstname)
+
+        self.label_31 = QLabel(self.groupBox)
+        self.label_31.setObjectName(u"label_31")
+
+        self.formLayout_5.setWidget(2, QFormLayout.LabelRole, self.label_31)
+
+        self.middlename = QLineEdit(self.groupBox)
+        self.middlename.setObjectName(u"middlename")
+        self.middlename.setMaximumSize(QSize(500, 16777215))
+        self.middlename.setAlignment(Qt.AlignCenter)
+
+        self.formLayout_5.setWidget(2, QFormLayout.FieldRole, self.middlename)
+
+        self.lastname = QLineEdit(self.groupBox)
+        self.lastname.setObjectName(u"lastname")
+        self.lastname.setMaximumSize(QSize(500, 16777215))
+        self.lastname.setAlignment(Qt.AlignCenter)
+
+        self.formLayout_5.setWidget(3, QFormLayout.FieldRole, self.lastname)
+
+        self.label_23 = QLabel(self.groupBox)
+        self.label_23.setObjectName(u"label_23")
+
+        self.formLayout_5.setWidget(4, QFormLayout.LabelRole, self.label_23)
+
+        self.label_24 = QLabel(self.groupBox)
+        self.label_24.setObjectName(u"label_24")
+
+        self.formLayout_5.setWidget(5, QFormLayout.LabelRole, self.label_24)
+
+        self.label_32 = QLabel(self.groupBox)
+        self.label_32.setObjectName(u"label_32")
+        self.label_32.setStyleSheet(u"")
+
+        self.formLayout_5.setWidget(6, QFormLayout.LabelRole, self.label_32)
+
+        self.label_34 = QLabel(self.groupBox)
+        self.label_34.setObjectName(u"label_34")
+
+        self.formLayout_5.setWidget(7, QFormLayout.LabelRole, self.label_34)
+
+        self.label_25 = QLabel(self.groupBox)
+        self.label_25.setObjectName(u"label_25")
+
+        self.formLayout_5.setWidget(8, QFormLayout.LabelRole, self.label_25)
+
+        self.addhernumber = QLineEdit(self.groupBox)
+        self.addhernumber.setObjectName(u"addhernumber")
+        self.addhernumber.setMaximumSize(QSize(500, 16777215))
+        self.addhernumber.setAlignment(Qt.AlignCenter)
+
+        self.formLayout_5.setWidget(8, QFormLayout.FieldRole, self.addhernumber)
+
+        self.label_36 = QLabel(self.groupBox)
+        self.label_36.setObjectName(u"label_36")
+
+        self.formLayout_5.setWidget(9, QFormLayout.LabelRole, self.label_36)
+
+        self.accountno = QLineEdit(self.groupBox)
+        self.accountno.setObjectName(u"accountno")
+        self.accountno.setMaximumSize(QSize(500, 16777215))
+        self.accountno.setAlignment(Qt.AlignCenter)
+
+        self.formLayout_5.setWidget(9, QFormLayout.FieldRole, self.accountno)
+
+        self.label_26 = QLabel(self.groupBox)
+        self.label_26.setObjectName(u"label_26")
+
+        self.formLayout_5.setWidget(3, QFormLayout.LabelRole, self.label_26)
+
+        self.nomine = QLineEdit(self.groupBox)
+        self.nomine.setObjectName(u"nomine")
+        self.nomine.setMaximumSize(QSize(500, 16777215))
+        self.nomine.setAlignment(Qt.AlignCenter)
+
+        self.formLayout_5.setWidget(5, QFormLayout.FieldRole, self.nomine)
+
+        self.label_37 = QLabel(self.groupBox)
+        self.label_37.setObjectName(u"label_37")
+
+        self.formLayout_5.setWidget(0, QFormLayout.LabelRole, self.label_37)
+
+        self.id = QLineEdit(self.groupBox)
+        self.id.setObjectName(u"id")
+        self.id.setEnabled(True)
+        sizePolicy1.setHeightForWidth(self.id.sizePolicy().hasHeightForWidth())
+        self.id.setSizePolicy(sizePolicy1)
+        self.id.setMaximumSize(QSize(80, 80))
+        self.id.setLayoutDirection(Qt.LeftToRight)
+        self.id.setAlignment(Qt.AlignCenter)
+        self.id.setReadOnly(True)
+
+        self.formLayout_5.setWidget(0, QFormLayout.FieldRole, self.id)
+
+        self.dob = QDateEdit(self.groupBox)
+        self.dob.setObjectName(u"dob")
+        self.dob.setMaximumSize(QSize(500, 16777215))
+        self.dob.setCalendarPopup(True)
+
+        self.formLayout_5.setWidget(6, QFormLayout.FieldRole, self.dob)
+
+        self.doj = QDateEdit(self.groupBox)
+        self.doj.setObjectName(u"doj")
+        self.doj.setMaximumSize(QSize(500, 16777215))
+        self.doj.setCalendarPopup(True)
+
+        self.formLayout_5.setWidget(7, QFormLayout.FieldRole, self.doj)
+
+        self.bloodgroup = QComboBox(self.groupBox)
+        self.bloodgroup.addItem("")
+        self.bloodgroup.addItem("")
+        self.bloodgroup.addItem("")
+        self.bloodgroup.addItem("")
+        self.bloodgroup.addItem("")
+        self.bloodgroup.addItem("")
+        self.bloodgroup.addItem("")
+        self.bloodgroup.addItem("")
+        self.bloodgroup.setObjectName(u"bloodgroup")
+        self.bloodgroup.setMaximumSize(QSize(500, 16777215))
+
+        self.formLayout_5.setWidget(4, QFormLayout.FieldRole, self.bloodgroup)
+
+
+        self.gridLayout_8.addLayout(self.formLayout_5, 0, 0, 1, 1)
+
+
+        self.gridLayout_5.addWidget(self.groupBox, 0, 0, 1, 1)
+
+        self.groupBox_2 = QGroupBox(self.page_addnewmember)
+        self.groupBox_2.setObjectName(u"groupBox_2")
+        self.groupBox_2.setFont(font4)
+        self.gridLayout_10 = QGridLayout(self.groupBox_2)
+        self.gridLayout_10.setObjectName(u"gridLayout_10")
+        self.formLayout_8 = QFormLayout()
+        self.formLayout_8.setObjectName(u"formLayout_8")
+        self.formLayout_8.setFormAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
+        self.formLayout_8.setHorizontalSpacing(7)
+        self.formLayout_8.setVerticalSpacing(30)
+        self.formLayout_8.setContentsMargins(7, 7, 7, 7)
+        self.label_46 = QLabel(self.groupBox_2)
+        self.label_46.setObjectName(u"label_46")
+
+        self.formLayout_8.setWidget(0, QFormLayout.LabelRole, self.label_46)
+
+        self.mobile1 = QLineEdit(self.groupBox_2)
+        self.mobile1.setObjectName(u"mobile1")
+
+        self.formLayout_8.setWidget(0, QFormLayout.FieldRole, self.mobile1)
+
+        self.label_47 = QLabel(self.groupBox_2)
+        self.label_47.setObjectName(u"label_47")
+
+        self.formLayout_8.setWidget(1, QFormLayout.LabelRole, self.label_47)
+
+        self.mobile2 = QLineEdit(self.groupBox_2)
+        self.mobile2.setObjectName(u"mobile2")
+
+        self.formLayout_8.setWidget(1, QFormLayout.FieldRole, self.mobile2)
+
+        self.label_48 = QLabel(self.groupBox_2)
+        self.label_48.setObjectName(u"label_48")
+
+        self.formLayout_8.setWidget(2, QFormLayout.LabelRole, self.label_48)
+
+        self.email = QLineEdit(self.groupBox_2)
+        self.email.setObjectName(u"email")
+
+        self.formLayout_8.setWidget(2, QFormLayout.FieldRole, self.email)
+
+        self.label_49 = QLabel(self.groupBox_2)
+        self.label_49.setObjectName(u"label_49")
+
+        self.formLayout_8.setWidget(3, QFormLayout.LabelRole, self.label_49)
+
+        self.error = QLabel(self.groupBox_2)
+        self.error.setObjectName(u"error")
+        self.error.setStyleSheet(u"font: 10pt \"Verdana\";\n"
+"color:rgb(255, 0, 0)")
+
+        self.formLayout_8.setWidget(5, QFormLayout.FieldRole, self.error)
+
+        self.addinfo = QPushButton(self.groupBox_2)
+        self.addinfo.setObjectName(u"addinfo")
+
+        self.formLayout_8.setWidget(4, QFormLayout.FieldRole, self.addinfo)
+
+        self.balance = QLineEdit(self.groupBox_2)
+        self.balance.setObjectName(u"balance")
+
+        self.formLayout_8.setWidget(3, QFormLayout.FieldRole, self.balance)
+
+
+        self.gridLayout_10.addLayout(self.formLayout_8, 0, 0, 1, 1)
+
+
+        self.gridLayout_5.addWidget(self.groupBox_2, 0, 1, 1, 1)
+
+        self.stackedWidget.addWidget(self.page_addnewmember)
+        self.setting = QWidget()
+        self.setting.setObjectName(u"setting")
+        self.stackedWidget.addWidget(self.setting)
+        self.pagelone = QWidget()
+        self.pagelone.setObjectName(u"pagelone")
+        self.gridLayout_11 = QGridLayout(self.pagelone)
+        self.gridLayout_11.setObjectName(u"gridLayout_11")
+        self.formLayout_2 = QFormLayout()
+        self.formLayout_2.setObjectName(u"formLayout_2")
+        self.formLayout_2.setFormAlignment(Qt.AlignCenter)
+        self.verticalSpacer_6 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
+
+        self.formLayout_2.setItem(0, QFormLayout.LabelRole, self.verticalSpacer_6)
+
+        self.label_10 = QLabel(self.pagelone)
+        self.label_10.setObjectName(u"label_10")
+        self.label_10.setFont(font4)
+
+        self.formLayout_2.setWidget(1, QFormLayout.LabelRole, self.label_10)
+
+        self.loneno = QLineEdit(self.pagelone)
+        self.loneno.setObjectName(u"loneno")
+        self.loneno.setMinimumSize(QSize(0, 30))
+        self.loneno.setMaximumSize(QSize(150, 60))
+
+        self.formLayout_2.setWidget(1, QFormLayout.FieldRole, self.loneno)
+
+        self.label_11 = QLabel(self.pagelone)
+        self.label_11.setObjectName(u"label_11")
+        self.label_11.setFont(font4)
+
+        self.formLayout_2.setWidget(2, QFormLayout.LabelRole, self.label_11)
+
+        self.name = QLineEdit(self.pagelone)
+        self.name.setObjectName(u"name")
+        self.name.setMinimumSize(QSize(0, 30))
+        self.name.setMaximumSize(QSize(800, 16777215))
+
+        self.formLayout_2.setWidget(2, QFormLayout.FieldRole, self.name)
+
+        self.label_9 = QLabel(self.pagelone)
+        self.label_9.setObjectName(u"label_9")
+        self.label_9.setFont(font4)
+
+        self.formLayout_2.setWidget(3, QFormLayout.LabelRole, self.label_9)
+
+        self.addherno = QLineEdit(self.pagelone)
+        self.addherno.setObjectName(u"addherno")
+        self.addherno.setMinimumSize(QSize(0, 30))
+        self.addherno.setMaximumSize(QSize(800, 16777215))
+
+        self.formLayout_2.setWidget(3, QFormLayout.FieldRole, self.addherno)
+
+        self.label_12 = QLabel(self.pagelone)
+        self.label_12.setObjectName(u"label_12")
+        self.label_12.setFont(font4)
+
+        self.formLayout_2.setWidget(4, QFormLayout.LabelRole, self.label_12)
+
+        self.amount = QLineEdit(self.pagelone)
+        self.amount.setObjectName(u"amount")
+        self.amount.setMinimumSize(QSize(0, 30))
+        self.amount.setMaximumSize(QSize(800, 16777215))
+
+        self.formLayout_2.setWidget(4, QFormLayout.FieldRole, self.amount)
+
+        self.lable = QLabel(self.pagelone)
+        self.lable.setObjectName(u"lable")
+        self.lable.setFont(font4)
+
+        self.formLayout_2.setWidget(5, QFormLayout.LabelRole, self.lable)
+
+        self.intrest_rate = QComboBox(self.pagelone)
+        self.intrest_rate.addItem("")
+        self.intrest_rate.addItem("")
+        self.intrest_rate.setObjectName(u"intrest_rate")
+        self.intrest_rate.setMinimumSize(QSize(0, 30))
+        self.intrest_rate.setMaximumSize(QSize(50, 16777215))
+
+        self.formLayout_2.setWidget(5, QFormLayout.FieldRole, self.intrest_rate)
+
+        self.lable_2 = QLabel(self.pagelone)
+        self.lable_2.setObjectName(u"lable_2")
+        self.lable_2.setFont(font4)
+
+        self.formLayout_2.setWidget(6, QFormLayout.LabelRole, self.lable_2)
+
+        self.checkno = QLineEdit(self.pagelone)
+        self.checkno.setObjectName(u"checkno")
+        self.checkno.setMinimumSize(QSize(0, 30))
+        self.checkno.setMaximumSize(QSize(800, 16777215))
+
+        self.formLayout_2.setWidget(6, QFormLayout.FieldRole, self.checkno)
+
+        self.date_of_lone = QLabel(self.pagelone)
+        self.date_of_lone.setObjectName(u"date_of_lone")
+        self.date_of_lone.setFont(font4)
+
+        self.formLayout_2.setWidget(7, QFormLayout.LabelRole, self.date_of_lone)
+
+        self.date_of_lone_2 = QLabel(self.pagelone)
+        self.date_of_lone_2.setObjectName(u"date_of_lone_2")
+        self.date_of_lone_2.setFont(font4)
+
+        self.formLayout_2.setWidget(8, QFormLayout.LabelRole, self.date_of_lone_2)
+
+        self.jam1_2 = QLineEdit(self.pagelone)
+        self.jam1_2.setObjectName(u"jam1_2")
+        self.jam1_2.setMinimumSize(QSize(0, 30))
+        self.jam1_2.setMaximumSize(QSize(800, 16777215))
+
+        self.formLayout_2.setWidget(8, QFormLayout.FieldRole, self.jam1_2)
+
+        self.date_of_lone_3 = QLabel(self.pagelone)
+        self.date_of_lone_3.setObjectName(u"date_of_lone_3")
+        self.date_of_lone_3.setFont(font4)
+
+        self.formLayout_2.setWidget(9, QFormLayout.LabelRole, self.date_of_lone_3)
+
+        self.jam1_3 = QLineEdit(self.pagelone)
+        self.jam1_3.setObjectName(u"jam1_3")
+        self.jam1_3.setMinimumSize(QSize(0, 30))
+        self.jam1_3.setMaximumSize(QSize(800, 16777215))
+
+        self.formLayout_2.setWidget(9, QFormLayout.FieldRole, self.jam1_3)
+
+        self.remark = QLabel(self.pagelone)
+        self.remark.setObjectName(u"remark")
+        self.remark.setFont(font4)
+
+        self.formLayout_2.setWidget(10, QFormLayout.LabelRole, self.remark)
+
+        self.remark_2 = QComboBox(self.pagelone)
+        self.remark_2.addItem("")
+        self.remark_2.addItem("")
+        self.remark_2.addItem("")
+        self.remark_2.setObjectName(u"remark_2")
+        self.remark_2.setMinimumSize(QSize(300, 30))
+        self.remark_2.setMaximumSize(QSize(500, 16777215))
+
+        self.formLayout_2.setWidget(10, QFormLayout.FieldRole, self.remark_2)
+
+        self.frame_4 = QFrame(self.pagelone)
+        self.frame_4.setObjectName(u"frame_4")
+        self.frame_4.setMinimumSize(QSize(300, 20))
+        self.frame_4.setFrameShape(QFrame.StyledPanel)
+        self.frame_4.setFrameShadow(QFrame.Raised)
+        self.gridLayout_12 = QGridLayout(self.frame_4)
+        self.gridLayout_12.setObjectName(u"gridLayout_12")
+        self.verticalSpacer_5 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
+
+        self.gridLayout_12.addItem(self.verticalSpacer_5, 1, 0, 1, 1)
+
+        self.horizontalSpacer = QSpacerItem(40, 20, QSizePolicy.MinimumExpanding, QSizePolicy.Minimum)
+
+        self.gridLayout_12.addItem(self.horizontalSpacer, 2, 0, 1, 1)
+
+        self.approve_btn = QPushButton(self.frame_4)
+        self.approve_btn.setObjectName(u"approve_btn")
+        self.approve_btn.setLayoutDirection(Qt.LeftToRight)
+
+        self.gridLayout_12.addWidget(self.approve_btn, 2, 1, 1, 1)
+
+        self.error_3 = QLabel(self.frame_4)
+        self.error_3.setObjectName(u"error_3")
+        self.error_3.setMinimumSize(QSize(0, 30))
+        self.error_3.setStyleSheet(u"font: 8pt \"Terminal\";\n"
+"color:rgb(255, 0, 0)")
+
+        self.gridLayout_12.addWidget(self.error_3, 0, 0, 1, 1)
+
+
+        self.formLayout_2.setWidget(11, QFormLayout.FieldRole, self.frame_4)
+
+        self.date1_1 = QDateEdit(self.pagelone)
+        self.date1_1.setObjectName(u"date1_1")
+        self.date1_1.setCalendarPopup(True)
+
+        self.formLayout_2.setWidget(7, QFormLayout.FieldRole, self.date1_1)
+
+
+        self.gridLayout_11.addLayout(self.formLayout_2, 0, 0, 1, 1)
+
+        self.stackedWidget.addWidget(self.pagelone)
+        self.page = QWidget()
+        self.page.setObjectName(u"page")
+        self.stackedWidget.addWidget(self.page)
+
+        self.gridLayout_3.addWidget(self.stackedWidget, 0, 0, 1, 1)
 
 
         self.gridLayout_2.addWidget(self.frame_2, 0, 1, 1, 1)
@@ -182,10 +1088,73 @@ class Ui_MainWindow(object):
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QMenuBar(MainWindow)
         self.menubar.setObjectName(u"menubar")
-        self.menubar.setGeometry(QRect(0, 0, 800, 26))
+        self.menubar.setGeometry(QRect(0, 0, 1161, 26))
         MainWindow.setMenuBar(self.menubar)
+        QWidget.setTabOrder(self.dashboard_btn, self.Manage_btn)
+        QWidget.setTabOrder(self.Manage_btn, self.view_btn)
+        QWidget.setTabOrder(self.view_btn, self.pushButton_8)
+        QWidget.setTabOrder(self.pushButton_8, self.id)
+        QWidget.setTabOrder(self.id, self.firstname)
+        QWidget.setTabOrder(self.firstname, self.middlename)
+        QWidget.setTabOrder(self.middlename, self.lastname)
+        QWidget.setTabOrder(self.lastname, self.bloodgroup)
+        QWidget.setTabOrder(self.bloodgroup, self.nomine)
+        QWidget.setTabOrder(self.nomine, self.dob)
+        QWidget.setTabOrder(self.dob, self.doj)
+        QWidget.setTabOrder(self.doj, self.addhernumber)
+        QWidget.setTabOrder(self.addhernumber, self.accountno)
+        QWidget.setTabOrder(self.accountno, self.mobile1)
+        QWidget.setTabOrder(self.mobile1, self.mobile2)
+        QWidget.setTabOrder(self.mobile2, self.email)
+        QWidget.setTabOrder(self.email, self.balance)
+        QWidget.setTabOrder(self.balance, self.addinfo)
+        QWidget.setTabOrder(self.addinfo, self.loneno)
+        QWidget.setTabOrder(self.loneno, self.name)
+        QWidget.setTabOrder(self.name, self.addherno)
+        QWidget.setTabOrder(self.addherno, self.amount)
+        QWidget.setTabOrder(self.amount, self.intrest_rate)
+        QWidget.setTabOrder(self.intrest_rate, self.checkno)
+        QWidget.setTabOrder(self.checkno, self.date1_1)
+        QWidget.setTabOrder(self.date1_1, self.jam1_2)
+        QWidget.setTabOrder(self.jam1_2, self.jam1_3)
+        QWidget.setTabOrder(self.jam1_3, self.remark_2)
+        QWidget.setTabOrder(self.remark_2, self.approve_btn)
+        QWidget.setTabOrder(self.approve_btn, self.id_2)
+        QWidget.setTabOrder(self.id_2, self.search)
+        QWidget.setTabOrder(self.search, self.firstname_2)
+        QWidget.setTabOrder(self.firstname_2, self.middlename_2)
+        QWidget.setTabOrder(self.middlename_2, self.lastname_2)
+        QWidget.setTabOrder(self.lastname_2, self.bloodgroup_2)
+        QWidget.setTabOrder(self.bloodgroup_2, self.nomine_2)
+        QWidget.setTabOrder(self.nomine_2, self.dob_2)
+        QWidget.setTabOrder(self.dob_2, self.doj_2)
+        QWidget.setTabOrder(self.doj_2, self.addhernumber_2)
+        QWidget.setTabOrder(self.addhernumber_2, self.accountno_2)
+        QWidget.setTabOrder(self.accountno_2, self.mobile1_2)
+        QWidget.setTabOrder(self.mobile1_2, self.mobile2_2)
+        QWidget.setTabOrder(self.mobile2_2, self.email_2)
+        QWidget.setTabOrder(self.email_2, self.balance_2)
+        QWidget.setTabOrder(self.balance_2, self.addinfo_2)
+        QWidget.setTabOrder(self.addinfo_2, self.new_member_btn)
+        QWidget.setTabOrder(self.new_member_btn, self.remove_member_btn)
+        QWidget.setTabOrder(self.remove_member_btn, self.update_member_btn)
+        QWidget.setTabOrder(self.update_member_btn, self.give_lone)
+        QWidget.setTabOrder(self.give_lone, self.lineEdit)
+        QWidget.setTabOrder(self.lineEdit, self.comboBox_3)
+        QWidget.setTabOrder(self.comboBox_3, self.comboBox_4)
+        QWidget.setTabOrder(self.comboBox_4, self.tableWidget)
+        QWidget.setTabOrder(self.tableWidget, self.biodataview_btn)
+        QWidget.setTabOrder(self.biodataview_btn, self.loneview_btn)
+        QWidget.setTabOrder(self.loneview_btn, self.viewall_btn)
 
         self.retranslateUi(MainWindow)
+
+        self.dashboard_btn.setDefault(False)
+        self.Manage_btn.setDefault(False)
+        self.view_btn.setDefault(False)
+        self.pushButton_8.setDefault(False)
+        self.stackedWidget.setCurrentIndex(0)
+
 
         QMetaObject.connectSlotsByName(MainWindow)
     # setupUi
@@ -193,20 +1162,162 @@ class Ui_MainWindow(object):
     def retranslateUi(self, MainWindow):
         MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"MainWindow", None))
 #if QT_CONFIG(whatsthis)
-        self.pushButton_5.setWhatsThis(QCoreApplication.translate("MainWindow", u"Button", None))
+        self.dashboard_btn.setWhatsThis(QCoreApplication.translate("MainWindow", u"Button", None))
 #endif // QT_CONFIG(whatsthis)
-        self.pushButton_5.setText(QCoreApplication.translate("MainWindow", u"Dashbard", None))
+        self.dashboard_btn.setText(QCoreApplication.translate("MainWindow", u"Dashbard", None))
+#if QT_CONFIG(whatsthis)
+        self.Manage_btn.setWhatsThis(QCoreApplication.translate("MainWindow", u"Button", None))
+#endif // QT_CONFIG(whatsthis)
+        self.Manage_btn.setText(QCoreApplication.translate("MainWindow", u"Manage", None))
+#if QT_CONFIG(whatsthis)
+        self.view_btn.setWhatsThis(QCoreApplication.translate("MainWindow", u"Button", None))
+#endif // QT_CONFIG(whatsthis)
+        self.view_btn.setText(QCoreApplication.translate("MainWindow", u"View", None))
 #if QT_CONFIG(whatsthis)
         self.pushButton_8.setWhatsThis("")
 #endif // QT_CONFIG(whatsthis)
         self.pushButton_8.setText(QCoreApplication.translate("MainWindow", u"Exit", None))
+        self.total_member.setText(QCoreApplication.translate("MainWindow", u"1000", None))
+        self.label_3.setText(QCoreApplication.translate("MainWindow", u"Total Member", None))
+        self.label_4.setText(QCoreApplication.translate("MainWindow", u"Total Lone", None))
+        self.total_lone.setText(QCoreApplication.translate("MainWindow", u"1000", None))
+        self.label.setText(QCoreApplication.translate("MainWindow", u"User ID", None))
+        self.label_5.setText(QCoreApplication.translate("MainWindow", u"By", None))
+        self.comboBox_3.setItemText(0, QCoreApplication.translate("MainWindow", u"Saving", None))
+        self.comboBox_3.setItemText(1, QCoreApplication.translate("MainWindow", u"Lone", None))
+        self.comboBox_3.setItemText(2, QCoreApplication.translate("MainWindow", u"Information", None))
+
+        self.label_6.setText(QCoreApplication.translate("MainWindow", u"Sort", None))
+        self.comboBox_4.setItemText(0, QCoreApplication.translate("MainWindow", u"Low to High", None))
+        self.comboBox_4.setItemText(1, QCoreApplication.translate("MainWindow", u"High to low", None))
+
+        ___qtablewidgetitem = self.tableWidget.horizontalHeaderItem(0)
+        ___qtablewidgetitem.setText(QCoreApplication.translate("MainWindow", u"Id", None));
+        ___qtablewidgetitem1 = self.tableWidget.horizontalHeaderItem(1)
+        ___qtablewidgetitem1.setText(QCoreApplication.translate("MainWindow", u"First Name", None));
+        ___qtablewidgetitem2 = self.tableWidget.horizontalHeaderItem(2)
+        ___qtablewidgetitem2.setText(QCoreApplication.translate("MainWindow", u"Middle Name", None));
+        ___qtablewidgetitem3 = self.tableWidget.horizontalHeaderItem(3)
+        ___qtablewidgetitem3.setText(QCoreApplication.translate("MainWindow", u"last Name", None));
+        ___qtablewidgetitem4 = self.tableWidget.horizontalHeaderItem(4)
+        ___qtablewidgetitem4.setText(QCoreApplication.translate("MainWindow", u"Blood Group", None));
+        ___qtablewidgetitem5 = self.tableWidget.horizontalHeaderItem(5)
+        ___qtablewidgetitem5.setText(QCoreApplication.translate("MainWindow", u"Nomine", None));
+        ___qtablewidgetitem6 = self.tableWidget.horizontalHeaderItem(6)
+        ___qtablewidgetitem6.setText(QCoreApplication.translate("MainWindow", u"Date OF Birth", None));
+        ___qtablewidgetitem7 = self.tableWidget.horizontalHeaderItem(7)
+        ___qtablewidgetitem7.setText(QCoreApplication.translate("MainWindow", u"Data of joing", None));
+        ___qtablewidgetitem8 = self.tableWidget.horizontalHeaderItem(8)
+        ___qtablewidgetitem8.setText(QCoreApplication.translate("MainWindow", u"Addher No", None));
+        ___qtablewidgetitem9 = self.tableWidget.horizontalHeaderItem(9)
+        ___qtablewidgetitem9.setText(QCoreApplication.translate("MainWindow", u"Account No", None));
+        ___qtablewidgetitem10 = self.tableWidget.horizontalHeaderItem(10)
+        ___qtablewidgetitem10.setText(QCoreApplication.translate("MainWindow", u"Mobile No1", None));
+        ___qtablewidgetitem11 = self.tableWidget.horizontalHeaderItem(11)
+        ___qtablewidgetitem11.setText(QCoreApplication.translate("MainWindow", u"Mobile NO 2", None));
+        ___qtablewidgetitem12 = self.tableWidget.horizontalHeaderItem(12)
+        ___qtablewidgetitem12.setText(QCoreApplication.translate("MainWindow", u"Email", None));
+        ___qtablewidgetitem13 = self.tableWidget.horizontalHeaderItem(13)
+        ___qtablewidgetitem13.setText(QCoreApplication.translate("MainWindow", u"Opnning Blance", None));
+        self.update_member_btn.setText(QCoreApplication.translate("MainWindow", u"Update Member", None))
 #if QT_CONFIG(whatsthis)
-        self.pushButton_6.setWhatsThis(QCoreApplication.translate("MainWindow", u"Button", None))
+        self.new_member_btn.setWhatsThis(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\"><br/></p></body></html>", None))
 #endif // QT_CONFIG(whatsthis)
-        self.pushButton_6.setText(QCoreApplication.translate("MainWindow", u"Manage", None))
+        self.new_member_btn.setText(QCoreApplication.translate("MainWindow", u"New Member", None))
+        self.remove_member_btn.setText(QCoreApplication.translate("MainWindow", u"Remove Member", None))
+        self.give_lone.setText(QCoreApplication.translate("MainWindow", u"Give Lone", None))
+        self.collect_lone_btn.setText(QCoreApplication.translate("MainWindow", u"Collect Lone", None))
+        self.groupBox_4.setTitle(QCoreApplication.translate("MainWindow", u"Basic information", None))
+        self.label_40.setText(QCoreApplication.translate("MainWindow", u"ID", None))
+        self.label_8.setText(QCoreApplication.translate("MainWindow", u"First Name", None))
+        self.label_33.setText(QCoreApplication.translate("MainWindow", u"Middle Name", None))
+        self.label_30.setText(QCoreApplication.translate("MainWindow", u"last Name", None))
+        self.label_27.setText(QCoreApplication.translate("MainWindow", u"Blood group", None))
+        self.bloodgroup_2.setItemText(0, QCoreApplication.translate("MainWindow", u"A+", None))
+        self.bloodgroup_2.setItemText(1, QCoreApplication.translate("MainWindow", u"A-", None))
+        self.bloodgroup_2.setItemText(2, QCoreApplication.translate("MainWindow", u"B+", None))
+        self.bloodgroup_2.setItemText(3, QCoreApplication.translate("MainWindow", u"B-", None))
+        self.bloodgroup_2.setItemText(4, QCoreApplication.translate("MainWindow", u"AB+", None))
+        self.bloodgroup_2.setItemText(5, QCoreApplication.translate("MainWindow", u"AB-", None))
+        self.bloodgroup_2.setItemText(6, QCoreApplication.translate("MainWindow", u"O+", None))
+        self.bloodgroup_2.setItemText(7, QCoreApplication.translate("MainWindow", u"O-", None))
+
+        self.label_28.setText(QCoreApplication.translate("MainWindow", u"Nomine", None))
+        self.label_35.setText(QCoreApplication.translate("MainWindow", u"Data of Birth", None))
+        self.dob_2.setDisplayFormat(QCoreApplication.translate("MainWindow", u"yyyy/M/d", None))
+        self.label_38.setText(QCoreApplication.translate("MainWindow", u"Data Of Joing", None))
+        self.doj_2.setDisplayFormat(QCoreApplication.translate("MainWindow", u"yyyy/M/d", None))
+        self.label_29.setText(QCoreApplication.translate("MainWindow", u"Addher Number", None))
+        self.label_39.setText(QCoreApplication.translate("MainWindow", u"Account No:", None))
+        self.search.setText(QCoreApplication.translate("MainWindow", u"Search", None))
+        self.groupBox_3.setTitle(QCoreApplication.translate("MainWindow", u"Contact  Information", None))
+        self.label_50.setText(QCoreApplication.translate("MainWindow", u"Mobile No 1", None))
+        self.label_51.setText(QCoreApplication.translate("MainWindow", u"Mobile No 2", None))
+        self.label_52.setText(QCoreApplication.translate("MainWindow", u"Email", None))
+        self.label_53.setText(QCoreApplication.translate("MainWindow", u"Opning balance", None))
+        self.addinfo_2.setText(QCoreApplication.translate("MainWindow", u"Update Information", None))
+        self.error_2.setText("")
+        self.label_7.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\">Updata Information</p></body></html>", None))
 #if QT_CONFIG(whatsthis)
-        self.pushButton_7.setWhatsThis(QCoreApplication.translate("MainWindow", u"Button", None))
+        self.loneview_btn.setWhatsThis(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\"><br/></p></body></html>", None))
 #endif // QT_CONFIG(whatsthis)
-        self.pushButton_7.setText(QCoreApplication.translate("MainWindow", u"View", None))
+        self.loneview_btn.setText(QCoreApplication.translate("MainWindow", u"Lone", None))
+#if QT_CONFIG(whatsthis)
+        self.biodataview_btn.setWhatsThis(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\"><br/></p></body></html>", None))
+#endif // QT_CONFIG(whatsthis)
+        self.biodataview_btn.setText(QCoreApplication.translate("MainWindow", u"biodata", None))
+#if QT_CONFIG(whatsthis)
+        self.viewall_btn.setWhatsThis(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\"><br/></p></body></html>", None))
+#endif // QT_CONFIG(whatsthis)
+        self.viewall_btn.setText(QCoreApplication.translate("MainWindow", u"View All ", None))
+        self.groupBox.setTitle(QCoreApplication.translate("MainWindow", u"Basic information", None))
+        self.label_2.setText(QCoreApplication.translate("MainWindow", u"First Name", None))
+        self.label_31.setText(QCoreApplication.translate("MainWindow", u"Middle Name", None))
+        self.label_23.setText(QCoreApplication.translate("MainWindow", u"Blood group", None))
+        self.label_24.setText(QCoreApplication.translate("MainWindow", u"Nomine", None))
+        self.label_32.setText(QCoreApplication.translate("MainWindow", u"Data of Birth", None))
+        self.label_34.setText(QCoreApplication.translate("MainWindow", u"Data Of Joing", None))
+        self.label_25.setText(QCoreApplication.translate("MainWindow", u"Addher Number", None))
+        self.label_36.setText(QCoreApplication.translate("MainWindow", u"Account No:", None))
+        self.label_26.setText(QCoreApplication.translate("MainWindow", u"last Name", None))
+        self.label_37.setText(QCoreApplication.translate("MainWindow", u"ID", None))
+        self.dob.setDisplayFormat(QCoreApplication.translate("MainWindow", u"yyyy/M/d", None))
+        self.doj.setDisplayFormat(QCoreApplication.translate("MainWindow", u"yyyy/M/d", None))
+        self.bloodgroup.setItemText(0, QCoreApplication.translate("MainWindow", u"A+", None))
+        self.bloodgroup.setItemText(1, QCoreApplication.translate("MainWindow", u"A-", None))
+        self.bloodgroup.setItemText(2, QCoreApplication.translate("MainWindow", u"B+", None))
+        self.bloodgroup.setItemText(3, QCoreApplication.translate("MainWindow", u"B-", None))
+        self.bloodgroup.setItemText(4, QCoreApplication.translate("MainWindow", u"AB+", None))
+        self.bloodgroup.setItemText(5, QCoreApplication.translate("MainWindow", u"AB-", None))
+        self.bloodgroup.setItemText(6, QCoreApplication.translate("MainWindow", u"O+", None))
+        self.bloodgroup.setItemText(7, QCoreApplication.translate("MainWindow", u"O-", None))
+
+        self.groupBox_2.setTitle(QCoreApplication.translate("MainWindow", u"Contact  Information", None))
+        self.label_46.setText(QCoreApplication.translate("MainWindow", u"Mobile No 1", None))
+        self.label_47.setText(QCoreApplication.translate("MainWindow", u"Mobile No 2", None))
+        self.label_48.setText(QCoreApplication.translate("MainWindow", u"Email", None))
+        self.label_49.setText(QCoreApplication.translate("MainWindow", u"Opning balance", None))
+        self.error.setText("")
+        self.addinfo.setText(QCoreApplication.translate("MainWindow", u"Add information", None))
+        self.label_10.setText(QCoreApplication.translate("MainWindow", u"Lone No", None))
+        self.label_11.setText(QCoreApplication.translate("MainWindow", u"Name", None))
+        self.label_9.setText(QCoreApplication.translate("MainWindow", u"Addher Number", None))
+        self.label_12.setText(QCoreApplication.translate("MainWindow", u"Amount", None))
+        self.lable.setText(QCoreApplication.translate("MainWindow", u"Intrest Rate", None))
+        self.intrest_rate.setItemText(0, QCoreApplication.translate("MainWindow", u"1", None))
+        self.intrest_rate.setItemText(1, QCoreApplication.translate("MainWindow", u"2", None))
+
+        self.lable_2.setText(QCoreApplication.translate("MainWindow", u"Check Number", None))
+        self.date_of_lone.setText(QCoreApplication.translate("MainWindow", u"Date", None))
+        self.date_of_lone_2.setText(QCoreApplication.translate("MainWindow", u"Jamindar 1", None))
+        self.date_of_lone_3.setText(QCoreApplication.translate("MainWindow", u"Jamindar 2", None))
+        self.remark.setText(QCoreApplication.translate("MainWindow", u"Remark", None))
+        self.remark_2.setItemText(0, QCoreApplication.translate("MainWindow", u"Remark 1", None))
+        self.remark_2.setItemText(1, QCoreApplication.translate("MainWindow", u"Remark 2", None))
+        self.remark_2.setItemText(2, QCoreApplication.translate("MainWindow", u"Remark 3", None))
+
+        self.approve_btn.setText(QCoreApplication.translate("MainWindow", u"Approve", None))
+        self.error_3.setText("")
+        self.date1_1.setDisplayFormat(QCoreApplication.translate("MainWindow", u"yyyy/M/d", None))
     # retranslateUi
 
