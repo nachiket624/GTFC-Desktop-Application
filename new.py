@@ -52,16 +52,15 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.Manage_btn.clicked.connect(self.WinManage)
 
         # ! ***************************** inside Function Button *****************************
-        self.addinfo.clicked.connect(self.addmemberfuntion) # add information button
-        self.approve_btn.clicked.connect(self.lonefunction)
+
+
 
     def WinManage(self):
         self.stackedWidget.setCurrentWidget(self.pageManage)
-        self.new_member_btn.clicked.connect(self.addmemberfuntion)
         self.update_member_btn.clicked.connect(self.updatamember)
-        self.give_lone.clicked.connect(self.lonefunction)
+        self.give_lone.clicked.connect(self.giveloneerr)
         self.collect_lone_btn.clicked.connect(self.showlonedig)
-
+        self.new_member_btn.clicked.connect(self.showaddmemberfuntionerr)
     def setIcon(self):
         appIcon = QIcon("gtfc.jpeg")
         self.setWindowIcon(appIcon)
@@ -80,9 +79,6 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
     # ! ***************************** Manage  Add Member Function *****************************
     def addmemberfuntion(self):
-        self.stackedWidget.setCurrentWidget(self.page_addnewmember)
-        idtext = rowcount()
-        id = self.id.setText(str(idtext))
         fname = self.firstname.text()
         mname = self.middlename.text()
         lname = self.lastname.text()
@@ -115,14 +111,20 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             conn.commit()
             conn.close()
 
+    #     This funtion show error for add member funtion
+    def showaddmemberfuntionerr(self):
+        self.stackedWidget.setCurrentWidget(self.page_addnewmember)
+        idtext = rowcount()
+        id = self.id.setText(str(idtext))
+        self.addinfo.clicked.connect(self.addmemberfuntion) # add information button
+
+
     # ! ***************************** Manage  Update Member Function *****************************
     def updatamember(self):
         self.stackedWidget.setCurrentWidget(self.UpdateInformation)
         self.search.clicked.connect(self.searchfun)
     def searchfun(self):
-
         id = self.id_2.text()
-
         conn = mysql.connector.connect(host="localhost", user=username, password=userpass, database="green")
         cur = conn.cursor()
         cur.execute("select * from memberinfo where id = "+id)
@@ -186,9 +188,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         conn.close()
     # ! ***************************** Manage  give lone Function *****************************
     def lonefunction(self):
-        self.stackedWidget.setCurrentWidget(self.pagelone)
-        lone_no1 = lastlonen()
-        lone_no = self.loneno.setText(str(lone_no1))
+
         lone_no = self.loneno.text()
         name = self.name.text()
         addher = self.addherno.text()
@@ -215,7 +215,11 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             totalIntersetpay = 1000
             totalintersetamount = 1000
             database.getdatalone(lone_no,name,addher,amount,totalAmounttopay,totalIntersetpay,totalintersetamount)
-
+    def giveloneerr(self):
+        self.stackedWidget.setCurrentWidget(self.pagelone)
+        lone_no1 = lastlonen()
+        lone_no = self.loneno.setText(str(lone_no1))
+        self.approve_btn.clicked.connect(self.lonefunction)
     #  ******************************************************* View *******************************************************
 
     # ! ***************************** View Information table *****************************
@@ -252,10 +256,10 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         lonewin = mydig()
         lonewin.show()
         lonewin.exec_()
-    def ConnecttoBioData(self):
-        bio = biodata()
-        bio.show()
-        bio.exec_()
+
+
+# ! ***************************** Manage  lone collection class *****************************
+
 class mydig(QtWidgets.QDialog,Ui_Dialog):
     def __init__(self):
         super(mydig, self).__init__()
@@ -286,8 +290,6 @@ class mydig(QtWidgets.QDialog,Ui_Dialog):
         print("Type",type(data))
         row = 0
         self.tableWidget.setRowCount(12)
-        # self.tableWidget.setRowCount(len(data))
-        count = database.calrow()
         data1 = 4
         data2 = 5
         for index in range(12):
@@ -299,38 +301,6 @@ class mydig(QtWidgets.QDialog,Ui_Dialog):
     def getdate(self):
         today = datetime.today()
         self.collect_date.setDate(today)
-
-
-
-class biodata(QtWidgets.QDialog, Ui_Dialog1):
-    def __init__(self):
-        super(biodata, self).__init__()
-        self.setupUi(self)
-        self.setWindowTitle("Lone Collection")
-        self.find_btn.clicked.connect(self.searchfun1)
-    def searchfun1(self):
-        loneno = self.bio_id.text()
-
-        conn = mysql.connector.connect(host="localhost", user=username, password=userpass, database="green")
-        cur = conn.cursor()
-        cur.execute("select * from lone_collection where id = " + loneno)
-        for data in cur:
-            data
-        print(data)
-        Name = data[0]
-        Addher = data[1]
-
-        # ? @@@@@@@@@@@ setting value to line edit @@@@@@@@@@@
-        self.bio_name.setText(str(Name)) # fname is line edit object name
-        self.bio_addher.setText(str(Addher))
-
-
-
-
-
-class integration():
-    def __init__(self):
-        pass
 
 
 #*************************************Main*************************************
