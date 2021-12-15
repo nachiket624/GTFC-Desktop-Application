@@ -5,6 +5,7 @@ import  os
 username = os.environ.get('db_user')
 userpass = os.environ.get('db_pass')
 
+# return last number of member on Dashboard
 def rowcount():
     conn = mysql.connector.connect(host="localhost", user=username, password=userpass, database="green")
     cur = conn.cursor()
@@ -19,6 +20,7 @@ def rowcount():
     conn.close()
 
     return i+1
+# last lone count for Dashboard
 def lonecount():
     conn = mysql.connector.connect(host="localhost", user=username, password=userpass, database="green")
     cur = conn.cursor()
@@ -34,13 +36,7 @@ def lonecount():
     return i
 
 
-def loaddata():
-        conn = conn = mysql.connector.connect(host="localhost", user=username, password=userpass, database="green")
-        cur = conn.cursor()
-        query = "SELECT * FROM memberinfo"
-        cur.execute(query)
-        record = cur.fetchall()
-
+# return last lone lone number
 def lastlonen():
     conn = conn = mysql.connector.connect(host="localhost", user=username, password=userpass, database="green")
     cur = conn.cursor()
@@ -55,45 +51,14 @@ def lastlonen():
     lone_no2 = 1
     if lone_no == 0:
         lone_no = 1
-        print("if stament")
         return lone_no
     else:
         return (lone_no[-1]) + 1
 
-    # strlone = str(lone_no)
-    # # return strlone
-    # print(strlone)
-    # print(type(strlone))
-def trancationNumber():
-    conn = conn = mysql.connector.connect(host="localhost", user=username, password=userpass, database="green")
-    cur = conn.cursor()
-    query = "select trancation_no from lone_collection"
-    cur.execute(query)
-    i = 0
-    data = cur.fetchall()
-    data.sort()
-    for i in data:
-        i
-    trancation_no = i
-    lone_no2 = 1
-    if trancation_no == 0:
-        lone_no = 1
-        print("if stament")
-        return trancation_no
-    else:
-        return (trancation_no[-1]) + 1
 
-def getdatalone():
-    conn = conn = mysql.connector.connect(host="localhost", user=username, password=userpass, database="green")
-    cur = conn.cursor()
-    query = "select lone_no from lone"
-    cur.execute(query)
-    i = 0
-    data = cur.fetchall()
-    data.sort()
-    for i in data:
-        i
 
+
+# This function create add new lone detail into lone info table
 def getdatalone(lone_no,name,addher,amount,totalAmounttopay,totalIntersetpay,totalintersetamount):
     conn = mysql.connector.connect(host="localhost", user=username, password=userpass, database="green")
     cur = conn.cursor()
@@ -104,26 +69,4 @@ def getdatalone(lone_no,name,addher,amount,totalAmounttopay,totalIntersetpay,tot
     conn.commit()
     conn.close()
 
-def lonecollection(collectiodata):
-    date =datetime.strptime(collectiodata,'%Y/%m/%d')#%m/%d/%Y
-    print("the date is ",date)
-
-# lonecollection('1/1/2000')
-
-def calrow():
-    conn = mysql.connector.connect(host="localhost", user="root", password="1900340220", database="green")
-    cur = conn.cursor()
-    query = """SELECT * from lone_info"""
-    cur.execute(query)
-    i = 0
-    record = cur.fetchall()
-    for row in record:
-        i = i + 1
-
-    cur.close()
-    conn.close()
-    print(i)
-    return i
-
-calrow()
 
