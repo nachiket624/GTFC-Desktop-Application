@@ -1,0 +1,9 @@
+<RCC>
+  <qresource prefix="Dashboard">
+    <file>image/dashboard.png</file>
+    <file>image/save-money.png</file>
+    <file>image/savings.png</file>
+    <file>image/sum.png</file>
+    <file>image/team.png</file>
+  </qresource>
+</RCC>

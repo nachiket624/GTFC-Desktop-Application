@@ -45,7 +45,7 @@
           <string notr="true"/>
          </property>
          <property name="currentIndex">
-          <number>5</number>
+          <number>0</number>
          </property>
          <widget class="QWidget" name="dashboard_page">
           <layout class="QGridLayout" name="gridLayout_16">
@@ -283,7 +283,7 @@ opacity: 0;
 }</string>
                     </property>
                     <property name="text">
-                     <string>Total Member</string>
+                     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;Total Member&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                     </property>
                    </widget>
                   </item>
@@ -297,7 +297,7 @@ opacity: 0;
 }</string>
                     </property>
                     <property name="text">
-                     <string>Total Lone</string>
+                     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;Total Lone&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                     </property>
                    </widget>
                   </item>
@@ -313,6 +313,9 @@ background-color:qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba
                     <property name="text">
                      <string>1000</string>
                     </property>
+                    <property name="scaledContents">
+                     <bool>true</bool>
+                    </property>
                    </widget>
                   </item>
                   <item row="0" column="2">
@@ -326,7 +329,7 @@ opacity: 0;
 }</string>
                     </property>
                     <property name="text">
-                     <string>Total Saving</string>
+                     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;Total Saving&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                     </property>
                    </widget>
                   </item>
@@ -341,7 +344,7 @@ opacity: 0;
 }</string>
                     </property>
                     <property name="text">
-                     <string>Total lone</string>
+                     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;Total lone&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                     </property>
                    </widget>
                   </item>
@@ -2115,6 +2118,9 @@ color:rgb(255, 0, 0)</string>
          <property name="spacing">
           <number>0</number>
          </property>
+         <property name="leftMargin">
+          <number>10</number>
+         </property>
          <property name="bottomMargin">
           <number>0</number>
          </property>
@@ -2172,6 +2178,10 @@ QPushButton:pressed {
            </property>
            <property name="text">
             <string>Dashbard</string>
+           </property>
+           <property name="icon">
+            <iconset resource="dashboard.qrc">
+             <normaloff>:/Dashboard/image/dashboard.png</normaloff>:/Dashboard/image/dashboard.png</iconset>
            </property>
            <property name="autoDefault">
             <bool>false</bool>
@@ -2453,7 +2463,6 @@ QPushButton:pressed {
   </widget>
  </widget>
  <tabstops>
-  <tabstop>dashboard_btn</tabstop>
   <tabstop>Manage_btn</tabstop>
   <tabstop>view_btn</tabstop>
   <tabstop>pushButton_8</tabstop>
@@ -2506,6 +2515,8 @@ QPushButton:pressed {
   <tabstop>loneview_btn</tabstop>
   <tabstop>viewall_btn</tabstop>
  </tabstops>
- <resources/>
+ <resources>
+  <include location="dashboard.qrc"/>
+ </resources>
  <connections/>
 </ui>

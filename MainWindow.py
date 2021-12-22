@@ -12,6 +12,7 @@ from PySide2.QtCore import *
 from PySide2.QtGui import *
 from PySide2.QtWidgets import *
 
+import dashboard_rc
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -203,6 +204,7 @@ class Ui_MainWindow(object):
 "color:rgb(255, 85, 0);\n"
 "background-color:qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(198, 100, 206, 255), stop:1 rgba(255, 255, 255, 255));\n"
 " border-radius: 25px;")
+        self.total_member.setScaledContents(True)
 
         self.gridLayout_17.addWidget(self.total_member, 1, 0, 1, 1)
 
@@ -1111,7 +1113,7 @@ class Ui_MainWindow(object):
         self.error_3.setStyleSheet(u"font: 8pt \"Terminal\";\n"
 "color:rgb(255, 0, 0)")
 
-        self.gridLayout_12.addWidget(self.error_3, 1, 0, 1, 1)
+        self.gridLayout_12.addWidget(self.error_3, 0, 0, 1, 1)
 
 
         self.gridLayout_27.addWidget(self.frame_4, 1, 1, 1, 1)
@@ -1145,7 +1147,7 @@ class Ui_MainWindow(object):
         self.verticalLayout = QVBoxLayout()
         self.verticalLayout.setSpacing(0)
         self.verticalLayout.setObjectName(u"verticalLayout")
-        self.verticalLayout.setContentsMargins(-1, -1, -1, 0)
+        self.verticalLayout.setContentsMargins(10, -1, -1, 0)
         self.dashboard_btn = QPushButton(self.frame)
         self.dashboard_btn.setObjectName(u"dashboard_btn")
         sizePolicy1.setHeightForWidth(self.dashboard_btn.sizePolicy().hasHeightForWidth())
@@ -1175,6 +1177,9 @@ class Ui_MainWindow(object):
 "QPushButton:pressed {\n"
 "	background-color: rgb(0, 0, 0);\n"
 "}")
+        icon = QIcon()
+        icon.addFile(u":/Dashboard/image/dashboard.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.dashboard_btn.setIcon(icon)
         self.dashboard_btn.setAutoDefault(False)
         self.dashboard_btn.setFlat(False)
 
@@ -1291,7 +1296,6 @@ class Ui_MainWindow(object):
         self.menubar.setObjectName(u"menubar")
         self.menubar.setGeometry(QRect(0, 0, 1161, 26))
         MainWindow.setMenuBar(self.menubar)
-        QWidget.setTabOrder(self.dashboard_btn, self.Manage_btn)
         QWidget.setTabOrder(self.Manage_btn, self.view_btn)
         QWidget.setTabOrder(self.view_btn, self.pushButton_8)
         QWidget.setTabOrder(self.pushButton_8, self.id)
@@ -1345,7 +1349,7 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.stackedWidget.setCurrentIndex(7)
+        self.stackedWidget.setCurrentIndex(0)
         self.dashboard_btn.setDefault(False)
         self.Manage_btn.setDefault(False)
         self.view_btn.setDefault(False)
@@ -1393,11 +1397,11 @@ class Ui_MainWindow(object):
         self.label_55.setText(QCoreApplication.translate("MainWindow", u"Name Lastname ", None))
         self.label_56.setText(QCoreApplication.translate("MainWindow", u"\u20b91000", None))
         self.total_lone.setText(QCoreApplication.translate("MainWindow", u"1000", None))
-        self.label_3.setText(QCoreApplication.translate("MainWindow", u"Total Member", None))
-        self.label_4.setText(QCoreApplication.translate("MainWindow", u"Total Lone", None))
+        self.label_3.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\">Total Member</p></body></html>", None))
+        self.label_4.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\">Total Lone</p></body></html>", None))
         self.total_member.setText(QCoreApplication.translate("MainWindow", u"1000", None))
-        self.label_15.setText(QCoreApplication.translate("MainWindow", u"Total Saving", None))
-        self.label_16.setText(QCoreApplication.translate("MainWindow", u"Total lone", None))
+        self.label_15.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\">Total Saving</p></body></html>", None))
+        self.label_16.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\">Total lone</p></body></html>", None))
         self.total_lone_3.setText(QCoreApplication.translate("MainWindow", u"1000", None))
         self.total_lone_4.setText(QCoreApplication.translate("MainWindow", u"1000", None))
         self.label.setText(QCoreApplication.translate("MainWindow", u"User ID", None))

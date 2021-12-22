@@ -3,8 +3,9 @@ import os
 from datetime import date
 import datetime
 from PySide2 import QtWidgets
-
+import dashboard_rc
 import database
+import loneInfo
 from MainWindow import Ui_MainWindow
 from PySide2.QtWidgets import(QTableWidget, QTableWidgetItem)
 from collect_lone import Ui_Dialog
@@ -12,7 +13,7 @@ from database import *
 from PySide2.QtGui import QIcon
 from updatainformation import *
 import updatainformation
-from biodata import Ui_Dialog1
+# from biodata import Ui_Dialog1
 username = os.environ.get('db_user')
 userpass = os.environ.get('db_pass')
 
@@ -68,7 +69,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
     def WinView(self):
         self.stackedWidget.setCurrentWidget(self.page_view)
         self.viewall_btn.clicked.connect(self.viewallfunction)
-        self.biodataview_btn.clicked.connect(self.ConnecttoBioData)
+        # self.biodataview_btn.clicked.connect(self.ConnecttoBioData)
 
         # ! ***************************** Dashboard Function *****************************
     def windashboard(self):
@@ -215,6 +216,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             totalIntersetpay = 1000
             totalintersetamount = 1000
             database.getdatalone(lone_no,name,addher,amount,totalAmounttopay,totalIntersetpay,totalintersetamount)
+            loneInfo.setlone(lone_no,amount,date1)
     def giveloneerr(self):
         self.stackedWidget.setCurrentWidget(self.pagelone)
         lone_no1 = lastlonen()
