@@ -166,13 +166,13 @@ border-top-style:none;
     <string/>
    </property>
    <property name="pixmap">
-    <pixmap resource="C:/Users/nachi/Documents/resoure file/icon/source.qrc">:/newPrefix/User icon.png</pixmap>
+    <pixmap>:/newPrefix/User icon.png</pixmap>
    </property>
   </widget>
  </widget>
  <resources>
-  <include location="C:/Users/nachi/Documents/resoure file/icon/myfile.qrc"/>
-  <include location="C:/Users/nachi/Documents/resoure file/icon/source.qrc"/>
+  <include location="sing in.qrc"/>
+  <include location="../../../nachi/Documents/resoure file/icon/source.qrc"/>
  </resources>
  <connections/>
 </ui>

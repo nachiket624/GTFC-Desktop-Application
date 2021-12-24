@@ -193,6 +193,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         lone_no = self.loneno.text()
         name = self.name.text()
         addher = self.addherno.text()
+        addher2 = addher
         amount = self.amount.text()
         interast = str(self.intrest_rate.currentText())
         checkno = self.checkno.text()
@@ -208,15 +209,15 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             conn = mysql.connector.connect(host="localhost", user=username, password=userpass, database="green")
             cur = conn.cursor()
             cur.execute("""INSERT INTO lone (lone_no, appliername, addherNo, amount, insrast_rate, check_number, lone_date, Jamindar1, Jamindar2, remark) values(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)""",lone_info)
-            print("this is lone_info ",lone_info)
             cur.close()
             conn.commit()
             conn.close()
             totalAmounttopay = 100
             totalIntersetpay = 1000
             totalintersetamount = 1000
-            database.getdatalone(lone_no,name,addher,amount,totalAmounttopay,totalIntersetpay,totalintersetamount)
-            loneInfo.setlone(lone_no,amount,date1)
+            tr_type = "Lone Approve"
+            database.getdatalone(lone_no,name,addher,amount,interast,totalAmounttopay,totalIntersetpay,totalintersetamount)
+            loneInfo.setlone(lone_no,amount,date1,addher,interast,name,tr_type)
     def giveloneerr(self):
         self.stackedWidget.setCurrentWidget(self.pagelone)
         lone_no1 = lastlonen()
@@ -255,16 +256,16 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
     def showlonedig(self):
         # self.stackedWidget.setCurrentWidget(self.showlonedig)
-        lonewin = mydig()
+        lonewin = Lone_Collection()
         lonewin.show()
         lonewin.exec_()
 
 
 # ! ***************************** Manage  lone collection class *****************************
 
-class mydig(QtWidgets.QDialog,Ui_Dialog):
+class Lone_Collection(QtWidgets.QDialog,Ui_Dialog):
     def __init__(self):
-        super(mydig, self).__init__()
+        super(Lone_Collection, self).__init__()
         self.setupUi(self)
         self.find_btn.clicked.connect(self.find)
         self.radioButton.clicked.connect(self.getdate)
