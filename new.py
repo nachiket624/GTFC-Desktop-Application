@@ -269,6 +269,7 @@ class Lone_Collection(QtWidgets.QDialog,Ui_Dialog):
         self.setupUi(self)
         self.find_btn.clicked.connect(self.find)
         self.radioButton.clicked.connect(self.getdate)
+        self.collect_btn.clicked.connect(self.sentto_loneCollection)
     def find(self):
         id_field = self.lone_no.text()
         conn = conn = mysql.connector.connect(host="localhost", user="root", password="1900340220", database="green")
@@ -304,7 +305,15 @@ class Lone_Collection(QtWidgets.QDialog,Ui_Dialog):
     def getdate(self):
         today = datetime.today()
         self.collect_date.setDate(today)
-
+    def sentto_loneCollection(self):
+        addher1 = self.addhere_no.text()
+        lone_name1 = self.lone_name.text()
+        lone_no1=self.lone_no.text()
+        collect_date=self.collect_date.text()
+        collect_amount = self.collect_ammount.text()
+        Interst_rate = self.Interst_rate.text()
+        tr_type = "Lone Collect"
+        loneInfo.lone_collection(lone_no1,collect_amount,Interst_rate,collect_date,addher1,tr_type,lone_name1)
 
 #*************************************Main*************************************
 app = QtWidgets.QApplication(sys.argv)
