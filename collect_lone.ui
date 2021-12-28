@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>745</width>
-    <height>606</height>
+    <height>618</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -156,7 +156,7 @@
           </widget>
          </item>
          <item row="0" column="1">
-          <widget class="QPushButton" name="collect_btn">
+          <widget class="QPushButton" name="collect_lone_btn">
            <property name="text">
             <string>collect</string>
            </property>

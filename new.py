@@ -9,6 +9,7 @@ import loneInfo
 from MainWindow import Ui_MainWindow
 from PySide2.QtWidgets import(QTableWidget, QTableWidgetItem)
 from collect_lone import Ui_Dialog
+from PrintInvoice import Ui_Dialog1
 from database import *
 from PySide2.QtGui import QIcon
 from updatainformation import *
@@ -269,7 +270,8 @@ class Lone_Collection(QtWidgets.QDialog,Ui_Dialog):
         self.setupUi(self)
         self.find_btn.clicked.connect(self.find)
         self.radioButton.clicked.connect(self.getdate)
-        self.collect_btn.clicked.connect(self.sentto_loneCollection)
+        self.collect_lone_btn.clicked.connect(self.sentto_loneCollection)
+        self.print_btn.clicked.connect(self.callmyinvoice)
     def find(self):
         id_field = self.lone_no.text()
         conn = conn = mysql.connector.connect(host="localhost", user="root", password="1900340220", database="green")
@@ -314,6 +316,17 @@ class Lone_Collection(QtWidgets.QDialog,Ui_Dialog):
         Interst_rate = self.Interst_rate.text()
         tr_type = "Lone Collect"
         loneInfo.lone_collection(lone_no1,collect_amount,Interst_rate,collect_date,addher1,tr_type,lone_name1)
+    def callmyinvoice(self):
+        # app1 = QtWidgets.QApplication(sys.argv)
+        mywin = MYInvoics()
+        mywin.show()
+        mywin.exec_()
+
+class MYInvoics(QtWidgets.QDialog,Ui_Dialog1):
+    def __init__(self):
+        super(MYInvoics, self).__init__()
+        self.setupUi(self)
+
 
 #*************************************Main*************************************
 app = QtWidgets.QApplication(sys.argv)

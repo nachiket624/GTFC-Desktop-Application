@@ -17,7 +17,7 @@ class Ui_Dialog(object):
     def setupUi(self, Dialog):
         if not Dialog.objectName():
             Dialog.setObjectName(u"Dialog")
-        Dialog.resize(745, 606)
+        Dialog.resize(745, 618)
         self.gridLayout_3 = QGridLayout(Dialog)
         self.gridLayout_3.setObjectName(u"gridLayout_3")
         self.gridLayout_2 = QGridLayout()
@@ -109,10 +109,10 @@ class Ui_Dialog(object):
 
         self.gridLayout.addWidget(self.print_btn, 0, 0, 1, 1)
 
-        self.collect_btn = QPushButton(Dialog)
-        self.collect_btn.setObjectName(u"collect_btn")
+        self.collect_lone_btn = QPushButton(Dialog)
+        self.collect_lone_btn.setObjectName(u"collect_lone_btn")
 
-        self.gridLayout.addWidget(self.collect_btn, 0, 1, 1, 1)
+        self.gridLayout.addWidget(self.collect_lone_btn, 0, 1, 1, 1)
 
 
         self.formLayout.setLayout(9, QFormLayout.FieldRole, self.gridLayout)
@@ -189,7 +189,7 @@ class Ui_Dialog(object):
         self.label_6.setText(QCoreApplication.translate("Dialog", u"Amount", None))
         self.label_8.setText(QCoreApplication.translate("Dialog", u"Interst", None))
         self.print_btn.setText(QCoreApplication.translate("Dialog", u"Print Invoice", None))
-        self.collect_btn.setText(QCoreApplication.translate("Dialog", u"collect", None))
+        self.collect_lone_btn.setText(QCoreApplication.translate("Dialog", u"collect", None))
         ___qtablewidgetitem = self.tableWidget.horizontalHeaderItem(0)
         ___qtablewidgetitem.setText(QCoreApplication.translate("Dialog", u"Month", None));
         ___qtablewidgetitem1 = self.tableWidget.horizontalHeaderItem(1)
