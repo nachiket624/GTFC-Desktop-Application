@@ -11,6 +11,21 @@
 from PySide2.QtCore import *
 from PySide2.QtGui import *
 from PySide2.QtWidgets import *
+import mysql.connector
+import os
+username = os.environ.get('db_user')
+userpass = os.environ.get('db_pass')
+def fetchdataFromAddher(addher_no):
+    conn = mysql.connector.connect(host="localhost", user=username, password=userpass, database="green")
+    cur = conn.cursor()
+    query = """select amount,date from transaction_detail where remark = "test" and addher_no = """+str(addher_no)
+    # "select amount,date from transaction_detail where remark = "test" and addher_no = 1234;"
+    cur.execute(query)
+    global userdata
+    for userdata in cur:
+        userdata
+
+
 
 
 class Ui_Dialog1(object):
@@ -50,7 +65,7 @@ class Ui_Dialog1(object):
     # setupUi
 
     def retranslateUi(self, Dialog):
-        fname = "Nachiket "
+        fname = "Nachiket12 "
         Dialog.setWindowTitle(QCoreApplication.translate("Dialog", u"Dialog", None))
         self.Perview_btn.setText(QCoreApplication.translate("Dialog", u"perview", None))
         self.Invoice_print_btn.setText(QCoreApplication.translate("Dialog", u"Print", None))
@@ -71,7 +86,7 @@ class Ui_Dialog1(object):
                         "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; font-weight:600;\">           </span><span style=\" font-size:12pt; font-weight:600; text-decoration: underline;\">SAVING ACCOUNT</span></p>\n"
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:12pt; font-weight:600;\"><br /></p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; font-weight:600;\">DATE			AMOUNT</span></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt;\">1-1-2021		500</span></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt;\">%s		%s</span></p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt;"
                         "\">1-2-2021		500</span></p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt;\">1-3-2021		500</span></p>\n"
@@ -99,6 +114,7 @@ class Ui_Dialog1(object):
 "<p align=\"right\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:11pt; font-weight:600;\">CHECK</span></p>\n"
 "<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px;"
                         " margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt;\"><br /></p>\n"
-"<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt;\"><br /></p></body></html>", None)%(fname))
+"<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt;\"><br /></p></body></html>", None)%(fname,userdata[1],userdata[0]))
     # retranslateUi
 
+fetchdataFromAddher(1234)
