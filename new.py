@@ -12,6 +12,7 @@ from collect_lone import Ui_Dialog
 from PrintInvoice import Ui_Dialog1
 from database import *
 from PySide2.QtGui import QIcon
+from PySide2.QtPrintSupport import QPrinter,QPrintDialog,QPrintPreviewDialog
 from updatainformation import *
 import updatainformation
 # from biodata import Ui_Dialog1
@@ -354,6 +355,27 @@ class MYInvoics(QtWidgets.QDialog,Ui_Dialog1):
     def __init__(self):
         super(MYInvoics, self).__init__()
         self.setupUi(self)
+        self.Invoice_print_btn.clicked.connect(self.print_file)
+        self.Perview_btn.clicked.connect(self.print_preview_dialog)
+
+
+    def print_file(self):
+        printer = QPrinter(QPrinter.HighResolution)
+        diglog = QPrintDialog(printer, self)
+
+        if diglog.exec_() == QPrintDialog.Accepted:
+            self.textEdit.print_(printer)
+
+
+    def print_preview_dialog(self):
+        printer = QPrinter(QPrinter.HighResolution)
+        previewDialog = QPrintPreviewDialog(printer, self)
+        previewDialog.paintRequested.connect(self.printperview)
+        previewDialog.exec_()
+
+
+    def printperview(self, printer):
+        self.textEdit.print_(printer)
 
 
 #*************************************Main*************************************
