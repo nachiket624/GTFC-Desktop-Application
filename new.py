@@ -126,42 +126,49 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.stackedWidget.setCurrentWidget(self.UpdateInformation)
         self.search.clicked.connect(self.searchfun)
     def searchfun(self):
-        id = self.id_2.text()
-        conn = mysql.connector.connect(host="localhost", user=username, password=userpass, database="green")
-        cur = conn.cursor()
-        cur.execute("select * from memberinfo where id = "+id)
-        for data in cur:
-          data
-        fname = data[1]
-        mname = data[2]
-        lname = data[3]
-        bgroup = data[4]
-        nomine = data[5]
-        dob = data[6]
-        doj =data[7]
-        addherNo = data[8]
-        account = data[9]
-        mobile1 = data[10]
-        mobile2 = data[11]
-        email = data[12]
-        opnningBalance =data[13]
+        try:
+            id = self.id_2.text()
+            conn = mysql.connector.connect(host="localhost", user=username, password=userpass, database="green")
+            cur = conn.cursor()
+            cur.execute("select * from memberinfo where id = "+id)
+            for data in cur:
+              data
+            fname = data[1]
+            mname = data[2]
+            lname = data[3]
+            bgroup = data[4]
+            nomine = data[5]
+            dob = data[6]
+            doj =data[7]
+            addherNo = data[8]
+            account = data[9]
+            mobile1 = data[10]
+            mobile2 = data[11]
+            email = data[12]
+            opnningBalance =data[13]
 
-        # ? @@@@@@@@@@@ setting value to line edit @@@@@@@@@@@
-        self.firstname_2.setText(fname) # fname is line edit object name
-        self.middlename_2.setText(mname)
-        self.lastname_2.setText(lname)
-        self.bloodgroup_2.setCurrentText(bgroup)
-        self.nomine_2.setText(nomine)
-        self.dob_2.setDate(dob)
-        self.doj_2.setDate(doj)
-        self.addhernumber_2.setText(str(addherNo))
-        self.accountno_2.setText(account)
-        self.mobile1_2.setText(str(mobile1))
-        self.mobile2_2.setText(str(mobile2))
-        self.email_2.setText(email)
-        self.balance_2.setText(str(opnningBalance))
+            # ? @@@@@@@@@@@ setting value to line edit @@@@@@@@@@@
+            self.firstname_2.setText(fname) # fname is line edit object name
+            self.middlename_2.setText(mname)
+            self.lastname_2.setText(lname)
+            self.bloodgroup_2.setCurrentText(bgroup)
+            self.nomine_2.setText(nomine)
+            self.dob_2.setDate(dob)
+            self.doj_2.setDate(doj)
+            self.addhernumber_2.setText(str(addherNo))
+            self.accountno_2.setText(account)
+            self.mobile1_2.setText(str(mobile1))
+            self.mobile2_2.setText(str(mobile2))
+            self.email_2.setText(email)
+            self.balance_2.setText(str(opnningBalance))
 
-        self.addinfo_2.clicked.connect(self.getmembervalue)
+            self.addinfo_2.clicked.connect(self.getmembervalue)
+        except Exception as e:
+            error_message = QtWidgets.QErrorMessage(self)
+            error_message.setWindowTitle("Input device error")
+            error_message.showMessage("वैध आयडी एंटर करा")
+            print("Plase enter valid ID")
+
         # ? @@@@@@@@@@@ Updataing value from line edit @@@@@@@@@@@
     def getmembervalue(self):
       #? @@@@@@@@@@@@@@@@@@@@@@@@@@Assing Value to line edit @@@@@@@@@@@@@@@@@@@@@@@@@@
@@ -188,6 +195,27 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         cur.close()
         conn.commit()
         conn.close()
+        # self.accountno_2.clear(mobile2_2,mobile1_2)
+        self.cleartext()
+    def cleartext(self, ):
+        self.id_2.clear()
+        self.firstname_2.clear()
+        self.middlename_2.clear()
+        self.lastname_2.clear()
+        self.bloodgroup_2.setCurrentIndex(0)
+        self.nomine_2.clear()
+        self.dob_2.clearMinimumDate()
+        self.doj_2.clearMinimumDate()
+        self.addhernumber_2.clear()
+        self.accountno_2.clear()
+        self.mobile1_2.clear()
+        self.mobile2_2.clear()
+        self.email_2.clear()
+        self.balance_2.clear()
+        self.displaymeassage()
+
+
+
     # ! ***************************** Manage  give lone Function *****************************
     def lonefunction(self):
 
