@@ -82,12 +82,14 @@ def lone_collection(lone_no,amount,instrest,collectio_date,addher,tr_type,name):
     a3 = str(collectio_date)
     a4 = str(amount)
     a5 = tr_type
+    a6 = str(lone_no)
+    a7 = str(instrest)
     conn = mysql.connector.connect(host="localhost", user=username, password=userpass, database="green")
     cur = conn.cursor()
-    trn_data = [trn_no, a1, a2, a3, a4, a5]
+    trn_data = [trn_no, a1, a2, a3, a4, a5,a6,a7]
     print(trn_data)
     cur.execute(
-        "insert into transaction_detail (transaction_no, name, addher_no, date, amount, remark) values(%s,%s,%s,%s,%s,%s)",
+        "insert into transaction_detail (transaction_no, name, addher_no, date, amount, remark,lone_no,Intrest) values(%s,%s,%s,%s,%s,%s,%s,%s)",
         trn_data)
     cur.close()
     conn.commit()

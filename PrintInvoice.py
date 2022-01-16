@@ -11,22 +11,78 @@
 from PySide2.QtCore import *
 from PySide2.QtGui import *
 from PySide2.QtWidgets import *
-import mysql.connector
 import os
+import mysql.connector
 username = os.environ.get('db_user')
 userpass = os.environ.get('db_pass')
-def fetchdataFromAddher(addher_no):
+from PySide2 import QtWidgets
+from PySide2.QtWidgets import QMessageBox
+username = os.environ.get('db_user')
+userpass = os.environ.get('db_pass')
+def setvaiablefunction(loneNumber):
+    lone_no = loneNumber
+    loen_data(lone_no)
+
+def loen_data(lone_no):
+    global lastlone0,lastlone1,lastlone2,lastlone3,lastlone4
+    global  lastlonedate0,lastlonedate1,lastlonedate2,lastlonedate3,lastlonedate4
     conn = mysql.connector.connect(host="localhost", user=username, password=userpass, database="green")
     cur = conn.cursor()
-    query = """select amount,date from transaction_detail where remark = "test" and addher_no = """+str(addher_no)
+    query = """select amount,date from transaction_detail where remark = "Saving" and lone_no = """+str(lone_no)
     # "select amount,date from transaction_detail where remark = "test" and addher_no = 1234;"
     cur.execute(query)
-    global userdata
-    for userdata in cur:
-        userdata
+    lastfivelone = cur.fetchmany(5)
+    lastlone = ["-","-","-","-","-"]
+    lastlone11 = []
+    lastdate11 =[]
+    lastdate = ["-","-","-","-","-"]
+    for count,lastfiveloneammount in enumerate (lastfivelone):
+        amount = lastfiveloneammount[0]
+        lastlone11.append(amount)
+        lastlone[count] = lastlone11[count]
+        date = (lastfiveloneammount[1])
+        lastdate11.append(date)
+        lastdate[count] = lastdate11[count]
+
+    print(lastlone)
+    print(lastdate)
+
+    # ! last five lone transaction amount
+    lastlone0 = lastlone[0]
+    lastlone1 = lastlone[1]
+    lastlone2 = lastlone[2]
+    lastlone3 = lastlone[3]
+    lastlone4 = lastlone[4]
+    # ! last five lone transaction date
+    lastlonedate0 = lastdate[0]
+    lastlonedate1 = lastdate[1]
+    lastlonedate2 = lastdate[2]
+    lastlonedate3 = lastdate[3]
+    lastlonedate4 = lastdate[4]
+
+def total_saving(addher_no):
+        global totalSaving
+        conn = mysql.connector.connect(host="localhost", user=username, password=userpass, database="green")
+        cur = conn.cursor()
+        cur.execute("""select opning_balance from memberinfo where addherNo = """+str(addher_no))
+        totalSaving1=cur.fetchone()
+        totalSaving = totalSaving1[0]
+        print(type(totalSaving))
+        cur.close()
+        conn.close()
 
 
-
+def saving_account(addher_no,remark):
+    conn = mysql.connector.connect(host="localhost", user=username, password=userpass, database="green")
+    cur = conn.cursor()
+    cur.execute(f"""select date,amount from transaction_detail where remark =  "{remark}" and addher_no = "{str(addher_no)}"  order By date desc""")
+    # print(f"""select date,amount from transaction_detail where remark =  "{remark}" and addher_no = "{str(addher_no)}"  order By date desc""")
+    transactionDetail = cur.fetchall()
+    print(transactionDetail)
+    cur.close()
+    conn.close()
+    print(transactionDetail)
+    return transactionDetail
 
 class Ui_Dialog1(object):
     def setupUi(self, Dialog):
@@ -65,7 +121,7 @@ class Ui_Dialog1(object):
     # setupUi
 
     def retranslateUi(self, Dialog):
-        fname = "Nachiket12 "
+        fname = "Nachiket"
         Dialog.setWindowTitle(QCoreApplication.translate("Dialog", u"Dialog", None))
         self.Perview_btn.setText(QCoreApplication.translate("Dialog", u"perview", None))
         self.Invoice_print_btn.setText(QCoreApplication.translate("Dialog", u"Print", None))
@@ -79,21 +135,21 @@ class Ui_Dialog1(object):
 "<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-"
                         "size:12pt; font-weight:600;\"><br /></p>\n"
 "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; font-weight:600;\">Invoice No:</span><span style=\" font-size:12pt;\"> 00001</span></p>\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; font-weight:600;\">Name:</span><span style=\" font-size:12pt;\">  %s Parjane</span></p>\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; font-weight:600;\">Name:</span><span style=\" font-size:12pt;\"> %s  Parjane</span></p>\n"
 "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; font-weight:600;\">Addher No:</span><span style=\" font-size:12pt;\"> 123456789012</span></p>\n"
 "<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:12pt;\"><br /></p>\n"
 ""
                         "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; font-weight:600;\">           </span><span style=\" font-size:12pt; font-weight:600; text-decoration: underline;\">SAVING ACCOUNT</span></p>\n"
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:12pt; font-weight:600;\"><br /></p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; font-weight:600;\">DATE			AMOUNT</span></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt;\">%s		%s</span></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt;\">%s		        %s</span></p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt;"
-                        "\">1-2-2021		500</span></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt;\">1-3-2021		500</span></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt;\">1-4-2021		500</span></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt;\">1-5-2021		500</span></p>\n"
+                        "\">%s		        %s</span></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt;\">%s		        %s</span></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt;\">%s		        %s</span></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt;\">%s		        %s</span></p>\n"
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:12pt;\"><br /></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; font-weight:600;\">TOTAL SAVING:</span><span style=\" font-size:12pt;\">  12000</span></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; font-weight:600;\">TOTAL SAVING:</span><span style=\" font-size:12pt;\">  %s</span></p>\n"
 "<p style=\"-qt-parag"
                         "raph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:12pt;\"><br /></p>\n"
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:12pt;\"><br /></p>\n"
@@ -114,7 +170,11 @@ class Ui_Dialog1(object):
 "<p align=\"right\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:11pt; font-weight:600;\">CHECK</span></p>\n"
 "<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px;"
                         " margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt;\"><br /></p>\n"
-"<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt;\"><br /></p></body></html>", None)%(fname,userdata[1],userdata[0]))
+"<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt;\"><br /></p></body></html>", None)%(fname,lastlone0,lastlonedate0,lastlone1,lastlonedate1,lastlone2,lastlonedate2,lastlone3,lastlonedate3,lastlone4,lastlonedate4,totalSaving))
     # retranslateUi
 
-fetchdataFromAddher(1234)
+# loen_data(1)
+# print(lastlone0)
+
+# total_saving(1234)
+# saving_account(12345,"Saving")

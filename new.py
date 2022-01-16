@@ -3,6 +3,8 @@ import os
 from datetime import date
 import datetime
 from PySide2 import QtWidgets
+
+import PrintInvoice
 import dashboard_rc
 import database
 import loneInfo
@@ -313,6 +315,9 @@ class Lone_Collection(QtWidgets.QDialog,Ui_Dialog):
         conn.close()
         self.lone_name.setText(str(data[0]))
         self.addhere_no.setText(str(data[1]))
+        addherNo = str(data[1])
+        PrintInvoice.total_saving(addherNo)
+        PrintInvoice.loen_data(id_field)
         self.getdata()
     def getdata(self):
         id_field = self.lone_no.text()
@@ -320,7 +325,7 @@ class Lone_Collection(QtWidgets.QDialog,Ui_Dialog):
         cur = conn.cursor()
         cur.execute("""select * from lone_info where lone_no = """+id_field)
         for data in cur:
-            data
+            1
         print(data)
         print("Type",type(data))
         row = 0

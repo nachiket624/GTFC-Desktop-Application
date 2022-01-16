@@ -409,6 +409,13 @@ class Ui_MainWindow(object):
 
         self.gridLayout_23.addWidget(self.give_lone, 1, 1, 1, 1)
 
+        self.add_saving = QPushButton(self.pageManage)
+        self.add_saving.setObjectName(u"add_saving")
+        sizePolicy1.setHeightForWidth(self.add_saving.sizePolicy().hasHeightForWidth())
+        self.add_saving.setSizePolicy(sizePolicy1)
+
+        self.gridLayout_23.addWidget(self.add_saving, 1, 2, 1, 1)
+
 
         self.gridLayout_6.addLayout(self.gridLayout_23, 1, 2, 1, 1)
 
@@ -1349,7 +1356,7 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.stackedWidget.setCurrentIndex(0)
+        self.stackedWidget.setCurrentIndex(2)
         self.dashboard_btn.setDefault(False)
         self.Manage_btn.setDefault(False)
         self.view_btn.setDefault(False)
@@ -1450,6 +1457,7 @@ class Ui_MainWindow(object):
         self.remove_member_btn.setText(QCoreApplication.translate("MainWindow", u"Remove Member", None))
         self.collect_lone_btn.setText(QCoreApplication.translate("MainWindow", u"Collect Lone", None))
         self.give_lone.setText(QCoreApplication.translate("MainWindow", u"Give Lone", None))
+        self.add_saving.setText(QCoreApplication.translate("MainWindow", u"Add Saving", None))
         self.groupBox_4.setTitle(QCoreApplication.translate("MainWindow", u"Basic information", None))
         self.label_40.setText(QCoreApplication.translate("MainWindow", u"ID", None))
         self.label_8.setText(QCoreApplication.translate("MainWindow", u"First Name", None))
