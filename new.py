@@ -64,8 +64,8 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
     def WinManage(self):
         self.stackedWidget.setCurrentWidget(self.pageManage)
-        self.dashboard_btn.setStyleSheet('* {border: none;background-color: rgba(13, 9, 36,0);border-radius: 13;color: rgb(0, 0, 0);}')
-        self.Manage_btn.setStyleSheet('* {background-color: rgb(0, 0, 0);color: rgb(218, 145, 0);}')
+        self.dashboard_btn.setStyleSheet('* {border: none;background-color: rgba(13, 9, 36,0);border-radius: 13;color: rgb(0, 0, 0);border-radius: 13;}')
+        self.Manage_btn.setStyleSheet('* {background-color: rgb(0, 0, 0);color: rgb(218, 145, 0);border-radius: 13;}')
         self.update_member_btn.clicked.connect(self.updatamember)
         self.give_lone.clicked.connect(self.giveloneerr)
         self.collect_lone_btn.clicked.connect(self.showlonedig)
@@ -85,9 +85,9 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.stackedWidget.setCurrentWidget(self.dashboard_page)
         # working_field.setStyleSheet('* {background-color: red; border: 0px;}');
         # , border: none;, border - radius: 13;, color: rgb(0, 0, 0)
-        self.Manage_btn.setStyleSheet('* {border: none;background-color: rgba(13, 9, 36,0);border-radius: 13;color: rgb(0, 0, 0);}')
+        self.Manage_btn.setStyleSheet('* {border: none;background-color: rgba(13, 9, 36,0);border-radius: 13;color: rgb(0, 0, 0);border-radius: 13;}')
 
-        self.dashboard_btn.setStyleSheet('* {background-color: rgb(0, 0, 0);color: rgb(218, 145, 0);}')
+        self.dashboard_btn.setStyleSheet('* {background-color: rgb(0, 0, 0);color: rgb(218, 145, 0);border-radius: 13;}')
 #  ******************************************************* Manage *******************************************************
 
 
@@ -272,11 +272,23 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             tr_type = "Lone Approve"
             database.getdatalone(lone_no,name,addher,amount,interast,totalAmounttopay,totalIntersetpay,totalintersetamount)
             loneInfo.setlone(lone_no,amount,date1,addher,interast,name,tr_type)
+            self.give_lone_clear()
     def giveloneerr(self):
         self.stackedWidget.setCurrentWidget(self.pagelone)
         lone_no1 = lastlonen()
         lone_no = self.loneno.setText(str(lone_no1))
         self.approve_btn.clicked.connect(self.lonefunction)
+    def give_lone_clear(self):
+        self.loneno.clear()
+        self.name.clear()
+        self.addherno.clear()
+        self.amount.clear()
+        self.intrest_rate.setCurrentIndex(0)
+        self.checkno.clear()
+        self.date1_1.setDate(QDate(2000,1,1))
+        self.jam1_2.clear()
+        self.jam1_3.clear()
+        self.remark_2.setCurrentIndex(0)
     #  ******************************************************* View *******************************************************
 
     # ! ***************************** View Information table *****************************
@@ -342,15 +354,14 @@ class Lone_Collection(QtWidgets.QDialog,Ui_Dialog):
             self.lone_name.setText(str(data[0]))
             self.addhere_no.setText(str(data[1]))
             addherNo = str(data[1])
-
+            PrintInvoice.total_saving(addherNo)
+            PrintInvoice.loen_data(addherNo)
             self.getdata()
         except Exception as ee:
             error_message = QtWidgets.QErrorMessage(self)
             error_message.setWindowTitle("Input Error")
             error_message.showMessage("Please Enter Valid Lone Number")
-        finally:
-            PrintInvoice.total_saving(addherNo)
-            PrintInvoice.loen_data(id_field)
+
 
     def getdata(self):
         id_field = self.lone_no.text()
@@ -363,8 +374,8 @@ class Lone_Collection(QtWidgets.QDialog,Ui_Dialog):
         print("Type",type(data))
         row = 0
         self.tableWidget.setRowCount(12)
-        data1 = 4
-        data2 = 5
+        data1 = 5
+        data2 = 6
         for index in range(12):
             self.tableWidget.setItem(index, 2, QtWidgets.QTableWidgetItem(str(data[data1])))
             self.tableWidget.setItem(index, 3, QtWidgets.QTableWidgetItem(str(data[data2])))
@@ -477,7 +488,16 @@ class Saving_account(QtWidgets.QDialog,Ui_Dialog2):
         cur.close()
         conn.commit()
         conn.close()
+        self.saving_transaction_detail()
         self.clearfiled()
+    def saving_transaction_detail(self):
+        stname = self.sname.text()
+        staddher = self.saddher.text();
+        stdate = self.sdate.text();
+        stamount = self.samount.text()
+        tr_type = "Saving"
+        loneInfo.saving_account(stname,staddher,stdate,stamount,tr_type)
+
     def clearfiled(self):
         self.error_4.clear()
         self.saddher.clear()

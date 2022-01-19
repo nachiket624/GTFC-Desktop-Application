@@ -23,12 +23,12 @@ def setvaiablefunction(loneNumber):
     lone_no = loneNumber
     loen_data(lone_no)
 
-def loen_data(lone_no):
+def loen_data(addher):
     global lastlone0,lastlone1,lastlone2,lastlone3,lastlone4
     global  lastlonedate0,lastlonedate1,lastlonedate2,lastlonedate3,lastlonedate4
     conn = mysql.connector.connect(host="localhost", user=username, password=userpass, database="green")
     cur = conn.cursor()
-    query = """select amount,date from transaction_detail where remark = "Saving" and lone_no = """+str(lone_no)
+    query = """select amount,date from transaction_detail where remark = "Saving" and addher_no = """+str(addher)
     # "select amount,date from transaction_detail where remark = "test" and addher_no = 1234;"
     cur.execute(query)
     lastfivelone = cur.fetchmany(5)
@@ -60,6 +60,8 @@ def loen_data(lone_no):
     lastlonedate3 = lastdate[3]
     lastlonedate4 = lastdate[4]
 
+def lone_interset():
+    pass
 def total_saving(addher_no):
         global totalSaving
         conn = mysql.connector.connect(host="localhost", user=username, password=userpass, database="green")
@@ -70,6 +72,7 @@ def total_saving(addher_no):
         print(type(totalSaving))
         cur.close()
         conn.close()
+        return totalSaving
 
 
 def saving_account(addher_no,remark):
@@ -170,8 +173,8 @@ class Ui_Dialog1(object):
 "<p align=\"right\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:11pt; font-weight:600;\">CHECK</span></p>\n"
 "<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px;"
                         " margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt;\"><br /></p>\n"
-"<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt;\"><br /></p></body></html>", None)%(fname,lastlone0,lastlonedate0,lastlone1,lastlonedate1,lastlone2,lastlonedate2,lastlone3,lastlonedate3,lastlone4,lastlonedate4,totalSaving))
-    # retranslateUi
+"<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt;\"><br /></p></body></html>", None)%(fname,lastlonedate0,lastlone0,lastlonedate1,lastlone1,lastlonedate2,lastlone2,lastlonedate3,lastlone3,lastlonedate4,lastlone4,totalSaving))
+    retranslateUi
 
 # loen_data(1)
 # print(lastlone0)

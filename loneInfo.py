@@ -87,13 +87,28 @@ def lone_collection(lone_no,amount,instrest,collectio_date,addher,tr_type,name):
     conn = mysql.connector.connect(host="localhost", user=username, password=userpass, database="green")
     cur = conn.cursor()
     trn_data = [trn_no, a1, a2, a3, a4, a5,a6,a7]
-    print(trn_data)
     cur.execute(
         "insert into transaction_detail (transaction_no, name, addher_no, date, amount, remark,lone_no,Intrest) values(%s,%s,%s,%s,%s,%s,%s,%s)",
         trn_data)
     cur.close()
     conn.commit()
+    conn.close()
 
+  # ********************* this function call by add Saving dialog
+def saving_account(name,addher_no,date,amount,remark):
+    trn_no = database.count_transaction_detail()
+    a1 = name
+    a2 = addher_no
+    a3 = date
+    a4 = amount
+    a5 = remark
+    stdata = [trn_no,a1,a2,a3,a4,a5]
+    conn = mysql.connector.connect(host="localhost", user=username, password=userpass, database="green")
+    cur = conn.cursor()
+    cur.execute("insert into transaction_detail (transaction_no, name, addher_no, date, amount, remark) values(%s,%s,%s,%s,%s,%s)",stdata)
+    cur.close()
+    conn.commit()
+    conn.close()
 
 # lone_collection(6,9405403021,5,"2001/1/1")
 

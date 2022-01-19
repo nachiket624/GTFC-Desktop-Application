@@ -13,6 +13,7 @@ from PySide2.QtGui import *
 from PySide2.QtWidgets import *
 
 import dashboard_rc
+import manage_rc
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -378,6 +379,10 @@ class Ui_MainWindow(object):
         font1.setWeight(75)
         self.new_member_btn.setFont(font1)
         self.new_member_btn.setStyleSheet(u"")
+        icon = QIcon()
+        icon.addFile(u":/manage_icon/image/manage/AddMember.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.new_member_btn.setIcon(icon)
+        self.new_member_btn.setIconSize(QSize(150, 150))
 
         self.gridLayout_23.addWidget(self.new_member_btn, 0, 0, 1, 1)
 
@@ -385,6 +390,10 @@ class Ui_MainWindow(object):
         self.update_member_btn.setObjectName(u"update_member_btn")
         sizePolicy1.setHeightForWidth(self.update_member_btn.sizePolicy().hasHeightForWidth())
         self.update_member_btn.setSizePolicy(sizePolicy1)
+        icon1 = QIcon()
+        icon1.addFile(u":/manage_icon/image/manage/Update Member.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.update_member_btn.setIcon(icon1)
+        self.update_member_btn.setIconSize(QSize(150, 150))
 
         self.gridLayout_23.addWidget(self.update_member_btn, 0, 2, 1, 1)
 
@@ -392,6 +401,10 @@ class Ui_MainWindow(object):
         self.remove_member_btn.setObjectName(u"remove_member_btn")
         sizePolicy1.setHeightForWidth(self.remove_member_btn.sizePolicy().hasHeightForWidth())
         self.remove_member_btn.setSizePolicy(sizePolicy1)
+        icon2 = QIcon()
+        icon2.addFile(u":/manage_icon/image/manage/remove member - Copy.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.remove_member_btn.setIcon(icon2)
+        self.remove_member_btn.setIconSize(QSize(150, 150))
 
         self.gridLayout_23.addWidget(self.remove_member_btn, 0, 1, 1, 1)
 
@@ -1185,9 +1198,9 @@ class Ui_MainWindow(object):
 "QPushButton:pressed {\n"
 "	background-color: rgb(0, 0, 0);\n"
 "}")
-        icon = QIcon()
-        icon.addFile(u":/Dashboard/image/dashboard.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.dashboard_btn.setIcon(icon)
+        icon3 = QIcon()
+        icon3.addFile(u":/icon/image/dashboard.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.dashboard_btn.setIcon(icon3)
         self.dashboard_btn.setIconSize(QSize(35, 40))
         self.dashboard_btn.setAutoDefault(False)
         self.dashboard_btn.setFlat(False)
@@ -1202,7 +1215,7 @@ class Ui_MainWindow(object):
         self.Manage_btn.setObjectName(u"Manage_btn")
         sizePolicy1.setHeightForWidth(self.Manage_btn.sizePolicy().hasHeightForWidth())
         self.Manage_btn.setSizePolicy(sizePolicy1)
-        self.Manage_btn.setMinimumSize(QSize(100, 40))
+        self.Manage_btn.setMinimumSize(QSize(120, 50))
         self.Manage_btn.setMaximumSize(QSize(100, 50))
         self.Manage_btn.setFont(font5)
         self.Manage_btn.setLayoutDirection(Qt.LeftToRight)
@@ -1221,6 +1234,10 @@ class Ui_MainWindow(object):
 "QPushButton:pressed {\n"
 "	background-color: rgb(0, 0, 0);\n"
 "}")
+        icon4 = QIcon()
+        icon4.addFile(u":/icon/image/manage.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.Manage_btn.setIcon(icon4)
+        self.Manage_btn.setIconSize(QSize(40, 40))
         self.Manage_btn.setAutoDefault(False)
         self.Manage_btn.setFlat(False)
 
@@ -1234,7 +1251,7 @@ class Ui_MainWindow(object):
         self.view_btn.setObjectName(u"view_btn")
         sizePolicy1.setHeightForWidth(self.view_btn.sizePolicy().hasHeightForWidth())
         self.view_btn.setSizePolicy(sizePolicy1)
-        self.view_btn.setMinimumSize(QSize(100, 40))
+        self.view_btn.setMinimumSize(QSize(120, 50))
         self.view_btn.setMaximumSize(QSize(100, 50))
         self.view_btn.setFont(font5)
         self.view_btn.setLayoutDirection(Qt.LeftToRight)
@@ -1253,6 +1270,10 @@ class Ui_MainWindow(object):
 "QPushButton:pressed {\n"
 "	background-color: rgb(0, 0, 0);\n"
 "}")
+        icon5 = QIcon()
+        icon5.addFile(u":/icon/image/icons8-view-100.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.view_btn.setIcon(icon5)
+        self.view_btn.setIconSize(QSize(40, 40))
         self.view_btn.setAutoDefault(False)
         self.view_btn.setFlat(False)
 
@@ -1266,7 +1287,7 @@ class Ui_MainWindow(object):
         self.pushButton_8.setObjectName(u"pushButton_8")
         sizePolicy1.setHeightForWidth(self.pushButton_8.sizePolicy().hasHeightForWidth())
         self.pushButton_8.setSizePolicy(sizePolicy1)
-        self.pushButton_8.setMinimumSize(QSize(100, 40))
+        self.pushButton_8.setMinimumSize(QSize(120, 50))
         self.pushButton_8.setMaximumSize(QSize(100, 40))
         self.pushButton_8.setFont(font5)
         self.pushButton_8.setLayoutDirection(Qt.LeftToRight)
@@ -1285,6 +1306,10 @@ class Ui_MainWindow(object):
 "QPushButton:pressed {\n"
 "	background-color: rgb(0, 0, 0);\n"
 "}")
+        icon6 = QIcon()
+        icon6.addFile(u":/icon/image/logout.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.pushButton_8.setIcon(icon6)
+        self.pushButton_8.setIconSize(QSize(40, 40))
         self.pushButton_8.setAutoDefault(False)
         self.pushButton_8.setFlat(False)
 

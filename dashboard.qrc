@@ -1,9 +1,14 @@
 <RCC>
-  <qresource prefix="Dashboard">
+  <qresource prefix="icon">
     <file>image/dashboard.png</file>
+    <file>image/icons8-view-100.png</file>
+    <file>image/Image 1.png</file>
+    <file>image/logout.png</file>
+    <file>image/manage.png</file>
     <file>image/save-money.png</file>
     <file>image/savings.png</file>
     <file>image/sum.png</file>
     <file>image/team.png</file>
+    <file>image/view.png</file>
   </qresource>
 </RCC>

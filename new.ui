@@ -608,6 +608,16 @@ background-color:qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0.988636, stop
                <property name="text">
                 <string>New Member</string>
                </property>
+               <property name="icon">
+                <iconset resource="manage.qrc">
+                 <normaloff>:/manage_icon/image/manage/AddMember.png</normaloff>:/manage_icon/image/manage/AddMember.png</iconset>
+               </property>
+               <property name="iconSize">
+                <size>
+                 <width>150</width>
+                 <height>150</height>
+                </size>
+               </property>
               </widget>
              </item>
              <item row="0" column="2">
@@ -621,6 +631,16 @@ background-color:qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0.988636, stop
                <property name="text">
                 <string>Update Member</string>
                </property>
+               <property name="icon">
+                <iconset resource="manage.qrc">
+                 <normaloff>:/manage_icon/image/manage/Update Member.png</normaloff>:/manage_icon/image/manage/Update Member.png</iconset>
+               </property>
+               <property name="iconSize">
+                <size>
+                 <width>150</width>
+                 <height>150</height>
+                </size>
+               </property>
               </widget>
              </item>
              <item row="0" column="1">
@@ -633,6 +653,16 @@ background-color:qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0.988636, stop
                </property>
                <property name="text">
                 <string>Remove Member</string>
+               </property>
+               <property name="icon">
+                <iconset resource="manage.qrc">
+                 <normaloff>:/manage_icon/image/manage/remove member - Copy.png</normaloff>:/manage_icon/image/manage/remove member - Copy.png</iconset>
+               </property>
+               <property name="iconSize">
+                <size>
+                 <width>150</width>
+                 <height>150</height>
+                </size>
                </property>
               </widget>
              </item>
@@ -2197,7 +2227,7 @@ QPushButton:pressed {
            </property>
            <property name="icon">
             <iconset resource="dashboard.qrc">
-             <normaloff>:/Dashboard/image/dashboard.png</normaloff>:/Dashboard/image/dashboard.png</iconset>
+             <normaloff>:/icon/image/dashboard.png</normaloff>:/icon/image/dashboard.png</iconset>
            </property>
            <property name="iconSize">
             <size>
@@ -2239,8 +2269,8 @@ QPushButton:pressed {
            </property>
            <property name="minimumSize">
             <size>
-             <width>100</width>
-             <height>40</height>
+             <width>120</width>
+             <height>50</height>
             </size>
            </property>
            <property name="maximumSize">
@@ -2284,6 +2314,16 @@ QPushButton:pressed {
            <property name="text">
             <string>Manage</string>
            </property>
+           <property name="icon">
+            <iconset resource="dashboard.qrc">
+             <normaloff>:/icon/image/manage.png</normaloff>:/icon/image/manage.png</iconset>
+           </property>
+           <property name="iconSize">
+            <size>
+             <width>40</width>
+             <height>40</height>
+            </size>
+           </property>
            <property name="autoDefault">
             <bool>false</bool>
            </property>
@@ -2318,8 +2358,8 @@ QPushButton:pressed {
            </property>
            <property name="minimumSize">
             <size>
-             <width>100</width>
-             <height>40</height>
+             <width>120</width>
+             <height>50</height>
             </size>
            </property>
            <property name="maximumSize">
@@ -2363,6 +2403,16 @@ QPushButton:pressed {
            <property name="text">
             <string>View</string>
            </property>
+           <property name="icon">
+            <iconset resource="dashboard.qrc">
+             <normaloff>:/icon/image/icons8-view-100.png</normaloff>:/icon/image/icons8-view-100.png</iconset>
+           </property>
+           <property name="iconSize">
+            <size>
+             <width>40</width>
+             <height>40</height>
+            </size>
+           </property>
            <property name="autoDefault">
             <bool>false</bool>
            </property>
@@ -2397,8 +2447,8 @@ QPushButton:pressed {
            </property>
            <property name="minimumSize">
             <size>
-             <width>100</width>
-             <height>40</height>
+             <width>120</width>
+             <height>50</height>
             </size>
            </property>
            <property name="maximumSize">
@@ -2441,6 +2491,16 @@ QPushButton:pressed {
            </property>
            <property name="text">
             <string>Exit</string>
+           </property>
+           <property name="icon">
+            <iconset resource="dashboard.qrc">
+             <normaloff>:/icon/image/logout.png</normaloff>:/icon/image/logout.png</iconset>
+           </property>
+           <property name="iconSize">
+            <size>
+             <width>40</width>
+             <height>40</height>
+            </size>
            </property>
            <property name="autoDefault">
             <bool>false</bool>
@@ -2539,6 +2599,7 @@ QPushButton:pressed {
  </tabstops>
  <resources>
   <include location="dashboard.qrc"/>
+  <include location="manage.qrc"/>
  </resources>
  <connections/>
 </ui>
