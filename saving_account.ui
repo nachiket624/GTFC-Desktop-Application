@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Dialog</class>
+ <widget class="QDialog" name="Dialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>533</width>
+    <height>469</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">
+QDialog#Dialog{
+	background-color: qlineargradient(spread:pad, x1:0.18408, y1:0.5, x2:0.995, y2:0.943, stop:0 rgba(141, 210, 12, 255), stop:1 rgba(255, 255, 255, 255))
+}
+QLineEdit{
+border: 2px  solid rgb(112, 112, 112);
+border-radius:10px;
+color:#FFF;
+padding-left:20px;
+padding-right:20px;
+background-color:rgba(170, 255, 127,100);
+}
+QLineEdit{
+	font: 75 12pt &quot;Verdana&quot;;
+color:rgb(255, 255, 255)
+}
+</string>
+  </property>
+  <widget class="QLabel" name="snamelabel_2">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>390</y>
+     <width>131</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLabel{
+	font: 75 14pt &quot;Arial&quot;;
+}</string>
+   </property>
+   <property name="text">
+    <string>Total Saving</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="member_total_saving">
+   <property name="geometry">
+    <rect>
+     <x>150</x>
+     <y>390</y>
+     <width>151</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 75 italic 12pt &quot;Verdana&quot;;
+color:rgb(255, 122, 61);</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="error_4">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>290</y>
+     <width>441</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 10pt &quot;Verdana&quot;;
+color:rgb(0, 102, 255)</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>12</x>
+     <y>31</y>
+     <width>71</width>
+     <height>19</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLabel{
+	font: 75 14pt &quot;Arial&quot;;
+}</string>
+   </property>
+   <property name="text">
+    <string>Name</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="sname">
+   <property name="geometry">
+    <rect>
+     <x>160</x>
+     <y>20</y>
+     <width>351</width>
+     <height>40</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>50</width>
+     <height>40</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>500</width>
+     <height>16777215</height>
+    </size>
+   </property>
+   <property name="styleSheet">
+    <string notr="true"/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_2">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>130</y>
+     <width>121</width>
+     <height>19</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLabel{
+	font: 75 14pt &quot;Arial&quot;;
+}</string>
+   </property>
+   <property name="text">
+    <string>Addher No</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="saddher">
+   <property name="geometry">
+    <rect>
+     <x>160</x>
+     <y>120</y>
+     <width>351</width>
+     <height>40</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>50</width>
+     <height>40</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>500</width>
+     <height>16777215</height>
+    </size>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_3">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>180</y>
+     <width>71</width>
+     <height>19</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLabel{
+	font: 75 14pt &quot;Arial&quot;;
+}</string>
+   </property>
+   <property name="text">
+    <string>Date</string>
+   </property>
+  </widget>
+  <widget class="QDateEdit" name="sdate">
+   <property name="geometry">
+    <rect>
+     <x>160</x>
+     <y>170</y>
+     <width>241</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>200</width>
+     <height>30</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>300</width>
+     <height>16777215</height>
+    </size>
+   </property>
+   <property name="displayFormat">
+    <string>yyyy/M/d</string>
+   </property>
+   <property name="calendarPopup">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QLabel" name="snamelabel">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>250</y>
+     <width>111</width>
+     <height>19</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLabel{
+	font: 75 14pt &quot;Arial&quot;;
+}</string>
+   </property>
+   <property name="text">
+    <string>Amount</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="samount">
+   <property name="geometry">
+    <rect>
+     <x>160</x>
+     <y>240</y>
+     <width>341</width>
+     <height>40</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>150</width>
+     <height>40</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>500</width>
+     <height>16777215</height>
+    </size>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="sfind_btn">
+   <property name="geometry">
+    <rect>
+     <x>190</x>
+     <y>70</y>
+     <width>101</width>
+     <height>28</height>
+    </rect>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>120</width>
+     <height>40</height>
+    </size>
+   </property>
+   <property name="text">
+    <string>Find</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="scollect_btn">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>330</y>
+     <width>151</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Collect</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="sprint_btn">
+   <property name="geometry">
+    <rect>
+     <x>210</x>
+     <y>330</y>
+     <width>151</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Print Invoice</string>
+   </property>
+  </widget>
+ </widget>
+ <tabstops>
+  <tabstop>sname</tabstop>
+  <tabstop>sfind_btn</tabstop>
+  <tabstop>saddher</tabstop>
+  <tabstop>sdate</tabstop>
+  <tabstop>samount</tabstop>
+  <tabstop>scollect_btn</tabstop>
+  <tabstop>sprint_btn</tabstop>
+ </tabstops>
+ <resources/>
+ <connections/>
+</ui>

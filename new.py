@@ -3,7 +3,7 @@ import os
 from datetime import date
 import datetime
 from PySide2 import QtWidgets
-
+from PySide2.QtWidgets import *
 import PrintInvoice
 import dashboard_rc
 import database
@@ -12,9 +12,11 @@ from MainWindow import Ui_MainWindow
 from PySide2.QtWidgets import(QTableWidget, QTableWidgetItem)
 from collect_lone import Ui_Dialog
 from PrintInvoice import Ui_Dialog1
+from saving_account import Ui_Dialog2
 from database import *
 from PySide2.QtGui import QIcon
 from PySide2.QtPrintSupport import QPrinter,QPrintDialog,QPrintPreviewDialog
+from PySide2.QtCore import QDate,QDateTime
 from updatainformation import *
 import updatainformation
 # from biodata import Ui_Dialog1
@@ -62,10 +64,13 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
     def WinManage(self):
         self.stackedWidget.setCurrentWidget(self.pageManage)
+        self.dashboard_btn.setStyleSheet('* {border: none;background-color: rgba(13, 9, 36,0);border-radius: 13;color: rgb(0, 0, 0);}')
+        self.Manage_btn.setStyleSheet('* {background-color: rgb(0, 0, 0);color: rgb(218, 145, 0);}')
         self.update_member_btn.clicked.connect(self.updatamember)
         self.give_lone.clicked.connect(self.giveloneerr)
         self.collect_lone_btn.clicked.connect(self.showlonedig)
         self.new_member_btn.clicked.connect(self.showaddmemberfuntionerr)
+        self.add_saving.clicked.connect(self.connect_saving)
     def setIcon(self):
         appIcon = QIcon("gtfc.jpeg")
         self.setWindowIcon(appIcon)
@@ -78,7 +83,11 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         # ! ***************************** Dashboard Function *****************************
     def windashboard(self):
         self.stackedWidget.setCurrentWidget(self.dashboard_page)
+        # working_field.setStyleSheet('* {background-color: red; border: 0px;}');
+        # , border: none;, border - radius: 13;, color: rgb(0, 0, 0)
+        self.Manage_btn.setStyleSheet('* {border: none;background-color: rgba(13, 9, 36,0);border-radius: 13;color: rgb(0, 0, 0);}')
 
+        self.dashboard_btn.setStyleSheet('* {background-color: rgb(0, 0, 0);color: rgb(218, 145, 0);}')
 #  ******************************************************* Manage *******************************************************
 
 
@@ -101,13 +110,11 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         user_info = [id, fname, mname, lname, bgroup, nomine, dob, doj, addherNo, account, mobile1, mobile2, email,
                      opnningBalance]
         if len(fname) == 0 or len(mname) == 0 or len(lname) == 0 or len(bgroup) == 0 or len(nomine) == 0 or len(
-                addherNo) == 0 or len(account) == 0 or len(mobile1) == 0 or len(mobile2) == 0 or len(email) == 0 or len(
-            opnningBalance) == 0:
+                addherNo) == 0 or len(account) == 0 or len(mobile1) == 0 or len(opnningBalance) == 0:
             self.error.setText("Place input all filed")
         else:
 
             conn = mysql.connector.connect(host="localhost", user= username, password= userpass, database="green")
-
             cur = conn.cursor()
             cur.execute(
                 """INSERT INTO memberinfo(id,first_name, middle_name, last_name, blood_group, nomine, data_of_brith, data_of_joing, addherNo, accountNo, mobile_no1, mobile_no2, email, opning_balance)VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)""",
@@ -115,6 +122,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             cur.close()
             conn.commit()
             conn.close()
+            self.clearfiled()
 
     #     This funtion show error for add member funtion
     def showaddmemberfuntionerr(self):
@@ -122,7 +130,20 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         idtext = rowcount()
         id = self.id.setText(str(idtext))
         self.addinfo.clicked.connect(self.addmemberfuntion) # add information button
-
+    def clearfiled(self):
+        self.firstname.clear()
+        self.lastname.clear()
+        self.middlename.clear()
+        self.bloodgroup.setCurrentIndex(0)
+        self.nomine.clear()
+        self.dob.setDate(QDate(2000,1,1))
+        self.doj.setDate(QDate(2000,1,1))
+        self.addhernumber.clear()
+        self.accountno.clear()
+        self.mobile1.clear()
+        self.mobile2.clear()
+        self.email.clear()
+        self.balance.clear()
 
     # ! ***************************** Manage  Update Member Function *****************************
     def updatamember(self):
@@ -201,21 +222,22 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         # self.accountno_2.clear(mobile2_2,mobile1_2)
         self.cleartext()
     def cleartext(self, ):
+        # self.dob.setMinimumDate('2000/2/1')
         self.id_2.clear()
         self.firstname_2.clear()
         self.middlename_2.clear()
         self.lastname_2.clear()
         self.bloodgroup_2.setCurrentIndex(0)
         self.nomine_2.clear()
-        self.dob_2.clearMinimumDate()
-        self.doj_2.clearMinimumDate()
+        self.dob_2.setDate(QDate(2000,1,1))
+        self.doj_2.setDate(QDate(2000, 1, 1))
         self.addhernumber_2.clear()
         self.accountno_2.clear()
         self.mobile1_2.clear()
         self.mobile2_2.clear()
         self.email_2.clear()
         self.balance_2.clear()
-        self.displaymeassage()
+
 
 
 
@@ -291,7 +313,10 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         lonewin = Lone_Collection()
         lonewin.show()
         lonewin.exec_()
-
+    def connect_saving(self):
+        sa = Saving_account()
+        sa.show()
+        sa.exec()
 
 # ! ***************************** Manage  lone collection class *****************************
 
@@ -304,21 +329,29 @@ class Lone_Collection(QtWidgets.QDialog,Ui_Dialog):
         self.collect_lone_btn.clicked.connect(self.sentto_loneCollection)
         self.print_btn.clicked.connect(self.callmyinvoice)
     def find(self):
-        id_field = self.lone_no.text()
-        conn = conn = mysql.connector.connect(host="localhost", user="root", password="1900340220", database="green")
-        cur = conn.cursor()
-        cur.execute("""select Name,AddherNo from lone_info where Lone_no = """+id_field)
-        for data in cur:
-            data
-        cur.close()
-        conn.commit()
-        conn.close()
-        self.lone_name.setText(str(data[0]))
-        self.addhere_no.setText(str(data[1]))
-        addherNo = str(data[1])
-        PrintInvoice.total_saving(addherNo)
-        PrintInvoice.loen_data(id_field)
-        self.getdata()
+        try:
+            id_field = self.lone_no.text()
+            conn = conn = mysql.connector.connect(host="localhost", user="root", password="1900340220", database="green")
+            cur = conn.cursor()
+            cur.execute("""select Name,AddherNo from lone_info where Lone_no = """+id_field)
+            for data in cur:
+                data
+            cur.close()
+            conn.commit()
+            conn.close()
+            self.lone_name.setText(str(data[0]))
+            self.addhere_no.setText(str(data[1]))
+            addherNo = str(data[1])
+
+            self.getdata()
+        except Exception as ee:
+            error_message = QtWidgets.QErrorMessage(self)
+            error_message.setWindowTitle("Input Error")
+            error_message.showMessage("Please Enter Valid Lone Number")
+        finally:
+            PrintInvoice.total_saving(addherNo)
+            PrintInvoice.loen_data(id_field)
+
     def getdata(self):
         id_field = self.lone_no.text()
         conn = conn = mysql.connector.connect(host="localhost", user="root", password="1900340220", database="green")
@@ -381,6 +414,76 @@ class MYInvoics(QtWidgets.QDialog,Ui_Dialog1):
 
     def printperview(self, printer):
         self.textEdit.print_(printer)
+
+class Saving_account(QtWidgets.QDialog,Ui_Dialog2):
+    def __init__(self):
+        super(Saving_account, self).__init__()
+        self.setupUi(self)
+        now = QDate.currentDate()
+        self.sdate.setDate(now)
+        self.sfind_btn.clicked.connect(self.findmember)
+        self.scollect_btn.clicked.connect(self.addbalancetosaving)
+        conn = mysql.connector.connect(host="localhost", user=username, password=userpass, database="green")
+        cur = conn.cursor()
+        cur.execute("select first_name,middle_name,last_name from memberinfo")
+        lt = (cur.fetchall())
+        cur.close()
+        conn.commit()
+        conn.close()
+        member_name = ["%s %s %s" % x for x in lt]
+        print(member_name)
+        completer = QCompleter(member_name)
+        self.sname.setCompleter(completer)
+
+    def findmember(self):
+        name = self.sname.text()
+        myList = [name]
+        conList = (myList[0].split())
+        conn = mysql.connector.connect(host="localhost", user=username, password=userpass, database="green")
+        cur = conn.cursor()
+        first_name = str(conList[0])
+        middle_name = str(conList[1])
+        last_name = str(conList[2])
+        cur.execute(f"""select addherNo from memberinfo where first_name = "{first_name}" and middle_name = "{middle_name}" and last_name = "{last_name}" """)
+        addher = cur.fetchone()
+        cur.close()
+        conn.commit()
+        conn.close()
+        self.saddher.setText(str(addher[0]))
+        conn = mysql.connector.connect(host="localhost", user=username, password=userpass, database="green")
+        cur = conn.cursor()
+        cur.execute("select opning_balance from memberinfo where addherNo ="+str(addher[0]))
+        totalsaving = (cur.fetchone())
+        cur.close()
+        conn.commit()
+        conn.close()
+        self.member_total_saving.setText(str(totalsaving[0]))
+
+
+    def addbalancetosaving(self,addher_no):
+        conn = mysql.connector.connect(host="localhost", user=username, password=userpass, database="green")
+        cur = conn.cursor()
+        addher = self.saddher.text()
+        addsave = self.samount.text()
+        if len(addsave)>=0:
+            self.error_4.setText("Place fill all the filed")
+        totalsaving = self.member_total_saving.text()
+        addsavingsum = int(totalsaving) + int(addsave)
+        print(addsavingsum)
+        print(addher)
+        data = [addsavingsum,addher]
+        # UPDATE  memberinfo set opning_balance = 1000001  where   addherNo = '333333333333';
+        cur.execute("UPDATE memberinfo SET opning_balance = %s WHERE  addherNo = %s",data)
+        cur.close()
+        conn.commit()
+        conn.close()
+        self.clearfiled()
+    def clearfiled(self):
+        self.error_4.clear()
+        self.saddher.clear()
+        self.sname.clear()
+        self.samount.clear()
+
 
 
 #*************************************Main*************************************
