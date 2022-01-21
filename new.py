@@ -19,7 +19,8 @@ from PySide2.QtPrintSupport import QPrinter,QPrintDialog,QPrintPreviewDialog
 from PySide2.QtCore import QDate,QDateTime
 from updatainformation import *
 import updatainformation
-from create
+import create_databasees
+
 # from biodata import Ui_Dialog1
 username = os.environ.get('db_user')
 userpass = os.environ.get('db_pass')
