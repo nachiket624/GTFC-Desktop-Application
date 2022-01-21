@@ -39,13 +39,13 @@
        <enum>QFrame::Raised</enum>
       </property>
       <layout class="QGridLayout" name="gridLayout_3">
-       <item row="0" column="0">
+       <item row="1" column="0">
         <widget class="QStackedWidget" name="stackedWidget">
          <property name="styleSheet">
           <string notr="true"/>
          </property>
          <property name="currentIndex">
-          <number>2</number>
+          <number>9</number>
          </property>
          <widget class="QWidget" name="dashboard_page">
           <layout class="QGridLayout" name="gridLayout_16">
@@ -400,6 +400,21 @@ background-color:qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0.988636, stop
          </widget>
          <widget class="QWidget" name="table_view">
           <layout class="QGridLayout" name="gridLayout_4">
+           <property name="leftMargin">
+            <number>0</number>
+           </property>
+           <property name="topMargin">
+            <number>0</number>
+           </property>
+           <property name="rightMargin">
+            <number>0</number>
+           </property>
+           <property name="bottomMargin">
+            <number>0</number>
+           </property>
+           <property name="spacing">
+            <number>0</number>
+           </property>
            <item row="0" column="0">
             <widget class="QFrame" name="frame_3">
              <property name="frameShape">
@@ -409,169 +424,182 @@ background-color:qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0.988636, stop
               <enum>QFrame::Raised</enum>
              </property>
              <layout class="QGridLayout" name="gridLayout_9">
-              <item row="0" column="0">
-               <widget class="QLabel" name="label">
-                <property name="font">
-                 <font>
-                  <pointsize>12</pointsize>
-                 </font>
-                </property>
-                <property name="text">
-                 <string>User ID</string>
-                </property>
-               </widget>
-              </item>
-              <item row="0" column="1">
-               <widget class="QLineEdit" name="lineEdit">
-                <property name="font">
-                 <font>
-                  <pointsize>12</pointsize>
-                 </font>
-                </property>
-               </widget>
-              </item>
-              <item row="0" column="2">
-               <widget class="QLabel" name="label_5">
-                <property name="font">
-                 <font>
-                  <pointsize>12</pointsize>
-                 </font>
-                </property>
-                <property name="text">
-                 <string>By</string>
-                </property>
-               </widget>
-              </item>
-              <item row="0" column="3">
-               <widget class="QComboBox" name="comboBox_3">
-                <property name="font">
-                 <font>
-                  <pointsize>12</pointsize>
-                 </font>
-                </property>
-                <item>
-                 <property name="text">
-                  <string>Saving</string>
-                 </property>
-                </item>
-                <item>
-                 <property name="text">
-                  <string>Lone</string>
-                 </property>
-                </item>
-                <item>
-                 <property name="text">
-                  <string>Information</string>
-                 </property>
-                </item>
-               </widget>
-              </item>
-              <item row="0" column="4">
-               <widget class="QLabel" name="label_6">
-                <property name="font">
-                 <font>
-                  <pointsize>12</pointsize>
-                 </font>
-                </property>
-                <property name="text">
-                 <string>Sort</string>
-                </property>
-               </widget>
-              </item>
-              <item row="0" column="5">
-               <widget class="QComboBox" name="comboBox_4">
-                <property name="font">
-                 <font>
-                  <pointsize>12</pointsize>
-                 </font>
-                </property>
-                <item>
-                 <property name="text">
-                  <string>Low to High</string>
-                 </property>
-                </item>
-                <item>
-                 <property name="text">
-                  <string>High to low</string>
-                 </property>
-                </item>
-               </widget>
-              </item>
-              <item row="1" column="0" colspan="6">
+              <item row="1" column="0" colspan="2">
                <widget class="QTableWidget" name="tableWidget">
                 <property name="enabled">
                  <bool>true</bool>
                 </property>
-                <column>
-                 <property name="text">
-                  <string>Id</string>
-                 </property>
-                </column>
-                <column>
-                 <property name="text">
-                  <string>First Name</string>
-                 </property>
-                </column>
-                <column>
-                 <property name="text">
-                  <string>Middle Name</string>
-                 </property>
-                </column>
-                <column>
-                 <property name="text">
-                  <string>last Name</string>
-                 </property>
-                </column>
-                <column>
-                 <property name="text">
-                  <string>Blood Group</string>
-                 </property>
-                </column>
-                <column>
-                 <property name="text">
-                  <string>Nomine</string>
-                 </property>
-                </column>
-                <column>
-                 <property name="text">
-                  <string>Date OF Birth</string>
-                 </property>
-                </column>
-                <column>
-                 <property name="text">
-                  <string>Data of joing</string>
-                 </property>
-                </column>
-                <column>
-                 <property name="text">
-                  <string>Addher No</string>
-                 </property>
-                </column>
-                <column>
-                 <property name="text">
-                  <string>Account No</string>
-                 </property>
-                </column>
-                <column>
-                 <property name="text">
-                  <string>Mobile No1</string>
-                 </property>
-                </column>
-                <column>
-                 <property name="text">
-                  <string>Mobile NO 2</string>
-                 </property>
-                </column>
-                <column>
-                 <property name="text">
-                  <string>Email</string>
-                 </property>
-                </column>
-                <column>
-                 <property name="text">
-                  <string>Opnning Blance</string>
-                 </property>
-                </column>
+                <property name="styleSheet">
+                 <string notr="true">QHeaderView::section {
+    background-color: #646464;
+    padding: 4px;
+    font-size: 14pt;
+    border-style: none;
+    border-bottom: 1px solid #fffff8;
+    border-right: 1px solid #fffff8;
+}
+
+QHeaderView::section:horizontal
+{
+    border-top: 1px solid #fffff8;
+}
+
+QHeaderView::section:vertical
+{
+    border-left: 1px solid #fffff8;
+}</string>
+                </property>
+                <property name="frameShape">
+                 <enum>QFrame::WinPanel</enum>
+                </property>
+                <property name="frameShadow">
+                 <enum>QFrame::Sunken</enum>
+                </property>
+                <property name="horizontalScrollBarPolicy">
+                 <enum>Qt::ScrollBarAsNeeded</enum>
+                </property>
+                <property name="alternatingRowColors">
+                 <bool>true</bool>
+                </property>
+                <property name="gridStyle">
+                 <enum>Qt::SolidLine</enum>
+                </property>
+                <property name="sortingEnabled">
+                 <bool>true</bool>
+                </property>
+                <property name="rowCount">
+                 <number>100</number>
+                </property>
+                <property name="columnCount">
+                 <number>14</number>
+                </property>
+                <attribute name="horizontalHeaderCascadingSectionResizes">
+                 <bool>true</bool>
+                </attribute>
+                <attribute name="verticalHeaderCascadingSectionResizes">
+                 <bool>true</bool>
+                </attribute>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <column/>
+                <column/>
+                <column/>
+                <column/>
+                <column/>
+                <column/>
+                <column/>
+                <column/>
+                <column/>
+                <column/>
+                <column/>
+                <column/>
+                <column/>
+                <column/>
+               </widget>
+              </item>
+              <item row="0" column="0" colspan="2">
+               <widget class="QLabel" name="label">
+                <property name="text">
+                 <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:14pt; font-weight:600; text-decoration: underline; color:#4e8d2c;&quot;&gt;Member Information Table &lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                </property>
                </widget>
               </item>
              </layout>
@@ -579,6 +607,7 @@ background-color:qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0.988636, stop
            </item>
           </layout>
          </widget>
+         <widget class="QWidget" name="page_2"/>
          <widget class="QWidget" name="pageManage">
           <layout class="QGridLayout" name="gridLayout_6">
            <item row="1" column="2">
@@ -1209,7 +1238,7 @@ color:rgb(255, 0, 0)</string>
             </widget>
            </item>
            <item row="0" column="2">
-            <widget class="QPushButton" name="biodataview_btn">
+            <widget class="QPushButton" name="transaction_detail_btn">
              <property name="minimumSize">
               <size>
                <width>186</width>
@@ -1237,7 +1266,7 @@ color:rgb(255, 0, 0)</string>
               <string notr="true"/>
              </property>
              <property name="text">
-              <string>biodata</string>
+              <string>transaction_detail</string>
              </property>
             </widget>
            </item>
@@ -2116,7 +2145,215 @@ color:rgb(255, 0, 0)</string>
            </item>
           </layout>
          </widget>
-         <widget class="QWidget" name="page"/>
+         <widget class="QWidget" name="transaction_detail_page">
+          <layout class="QGridLayout" name="gridLayout_19">
+           <property name="leftMargin">
+            <number>0</number>
+           </property>
+           <property name="topMargin">
+            <number>0</number>
+           </property>
+           <property name="rightMargin">
+            <number>0</number>
+           </property>
+           <property name="bottomMargin">
+            <number>0</number>
+           </property>
+           <property name="spacing">
+            <number>0</number>
+           </property>
+           <item row="0" column="0">
+            <widget class="QFrame" name="frame_6">
+             <property name="frameShape">
+              <enum>QFrame::StyledPanel</enum>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Raised</enum>
+             </property>
+             <layout class="QGridLayout" name="gridLayout_18">
+              <item row="1" column="0" colspan="2">
+               <widget class="QTableWidget" name="tableWidget_2">
+                <property name="enabled">
+                 <bool>true</bool>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">QHeaderView::section {
+    background-color: #646464;
+    padding: 4px;
+    font-size: 14pt;
+    border-style: none;
+    border-bottom: 1px solid #fffff8;
+    border-right: 1px solid #fffff8;
+}
+
+QHeaderView::section:horizontal
+{
+    border-top: 1px solid #fffff8;
+}
+
+QHeaderView::section:vertical
+{
+    border-left: 1px solid #fffff8;
+}</string>
+                </property>
+                <property name="frameShape">
+                 <enum>QFrame::WinPanel</enum>
+                </property>
+                <property name="frameShadow">
+                 <enum>QFrame::Sunken</enum>
+                </property>
+                <property name="horizontalScrollBarPolicy">
+                 <enum>Qt::ScrollBarAsNeeded</enum>
+                </property>
+                <property name="autoScrollMargin">
+                 <number>17</number>
+                </property>
+                <property name="alternatingRowColors">
+                 <bool>true</bool>
+                </property>
+                <property name="horizontalScrollMode">
+                 <enum>QAbstractItemView::ScrollPerPixel</enum>
+                </property>
+                <property name="gridStyle">
+                 <enum>Qt::SolidLine</enum>
+                </property>
+                <property name="sortingEnabled">
+                 <bool>true</bool>
+                </property>
+                <property name="rowCount">
+                 <number>100</number>
+                </property>
+                <property name="columnCount">
+                 <number>8</number>
+                </property>
+                <attribute name="horizontalHeaderCascadingSectionResizes">
+                 <bool>true</bool>
+                </attribute>
+                <attribute name="verticalHeaderCascadingSectionResizes">
+                 <bool>true</bool>
+                </attribute>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <row/>
+                <column/>
+                <column/>
+                <column/>
+                <column/>
+                <column/>
+                <column/>
+                <column/>
+                <column/>
+               </widget>
+              </item>
+              <item row="0" column="0" colspan="2">
+               <widget class="QLabel" name="label_5">
+                <property name="text">
+                 <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:14pt; font-weight:600; text-decoration: underline; color:#4e8d2c;&quot;&gt;Transaction Details&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+          </layout>
+         </widget>
         </widget>
        </item>
       </layout>
@@ -2589,11 +2826,8 @@ QPushButton:pressed {
   <tabstop>email_2</tabstop>
   <tabstop>balance_2</tabstop>
   <tabstop>addinfo_2</tabstop>
-  <tabstop>lineEdit</tabstop>
-  <tabstop>comboBox_3</tabstop>
-  <tabstop>comboBox_4</tabstop>
   <tabstop>tableWidget</tabstop>
-  <tabstop>biodataview_btn</tabstop>
+  <tabstop>transaction_detail_btn</tabstop>
   <tabstop>loneview_btn</tabstop>
   <tabstop>viewall_btn</tabstop>
  </tabstops>

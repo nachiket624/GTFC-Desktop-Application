@@ -19,6 +19,7 @@ from PySide2.QtPrintSupport import QPrinter,QPrintDialog,QPrintPreviewDialog
 from PySide2.QtCore import QDate,QDateTime
 from updatainformation import *
 import updatainformation
+from create
 # from biodata import Ui_Dialog1
 username = os.environ.get('db_user')
 userpass = os.environ.get('db_pass')
@@ -29,6 +30,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         super(MainWindow, self).__init__()
         self.setupUi(self)
         self.setIcon()
+
         # ! ***************************** Database Check *****************************
         # username = os.environ.get('db_user')
         # userpass = os.environ.get('db_pass')
@@ -46,6 +48,8 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
 
         # ! ***************************** Dasboard *****************************
+        self.dashboard_btn.setStyleSheet('* {border: none;background-color: rgba(13, 9, 36,0);border-radius: 13;color: rgb(0, 0, 0);border-radius: 13;}')
+
         self.stackedWidget.setCurrentWidget(self.dashboard_page)
         self.dashboard_btn.clicked.connect(self.windashboard)
         idtext = rowcount()
@@ -76,18 +80,22 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.setWindowIcon(appIcon)
 
     def WinView(self):
+        self.Manage_btn.setStyleSheet('* {border: none;background-color: rgba(13, 9, 36,0);border-radius: 13;color: rgb(0, 0, 0);border-radius: 13;}')
+        self.view_btn.setStyleSheet('* {background-color: rgb(0, 0, 0);color: rgb(218, 145, 0);border-radius: 13;}')
+        self.view_btn.setStyleSheet('* {border: none;background-color: rgba(13, 9, 36,0);border-radius: 13;color: rgb(0, 0, 0);border-radius: 13;}')
+
         self.stackedWidget.setCurrentWidget(self.page_view)
         self.viewall_btn.clicked.connect(self.viewallfunction)
+        self.transaction_detail_btn.clicked.connect(self.transaction_detail_table)
         # self.biodataview_btn.clicked.connect(self.ConnecttoBioData)
 
         # ! ***************************** Dashboard Function *****************************
     def windashboard(self):
         self.stackedWidget.setCurrentWidget(self.dashboard_page)
-        # working_field.setStyleSheet('* {background-color: red; border: 0px;}');
-        # , border: none;, border - radius: 13;, color: rgb(0, 0, 0)
-        self.Manage_btn.setStyleSheet('* {border: none;background-color: rgba(13, 9, 36,0);border-radius: 13;color: rgb(0, 0, 0);border-radius: 13;}')
-
         self.dashboard_btn.setStyleSheet('* {background-color: rgb(0, 0, 0);color: rgb(218, 145, 0);border-radius: 13;}')
+        self.Manage_btn.setStyleSheet('* {border: none;background-color: rgba(13, 9, 36,0);border-radius: 13;color: rgb(0, 0, 0);border-radius: 13;}')
+        self.view_btn.setStyleSheet('* {border: none;background-color: rgba(13, 9, 36,0);border-radius: 13;color: rgb(0, 0, 0);border-radius: 13;}')
+
 #  ******************************************************* Manage *******************************************************
 
 
@@ -294,6 +302,8 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
     # ! ***************************** View Information table *****************************
     def viewallfunction(self):
         tableWidget = QTableWidget
+        myheader = ['ID','Frist Name','Middle Name','Last Name','Blood Group','Nomine','Data of Brith','Date of Joining', 'Addher No', 'Account No', 'Mobile No 1', 'Mobile No 2', 'Email', 'Opening Balance']
+        self.tableWidget.setHorizontalHeaderLabels(myheader)
         self.stackedWidget.setCurrentWidget(self.table_view)
         conn = mysql.connector.connect(host="localhost", user=username, password=userpass, database="green")
         cur = conn.cursor()
@@ -319,7 +329,32 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             self.tableWidget.setItem(row, 12, QtWidgets.QTableWidgetItem(str(record[12])))
             self.tableWidget.setItem(row, 13, QtWidgets.QTableWidgetItem(str(record[13])))
             row = row + 1
+    def transaction_detail_table(self):
+        # self.stackedWidget.setCurrentWidget(self.table_view)
+        tableWidget = QTableWidget
 
+        self.stackedWidget.setCurrentWidget(self.transaction_detail_page)
+        myheader = ['transaction_no', 'Name', 'Addher No', 'Date', 'amount', 'remark', 'lone_no', 'Intrest']
+        self.tableWidget_2.setHorizontalHeaderLabels(myheader)
+        conn = mysql.connector.connect(host="localhost", user=username, password=userpass, database="green")
+        cur = conn.cursor()
+        query = "SELECT * FROM transaction_detail ORDER BY transaction_no ASC"
+        cur.execute(query)
+        record = cur.fetchall()
+        row = 0
+        self.tableWidget_2.setRowCount(len(record))
+        for record in record:
+            # self.tableWidget.setItem(row, 0, QtWidgets.QTableWidgetItem(str(record[0])))
+            self.tableWidget_2.setItem(row,0,QtWidgets.QTableWidgetItem(str(record[0])))
+            self.tableWidget_2.setItem(row,1,QtWidgets.QTableWidgetItem(str(record[1])))
+            self.tableWidget_2.setItem(row,2,QtWidgets.QTableWidgetItem(str(record[2])))
+            self.tableWidget_2.setItem(row,3,QtWidgets.QTableWidgetItem(str(record[3])))
+            self.tableWidget_2.setItem(row,4,QtWidgets.QTableWidgetItem(str(record[4])))
+            self.tableWidget_2.setItem(row,5,QtWidgets.QTableWidgetItem(str(record[5])))
+            self.tableWidget_2.setItem(row,6,QtWidgets.QTableWidgetItem(str(record[6])))
+            self.tableWidget_2.setItem(row,7,QtWidgets.QTableWidgetItem(str(record[7])))
+
+            row = row + 1
     def showlonedig(self):
         # self.stackedWidget.setCurrentWidget(self.showlonedig)
         lonewin = Lone_Collection()

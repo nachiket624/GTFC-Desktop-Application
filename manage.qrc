@@ -1,0 +1,8 @@
+<RCC>
+  <qresource prefix="manage_icon">
+    <file>image/manage/remove member.png</file>
+    <file>image/manage/AddMember.png</file>
+    <file>image/manage/Update Member.png</file>
+    <file>image/manage/remove member - Copy.png</file>
+  </qresource>
+</RCC>
