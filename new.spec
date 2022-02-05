@@ -5,7 +5,7 @@ block_cipher = None
 
 
 a = Analysis(['new.py'],
-             pathex=['E:\\Asset\\gtfc'],
+             pathex=[],
              binaries=[],
              datas=[],
              hiddenimports=[],

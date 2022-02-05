@@ -24,29 +24,85 @@ import create_databasees
 # from biodata import Ui_Dialog1
 username = os.environ.get('db_user')
 userpass = os.environ.get('db_pass')
+window_count  = 0
+class Lone_Collection(QtWidgets.QDialog,Ui_Dialog):
+    def __init__(self):
+        super(Lone_Collection, self).__init__()
+        self.setupUi(self)
+        self.find_btn.clicked.connect(self.find)
+        self.radioButton.clicked.connect(self.getdate)
+        self.collect_lone_btn.clicked.connect(self.sentto_loneCollection)
+        self.print_btn.clicked.connect(self.callmyinvoice)
+    def find(self):
+        try:
+            id_field = self.lone_no.text()
+            conn = conn = mysql.connector.connect(host="localhost", user="root", password="1900340220", database="green")
+            cur = conn.cursor()
+            cur.execute("""select Name,AddherNo from lone_info where Lone_no = """+id_field)
+            for data in cur:
+                data
+            cur.close()
+            conn.commit()
+            conn.close()
+            self.lone_name.setText(str(data[0]))
+            self.addhere_no.setText(str(data[1]))
+            addherNo = str(data[1])
+            PrintInvoice.total_saving(addherNo)
+            PrintInvoice.loen_data(addherNo)
+            self.getdata()
+        except Exception as ee:
+            msg = QtWidgets.QMessageBox(self)
+            msg.setIcon(QMessageBox.Information)
+            msg.setText("Place Enter Valid Lone Number")
+            msg.setInformativeText("Lone No Should Present in Database")
+            msg.setWindowTitle("Input Error")
+            msg.setStandardButtons(QMessageBox.Ok)
+            msg.exec_()
 
+    def getdata(self):
+        id_field = self.lone_no.text()
+        conn = conn = mysql.connector.connect(host="localhost", user="root", password="1900340220", database="green")
+        cur = conn.cursor()
+        cur.execute("""select * from lone_info where lone_no = """+id_field)
+        for data in cur:
+            1
+        print(data)
+        print("Type",type(data))
+        row = 0
+        self.tableWidget.setRowCount(12)
+        data1 = 5
+        data2 = 6
+        for index in range(12):
+            self.tableWidget.setItem(index, 2, QtWidgets.QTableWidgetItem(str(data[data1])))
+            self.tableWidget.setItem(index, 3, QtWidgets.QTableWidgetItem(str(data[data2])))
+            data1 = data1+2
+            data2 = data2+2
+        self.tableWidget.setItem(0, 4, QtWidgets.QTableWidgetItem(str(data[30])))
+    def getdate(self):
+        today = datetime.today()
+        self.collect_date.setDate(today)
+    def sentto_loneCollection(self):
+        addher1 = self.addhere_no.text()
+        lone_name1 = self.lone_name.text()
+        lone_no1=self.lone_no.text()
+        collect_date=self.collect_date.text()
+        collect_amount = self.collect_ammount.text()
+        Interst_rate = self.Interst_rate.text()
+        tr_type = "Lone Collect"
+        loneInfo.lone_collection(lone_no1,collect_amount,Interst_rate,collect_date,addher1,tr_type,lone_name1)
+    def callmyinvoice(self):
+        # app1 = QtWidgets.QApplication(sys.argv)
+        mywin = MYInvoics()
+        mywin.show()
+        mywin.exec_()
 class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
     def __init__(self):
 
         super(MainWindow, self).__init__()
+        self.w = None
+        self.w1 = None
         self.setupUi(self)
         self.setIcon()
-
-        # ! ***************************** Database Check *****************************
-        # username = os.environ.get('db_user')
-        # userpass = os.environ.get('db_pass')
-        # conn = mysql.connector.connect(host="localhost", user=username, password=userpass, database="green")
-        # cur = conn.cursor()
-
-        # cur.execute('show databases')
-        # for table in cur:
-        #    print(table)
-        #    if 'green' in table:
-        #        print("Find")
-        #        continue
-        #    else:
-        #        cur.execute('CREATE DATABASE IF NOT EXISTS green2')
-
 
         # ! ***************************** Dasboard *****************************
         self.dashboard_btn.setStyleSheet('* {border: none;background-color: rgba(13, 9, 36,0);border-radius: 13;color: rgb(0, 0, 0);border-radius: 13;}')
@@ -58,24 +114,30 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.total_member.setText(str(idtext1))
         totalLone = lonecount()
         self.total_lone.setText(str(totalLone))
+        total_saving = total_saving_count()
+        self.total_lone_3.setText(str(total_saving))
 
  #  ******************************************************* Side Bar *******************************************************
         self.view_btn.clicked.connect(self.WinView)
         self.Manage_btn.clicked.connect(self.WinManage)
 
         # ! ***************************** inside Function Button *****************************
-
+    # todo: apply input error message to all input box(update member, lone collect,and saving exception handling)
 
 
     def WinManage(self):
-        self.stackedWidget.setCurrentWidget(self.pageManage)
-        self.dashboard_btn.setStyleSheet('* {border: none;background-color: rgba(13, 9, 36,0);border-radius: 13;color: rgb(0, 0, 0);border-radius: 13;}')
-        self.Manage_btn.setStyleSheet('* {background-color: rgb(0, 0, 0);color: rgb(218, 145, 0);border-radius: 13;}')
         self.update_member_btn.clicked.connect(self.updatamember)
-        self.give_lone.clicked.connect(self.giveloneerr)
         self.collect_lone_btn.clicked.connect(self.showlonedig)
+        self.stackedWidget.setCurrentWidget(self.pageManage)
+        self.dashboard_btn.setStyleSheet(
+            '* {border: none;background-color: rgba(13, 9, 36,0);border-radius: 13;color: rgb(0, 0, 0);border-radius: 13;}')
+        self.Manage_btn.setStyleSheet('* {background-color: rgb(0, 0, 0);color: rgb(218, 145, 0);border-radius: 13;}')
+
+        self.give_lone.clicked.connect(self.giveloneerr)
         self.new_member_btn.clicked.connect(self.showaddmemberfuntionerr)
         self.add_saving.clicked.connect(self.connect_saving)
+
+
     def setIcon(self):
         appIcon = QIcon("gtfc.jpeg")
         self.setWindowIcon(appIcon)
@@ -197,10 +259,15 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
             self.addinfo_2.clicked.connect(self.getmembervalue)
         except Exception as e:
-            error_message = QtWidgets.QErrorMessage(self)
-            error_message.setWindowTitle("Input device error")
-            error_message.showMessage("वैध आयडी एंटर करा")
-            print("Plase enter valid ID")
+            msg = QtWidgets.QMessageBox(self)
+            msg.setIcon(QMessageBox.Information)
+            msg.setText("Place Enter Valid ID")
+            msg.setInformativeText("ID Should Present in Database")
+            msg.setWindowTitle("Input Error")
+            msg.setDetailedText("The details are as follows:")
+            msg.setStandardButtons(QMessageBox.Ok)
+            msg.exec_()
+        print("Plase enter valid ID")
 
         # ? @@@@@@@@@@@ Updataing value from line edit @@@@@@@@@@@
     def getmembervalue(self):
@@ -253,12 +320,12 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
     # ! ***************************** Manage  give lone Function *****************************
     def lonefunction(self):
 
-        lone_no = self.loneno.text()
+        lone_no = self.lone_no.text()
         name = self.name.text()
         addher = self.addherno.text()
         addher2 = addher
         amount = self.amount.text()
-        interast = str(self.intrest_rate.currentText())
+        interast = str(self.intrest_rate.value())
         checkno = self.checkno.text()
         date1 = self.date1_1.text()
         jam1 = self.jam1_2.text()
@@ -275,24 +342,27 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             cur.close()
             conn.commit()
             conn.close()
-            totalAmounttopay = 100
-            totalIntersetpay = 1000
+            totalAmounttopay = amount
+            # si = (p * t * r) / 100
+            totalIntersetpay = (int(totalAmounttopay)*12*float(interast))/100
             totalintersetamount = 1000
+            total_interset_he_pay = 1001
             tr_type = "Lone Approve"
-            database.getdatalone(lone_no,name,addher,amount,interast,totalAmounttopay,totalIntersetpay,totalintersetamount)
+            database.getdatalone(lone_no,name,addher,amount,interast,totalAmounttopay,totalIntersetpay,totalintersetamount,total_interset_he_pay)
             loneInfo.setlone(lone_no,amount,date1,addher,interast,name,tr_type)
             self.give_lone_clear()
     def giveloneerr(self):
         self.stackedWidget.setCurrentWidget(self.pagelone)
         lone_no1 = lastlonen()
-        lone_no = self.loneno.setText(str(lone_no1))
+        # lone_no = self.loneno.setText(str(lone_no1))
+        lone_np = self.lone_no.setText(str(lone_no1))
         self.approve_btn.clicked.connect(self.lonefunction)
     def give_lone_clear(self):
-        self.loneno.clear()
+        self.lone_no.clear()
         self.name.clear()
         self.addherno.clear()
         self.amount.clear()
-        self.intrest_rate.setCurrentIndex(0)
+        self.intrest_rate.setValue(0)
         self.checkno.clear()
         self.date1_1.setDate(QDate(2000,1,1))
         self.jam1_2.clear()
@@ -356,85 +426,20 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             self.tableWidget_2.setItem(row,7,QtWidgets.QTableWidgetItem(str(record[7])))
 
             row = row + 1
-    def showlonedig(self):
-        # self.stackedWidget.setCurrentWidget(self.showlonedig)
-        lonewin = Lone_Collection()
-        lonewin.show()
-        lonewin.exec_()
-    def connect_saving(self):
-        sa = Saving_account()
-        sa.show()
-        sa.exec()
+    def showlonedig(self, checked):
+        if self.w is None:
+            self.w = Lone_Collection()
+            # lonewin.exec_()
+        self.w.show()
+    def connect_saving(self,checked):
+        if self.w is None:
+            self.w1 = Saving_account()
+        # sa = Saving_account()
+        self.w1.exec_()
 
 # ! ***************************** Manage  lone collection class *****************************
 
-class Lone_Collection(QtWidgets.QDialog,Ui_Dialog):
-    def __init__(self):
-        super(Lone_Collection, self).__init__()
-        self.setupUi(self)
-        self.find_btn.clicked.connect(self.find)
-        self.radioButton.clicked.connect(self.getdate)
-        self.collect_lone_btn.clicked.connect(self.sentto_loneCollection)
-        self.print_btn.clicked.connect(self.callmyinvoice)
-    def find(self):
-        try:
-            id_field = self.lone_no.text()
-            conn = conn = mysql.connector.connect(host="localhost", user="root", password="1900340220", database="green")
-            cur = conn.cursor()
-            cur.execute("""select Name,AddherNo from lone_info where Lone_no = """+id_field)
-            for data in cur:
-                data
-            cur.close()
-            conn.commit()
-            conn.close()
-            self.lone_name.setText(str(data[0]))
-            self.addhere_no.setText(str(data[1]))
-            addherNo = str(data[1])
-            PrintInvoice.total_saving(addherNo)
-            PrintInvoice.loen_data(addherNo)
-            self.getdata()
-        except Exception as ee:
-            error_message = QtWidgets.QErrorMessage(self)
-            error_message.setWindowTitle("Input Error")
-            error_message.showMessage("Please Enter Valid Lone Number")
 
-
-    def getdata(self):
-        id_field = self.lone_no.text()
-        conn = conn = mysql.connector.connect(host="localhost", user="root", password="1900340220", database="green")
-        cur = conn.cursor()
-        cur.execute("""select * from lone_info where lone_no = """+id_field)
-        for data in cur:
-            1
-        print(data)
-        print("Type",type(data))
-        row = 0
-        self.tableWidget.setRowCount(12)
-        data1 = 5
-        data2 = 6
-        for index in range(12):
-            self.tableWidget.setItem(index, 2, QtWidgets.QTableWidgetItem(str(data[data1])))
-            self.tableWidget.setItem(index, 3, QtWidgets.QTableWidgetItem(str(data[data2])))
-            data1 = data1+2
-            data2 = data2+2
-        self.tableWidget.setItem(0, 4, QtWidgets.QTableWidgetItem(str(data[30])))
-    def getdate(self):
-        today = datetime.today()
-        self.collect_date.setDate(today)
-    def sentto_loneCollection(self):
-        addher1 = self.addhere_no.text()
-        lone_name1 = self.lone_name.text()
-        lone_no1=self.lone_no.text()
-        collect_date=self.collect_date.text()
-        collect_amount = self.collect_ammount.text()
-        Interst_rate = self.Interst_rate.text()
-        tr_type = "Lone Collect"
-        loneInfo.lone_collection(lone_no1,collect_amount,Interst_rate,collect_date,addher1,tr_type,lone_name1)
-    def callmyinvoice(self):
-        # app1 = QtWidgets.QApplication(sys.argv)
-        mywin = MYInvoics()
-        mywin.show()
-        mywin.exec_()
 
 class MYInvoics(QtWidgets.QDialog,Ui_Dialog1):
     def __init__(self):
@@ -483,28 +488,39 @@ class Saving_account(QtWidgets.QDialog,Ui_Dialog2):
         self.sname.setCompleter(completer)
 
     def findmember(self):
-        name = self.sname.text()
-        myList = [name]
-        conList = (myList[0].split())
-        conn = mysql.connector.connect(host="localhost", user=username, password=userpass, database="green")
-        cur = conn.cursor()
-        first_name = str(conList[0])
-        middle_name = str(conList[1])
-        last_name = str(conList[2])
-        cur.execute(f"""select addherNo from memberinfo where first_name = "{first_name}" and middle_name = "{middle_name}" and last_name = "{last_name}" """)
-        addher = cur.fetchone()
-        cur.close()
-        conn.commit()
-        conn.close()
-        self.saddher.setText(str(addher[0]))
-        conn = mysql.connector.connect(host="localhost", user=username, password=userpass, database="green")
-        cur = conn.cursor()
-        cur.execute("select opning_balance from memberinfo where addherNo ="+str(addher[0]))
-        totalsaving = (cur.fetchone())
-        cur.close()
-        conn.commit()
-        conn.close()
-        self.member_total_saving.setText(str(totalsaving[0]))
+        try:
+            name = self.sname.text()
+            myList = [name]
+            conList = (myList[0].split())
+            conn = mysql.connector.connect(host="localhost", user=username, password=userpass, database="green")
+            cur = conn.cursor()
+            first_name = str(conList[0])
+            middle_name = str(conList[1])
+            last_name = str(conList[2])
+            cur.execute(f"""select addherNo from memberinfo where first_name = "{first_name}" and middle_name = "{middle_name}" and last_name = "{last_name}" """)
+            addher = cur.fetchone()
+            cur.close()
+            conn.commit()
+            conn.close()
+            self.saddher.setText(str(addher[0]))
+            conn = mysql.connector.connect(host="localhost", user=username, password=userpass, database="green")
+            cur = conn.cursor()
+            cur.execute("select opning_balance from memberinfo where addherNo ="+str(addher[0]))
+            totalsaving = (cur.fetchone())
+            cur.close()
+            conn.commit()
+            conn.close()
+            self.member_total_saving.setText(str(totalsaving[0]))
+        except Exception as e:
+            msg = QtWidgets.QMessageBox(self)
+            msg.setIcon(QMessageBox.Information)
+            msg.setText("Place Enter Valid ID")
+            msg.setInformativeText("Before Adding Saving Member Should Part OF Organization")
+            msg.setWindowTitle("Input Error")
+            msg.setDetailedText("This Message IS Because OF Person ID Not Present In Member Information Table")
+            msg.setStandardButtons(QMessageBox.Ok)
+            msg.exec_()
+
 
 
     def addbalancetosaving(self,addher_no):

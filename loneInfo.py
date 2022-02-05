@@ -35,9 +35,9 @@ def setlone(lone_no,amount,loen_date,addher,intrest,name,tr_type):
     conn.close()
     conn = mysql.connector.connect(host="localhost", user=username, password=userpass, database="green")
     cur = conn.cursor()
-    trn_data = [trn_no,a1,a2,a3,a4,a5]
+    trn_data = [trn_no,a1,a2,a3,a4,a5,s3]
     print(trn_data)
-    cur.execute("insert into transaction_detail (transaction_no, name, addher_no, date, amount, remark) values(%s,%s,%s,%s,%s,%s)",trn_data)
+    cur.execute("insert into transaction_detail (transaction_no, name, addher_no, date, amount, remark,Intrest) values(%s,%s,%s,%s,%s,%s,%s)",trn_data)
     cur.close()
     conn.commit()
     conn.close()
