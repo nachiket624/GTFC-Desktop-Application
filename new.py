@@ -435,7 +435,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         if self.w is None:
             self.w1 = Saving_account()
         # sa = Saving_account()
-        self.w1.exec_()
+        self.w1.show()
 
 # ! ***************************** Manage  lone collection class *****************************
 
