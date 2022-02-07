@@ -1105,7 +1105,7 @@ QHeaderView::section:vertical
               </widget>
              </item>
              <item row="1" column="0">
-              <widget class="QPushButton" name="collect_lone_btn">
+              <widget class="QPushButton" name="yrecord">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
                  <horstretch>0</horstretch>
@@ -1113,7 +1113,7 @@ QHeaderView::section:vertical
                 </sizepolicy>
                </property>
                <property name="text">
-                <string>Collect Lone</string>
+                <string>Record</string>
                </property>
               </widget>
              </item>
@@ -1131,7 +1131,7 @@ QHeaderView::section:vertical
               </widget>
              </item>
              <item row="1" column="2">
-              <widget class="QPushButton" name="add_saving">
+              <widget class="QPushButton" name="collection">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
                  <horstretch>0</horstretch>
@@ -1139,7 +1139,7 @@ QHeaderView::section:vertical
                 </sizepolicy>
                </property>
                <property name="text">
-                <string>Add Saving</string>
+                <string>Collection</string>
                </property>
               </widget>
              </item>
@@ -2141,41 +2141,6 @@ color:rgb(255, 0, 0)</string>
          <widget class="QWidget" name="setting"/>
          <widget class="QWidget" name="pagelone">
           <layout class="QGridLayout" name="gridLayout_27">
-           <item row="1" column="1">
-            <widget class="QFrame" name="frame_4">
-             <property name="minimumSize">
-              <size>
-               <width>300</width>
-               <height>20</height>
-              </size>
-             </property>
-             <property name="frameShape">
-              <enum>QFrame::StyledPanel</enum>
-             </property>
-             <property name="frameShadow">
-              <enum>QFrame::Raised</enum>
-             </property>
-             <layout class="QGridLayout" name="gridLayout_12">
-              <item row="0" column="0">
-               <widget class="QLabel" name="error_3">
-                <property name="minimumSize">
-                 <size>
-                  <width>0</width>
-                  <height>30</height>
-                 </size>
-                </property>
-                <property name="styleSheet">
-                 <string notr="true">font: 8pt &quot;Terminal&quot;;
-color:rgb(255, 0, 0)</string>
-                </property>
-                <property name="text">
-                 <string/>
-                </property>
-               </widget>
-              </item>
-             </layout>
-            </widget>
-           </item>
            <item row="0" column="0" rowspan="2" colspan="2">
             <layout class="QGridLayout" name="gridLayout_11">
              <item row="0" column="0">
@@ -2252,6 +2217,19 @@ color:rgb(255, 0, 0)</string>
                    <width>150</width>
                    <height>20</height>
                   </size>
+                 </property>
+                </widget>
+               </item>
+               <item row="3" column="1">
+                <widget class="QPushButton" name="pushButton">
+                 <property name="maximumSize">
+                  <size>
+                   <width>150</width>
+                   <height>16777215</height>
+                  </size>
+                 </property>
+                 <property name="text">
+                  <string>Find</string>
                  </property>
                 </widget>
                </item>
@@ -2342,6 +2320,29 @@ color:rgb(255, 0, 0)</string>
                  </property>
                 </widget>
                </item>
+               <item row="7" column="0">
+                <widget class="QLabel" name="lable">
+                 <property name="font">
+                  <font>
+                   <family>Verdana</family>
+                   <pointsize>10</pointsize>
+                  </font>
+                 </property>
+                 <property name="text">
+                  <string>Intrest Rate</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="7" column="1">
+                <widget class="QDoubleSpinBox" name="intrest_rate">
+                 <property name="maximumSize">
+                  <size>
+                   <width>60</width>
+                   <height>16777215</height>
+                  </size>
+                 </property>
+                </widget>
+               </item>
                <item row="8" column="0">
                 <widget class="QLabel" name="lable_2">
                  <property name="font">
@@ -2352,22 +2353,6 @@ color:rgb(255, 0, 0)</string>
                  </property>
                  <property name="text">
                   <string>Check Number</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="8" column="1">
-                <widget class="QLineEdit" name="checkno">
-                 <property name="minimumSize">
-                  <size>
-                   <width>0</width>
-                   <height>30</height>
-                  </size>
-                 </property>
-                 <property name="maximumSize">
-                  <size>
-                   <width>800</width>
-                   <height>16777215</height>
-                  </size>
                  </property>
                 </widget>
                </item>
@@ -2552,39 +2537,30 @@ color:rgb(255, 0, 0)</string>
                  </property>
                 </widget>
                </item>
-               <item row="7" column="0">
-                <widget class="QLabel" name="lable">
-                 <property name="font">
-                  <font>
-                   <family>Verdana</family>
-                   <pointsize>10</pointsize>
-                  </font>
+               <item row="8" column="1">
+                <widget class="QLineEdit" name="checkno">
+                 <property name="minimumSize">
+                  <size>
+                   <width>0</width>
+                   <height>30</height>
+                  </size>
                  </property>
-                 <property name="text">
-                  <string>Intrest Rate</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="7" column="1">
-                <widget class="QDoubleSpinBox" name="intrest_rate">
                  <property name="maximumSize">
                   <size>
-                   <width>60</width>
+                   <width>800</width>
                    <height>16777215</height>
                   </size>
                  </property>
                 </widget>
                </item>
-               <item row="3" column="1">
-                <widget class="QPushButton" name="pushButton">
-                 <property name="maximumSize">
-                  <size>
-                   <width>150</width>
-                   <height>16777215</height>
-                  </size>
+               <item row="14" column="1">
+                <widget class="QLabel" name="error_3">
+                 <property name="styleSheet">
+                  <string notr="true">font: 8pt &quot;Terminal&quot;;
+color:rgb(255, 0, 0)</string>
                  </property>
                  <property name="text">
-                  <string>Find</string>
+                  <string>TextLabel</string>
                  </property>
                 </widget>
                </item>
@@ -2871,9 +2847,9 @@ QHeaderView::section:vertical
   <tabstop>new_member_btn</tabstop>
   <tabstop>update_member_btn</tabstop>
   <tabstop>remove_member_btn</tabstop>
-  <tabstop>collect_lone_btn</tabstop>
+  <tabstop>yrecord</tabstop>
   <tabstop>give_lone</tabstop>
-  <tabstop>add_saving</tabstop>
+  <tabstop>collection</tabstop>
   <tabstop>doj</tabstop>
   <tabstop>tableWidget_2</tabstop>
   <tabstop>dashboard_btn</tabstop>
