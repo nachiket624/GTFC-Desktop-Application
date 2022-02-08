@@ -114,6 +114,11 @@ class Ui_Dialog(object):
 
         self.horizontalLayout_4.addWidget(self.dateEdit)
 
+        self.analytics_data_find = QPushButton(self.frame)
+        self.analytics_data_find.setObjectName(u"analytics_data_find")
+
+        self.horizontalLayout_4.addWidget(self.analytics_data_find)
+
 
         self.gridLayout_6.addLayout(self.horizontalLayout_4, 1, 0, 1, 1)
 
@@ -552,9 +557,11 @@ class Ui_Dialog(object):
         self.label_17.setText(QCoreApplication.translate("Dialog", u"TextLabel", None))
         self.label_12.setText(QCoreApplication.translate("Dialog", u"<html><head/><body><p align=\"center\"><span style=\" font-size:14pt;\">Total</span></p></body></html>", None))
         self.label_18.setText(QCoreApplication.translate("Dialog", u"TextLabel", None))
-        self.label_13.setText(QCoreApplication.translate("Dialog", u"<html><head/><body><p align=\"center\"><span style=\" font-size:14pt;\">Approve LoneSaving</span></p></body></html>", None))
+        self.label_13.setText(QCoreApplication.translate("Dialog", u"<html><head/><body><p align=\"center\"><span style=\" font-size:14pt;\">Approve Lone</span></p></body></html>", None))
         self.label_19.setText(QCoreApplication.translate("Dialog", u"TextLabel", None))
         self.label_14.setText(QCoreApplication.translate("Dialog", u"Date", None))
+        self.dateEdit.setDisplayFormat(QCoreApplication.translate("Dialog", u"yyyy/M/d", None))
+        self.analytics_data_find.setText(QCoreApplication.translate("Dialog", u"Find", None))
         self.pushButton.setText(QCoreApplication.translate("Dialog", u"PushButton", None))
         self.label_7.setText(QCoreApplication.translate("Dialog", u"ID", None))
         self.sfind_btn.setText(QCoreApplication.translate("Dialog", u"Find", None))
@@ -569,7 +576,7 @@ class Ui_Dialog(object):
         self.label_20.setText(QCoreApplication.translate("Dialog", u"<html><head/><body><p align=\"center\"><span style=\" font-size:24pt; font-weight:600; text-decoration: underline;\">Saving</span></p></body></html>", None))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab), QCoreApplication.translate("Dialog", u"Tab 1", None))
         self.label_21.setText(QCoreApplication.translate("Dialog", u"<html><head/><body><p align=\"center\"><span style=\" font-size:24pt; font-weight:600; text-decoration: underline;\">Loan</span></p></body></html>", None))
-        self.label_38.setText(QCoreApplication.translate("Dialog", u"LoneSaving No", None))
+        self.label_38.setText(QCoreApplication.translate("Dialog", u"Lone No", None))
         self.saving_find_btn.setText(QCoreApplication.translate("Dialog", u"Find", None))
         ___qtablewidgetitem = self.tableWidget_2.horizontalHeaderItem(0)
         ___qtablewidgetitem.setText(QCoreApplication.translate("Dialog", u"Month", None));
@@ -610,9 +617,9 @@ class Ui_Dialog(object):
         ___qtablewidgetitem16.setText(QCoreApplication.translate("Dialog", u"December", None));
         self.tableWidget_2.setSortingEnabled(__sortingEnabled)
 
-        self.label_22.setText(QCoreApplication.translate("Dialog", u"LoneSaving Taken", None))
-        self.label_44.setText(QCoreApplication.translate("Dialog", u"Remaning LoneSaving", None))
-        self.label_45.setText(QCoreApplication.translate("Dialog", u"Total LoneSaving Pay", None))
+        self.label_22.setText(QCoreApplication.translate("Dialog", u"Lone Taken", None))
+        self.label_44.setText(QCoreApplication.translate("Dialog", u"Remaning Lone", None))
+        self.label_45.setText(QCoreApplication.translate("Dialog", u"Total Lone Pay", None))
         self.label_46.setText(QCoreApplication.translate("Dialog", u"Total Intrest Pay", None))
         self.label_47.setText(QCoreApplication.translate("Dialog", u"tTotal Intrest Paid", None))
         self.label_48.setText(QCoreApplication.translate("Dialog", u"Remaning Intrest Pay", None))

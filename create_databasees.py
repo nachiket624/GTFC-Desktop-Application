@@ -97,22 +97,4 @@ cur.execute("""CREATE TABLE IF NOT EXISTS `lone_info` (
 cur.close()
 conn.commit()
 conn.close()
-
-conn = mysql.connector.connect(host="localhost", user=username, password=userpass, database="green")
-cur = conn.cursor()
-cur.execute("""CREATE TABLE IF NOT EXISTS `transaction_detail` (
-  `transaction_no` bigint NOT NULL DEFAULT '1',
-  `name` varchar(255) NOT NULL,
-  `addher_no` bigint NOT NULL,
-  `date` date NOT NULL,
-  `amount` decimal(10,0) NOT NULL,
-  `remark` varchar(45) DEFAULT NULL,
-  `lone_no` int DEFAULT NULL,
-  `Intrest` decimal(10,0) DEFAULT NULL,
-  PRIMARY KEY (`transaction_no`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci""")
-
-cur.close()
-conn.commit()
-conn.close()
 print("all stament executed")

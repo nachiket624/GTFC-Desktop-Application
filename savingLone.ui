@@ -159,8 +159,18 @@ p, li { white-space: pre-wrap; }
             <property name="currentSection">
              <enum>QDateTimeEdit::YearSection</enum>
             </property>
+            <property name="displayFormat">
+             <string>yyyy/M/d</string>
+            </property>
             <property name="calendarPopup">
              <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="analytics_data_find">
+            <property name="text">
+             <string>Find</string>
             </property>
            </widget>
           </item>

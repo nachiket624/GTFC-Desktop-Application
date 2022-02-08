@@ -5,7 +5,8 @@ from PySide2.QtPrintSupport import QPrinter,QPrintDialog,QPrintPreviewDialog
 from PySide2.QtWidgets import(QTableWidget, QTableWidgetItem)
 from PySide2 import QtWidgets
 from PySide2.QtCore import QDate,QDateTime,QTime
-from LoneSaving import transactiondetail
+from LoneSaving.transactiondetail import trancationSavingLone
+from LoneSaving.transaction_integration import mainTransactionTable
 from PySide2.QtWidgets import *
 from savingLone import Ui_Dialog
 username = os.environ.get('db_user')
@@ -17,7 +18,10 @@ class lonedig(QtWidgets.QDialog,Ui_Dialog):
         self.setupUi(self)
         self.saving_find_btn.clicked.connect(self.lonefind)
         self.sfind_btn.clicked.connect(self.savingfind)
-
+        now = QDate.currentDate()
+        self.dateEdit.setDate(now)
+        self.analytics_data_find.clicked.connect(self.analyticsdate)
+        self.scollect_btn.clicked.connect(self.addSavvingAmount)
     def lonefind(self):
         try:
             id_field = self.LoneNo.text()
@@ -89,12 +93,13 @@ class lonedig(QtWidgets.QDialog,Ui_Dialog):
     def currentDate(self):
         now = QDate.currentDate()
         self.sdate.setDate(now)
-        saving_amount = self.samount.text()
-        self.scollect_btn.clicked.connect(self.addSavvingAmount)
     def addSavvingAmount(self):
-        insert_amount = self.samount.text()
         total_saving = self.member_total_saving.text()
-        addsaving = float(insert_amount) + float(total_saving)
+        insert_amount = self.samount.text()
+        print(insert_amount,total_saving)
+        in_amount = float(insert_amount)
+        ts_amount = float(total_saving)
+        addsaving = in_amount + ts_amount
         data = [addsaving,savingid]
         conn = mysql.connector.connect(host="localhost", user=username, password=userpass, database="green")
         cur = conn.cursor()
@@ -108,12 +113,34 @@ class lonedig(QtWidgets.QDialog,Ui_Dialog):
         tramount = self.samount.text()
         trdate = self.sdate.text()
         traddher = self.saddher.text()
-        transactiondetail.savingtr(tramount,trdate,trid,traddher)
-        self.clearfiledsaving()
+        trancationSavingLone.savingtr(tramount,trdate,trid,traddher)
+        self.analyticsdate()
     def clearfiledsaving(self):
         self.sname_3.clear()
         self.sname.clear()
         self.saddher.clear()
         self.samount.clear()
         self.member_total_saving.clear()
+
+    # ! set date for find the detail
+    def analyticsdate(self):
+       analdate = str(self.dateEdit.text())
+       conn = conn = mysql.connector.connect(host="localhost", user=username, password=userpass, database="green")
+       cur = conn.cursor()
+       cur.execute("""SELECT sum(amount)FROM savingaccounttransaction WHERE MONTH(date) = month('"""+analdate+"""')""")
+       total_month=cur.fetchone()
+       cur.close()
+       conn.commit()
+       conn.close()
+       self.label_15.setText(str(total_month[0]))
+       remark = "saving"
+       tr_name = self.sname.text()
+       tr_addher = self.saddher.text()
+       tr_id = self.sname_3.text()
+       tr_amount = self.samount.text()
+       tr_data = self.sdate.text()
+       tr_intrest = 0
+       tr_lone = 0
+       mainTransactionTable.transaction_saving(tr_id,tr_name,tr_addher,tr_data,tr_amount,tr_intrest,tr_lone,remark)
+       self.clearfiledsaving()
 
