@@ -139,8 +139,6 @@ class lonedig(QtWidgets.QDialog,Ui_Dialog):
        tr_id = self.sname_3.text()
        tr_amount = self.samount.text()
        tr_data = self.sdate.text()
-       tr_intrest = 0
-       tr_lone = 0
-       mainTransactionTable.transaction_saving(tr_id,tr_name,tr_addher,tr_data,tr_amount,tr_intrest,tr_lone,remark)
+       mainTransactionTable.transaction_saving(tr_id,tr_name,tr_addher,tr_data,tr_amount,remark)
        self.clearfiledsaving()
 

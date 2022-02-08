@@ -5,7 +5,7 @@ username = os.environ.get('db_user')
 userpass = os.environ.get('db_pass')
 
 class mainTransactionTable():
-    def transaction_saving(Id,name,addher,date,amount,intrest,lone_no,remark):
+    def transaction_saving(Id,name,addher,date,amount,remark):
         conn = conn = mysql.connector.connect(host="localhost", user=username, password=userpass, database="green")
         cur = conn.cursor()
         cur.execute("""select count(*) from transaction_detail""")
