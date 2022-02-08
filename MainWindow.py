@@ -554,12 +554,12 @@ class Ui_MainWindow(object):
 
         self.gridLayout_23.addWidget(self.remove_member_btn, 0, 1, 1, 1)
 
-        self.collect_lone_btn = QPushButton(self.pageManage)
-        self.collect_lone_btn.setObjectName(u"collect_lone_btn")
-        sizePolicy1.setHeightForWidth(self.collect_lone_btn.sizePolicy().hasHeightForWidth())
-        self.collect_lone_btn.setSizePolicy(sizePolicy1)
+        self.yrecord = QPushButton(self.pageManage)
+        self.yrecord.setObjectName(u"yrecord")
+        sizePolicy1.setHeightForWidth(self.yrecord.sizePolicy().hasHeightForWidth())
+        self.yrecord.setSizePolicy(sizePolicy1)
 
-        self.gridLayout_23.addWidget(self.collect_lone_btn, 1, 0, 1, 1)
+        self.gridLayout_23.addWidget(self.yrecord, 1, 0, 1, 1)
 
         self.give_lone = QPushButton(self.pageManage)
         self.give_lone.setObjectName(u"give_lone")
@@ -568,12 +568,12 @@ class Ui_MainWindow(object):
 
         self.gridLayout_23.addWidget(self.give_lone, 1, 1, 1, 1)
 
-        self.add_saving = QPushButton(self.pageManage)
-        self.add_saving.setObjectName(u"add_saving")
-        sizePolicy1.setHeightForWidth(self.add_saving.sizePolicy().hasHeightForWidth())
-        self.add_saving.setSizePolicy(sizePolicy1)
+        self.collection = QPushButton(self.pageManage)
+        self.collection.setObjectName(u"collection")
+        sizePolicy1.setHeightForWidth(self.collection.sizePolicy().hasHeightForWidth())
+        self.collection.setSizePolicy(sizePolicy1)
 
-        self.gridLayout_23.addWidget(self.add_saving, 1, 2, 1, 1)
+        self.gridLayout_23.addWidget(self.collection, 1, 2, 1, 1)
 
 
         self.gridLayout_6.addLayout(self.gridLayout_23, 1, 2, 1, 1)
@@ -1102,24 +1102,6 @@ class Ui_MainWindow(object):
         self.pagelone.setObjectName(u"pagelone")
         self.gridLayout_27 = QGridLayout(self.pagelone)
         self.gridLayout_27.setObjectName(u"gridLayout_27")
-        self.frame_4 = QFrame(self.pagelone)
-        self.frame_4.setObjectName(u"frame_4")
-        self.frame_4.setMinimumSize(QSize(300, 20))
-        self.frame_4.setFrameShape(QFrame.StyledPanel)
-        self.frame_4.setFrameShadow(QFrame.Raised)
-        self.gridLayout_12 = QGridLayout(self.frame_4)
-        self.gridLayout_12.setObjectName(u"gridLayout_12")
-        self.error_3 = QLabel(self.frame_4)
-        self.error_3.setObjectName(u"error_3")
-        self.error_3.setMinimumSize(QSize(0, 30))
-        self.error_3.setStyleSheet(u"font: 8pt \"Terminal\";\n"
-"color:rgb(255, 0, 0)")
-
-        self.gridLayout_12.addWidget(self.error_3, 0, 0, 1, 1)
-
-
-        self.gridLayout_27.addWidget(self.frame_4, 1, 1, 1, 1)
-
         self.gridLayout_11 = QGridLayout()
         self.gridLayout_11.setObjectName(u"gridLayout_11")
         self.horizontalLayout = QHBoxLayout()
@@ -1160,69 +1142,74 @@ class Ui_MainWindow(object):
 
         self.formLayout_2.setWidget(2, QFormLayout.FieldRole, self.lone_ID)
 
+        self.pushButton = QPushButton(self.pagelone)
+        self.pushButton.setObjectName(u"pushButton")
+        self.pushButton.setMaximumSize(QSize(150, 16777215))
+
+        self.formLayout_2.setWidget(3, QFormLayout.FieldRole, self.pushButton)
+
         self.label_11 = QLabel(self.pagelone)
         self.label_11.setObjectName(u"label_11")
         self.label_11.setFont(font3)
 
-        self.formLayout_2.setWidget(3, QFormLayout.LabelRole, self.label_11)
+        self.formLayout_2.setWidget(4, QFormLayout.LabelRole, self.label_11)
 
         self.name = QLineEdit(self.pagelone)
         self.name.setObjectName(u"name")
         self.name.setMinimumSize(QSize(0, 30))
         self.name.setMaximumSize(QSize(800, 16777215))
 
-        self.formLayout_2.setWidget(3, QFormLayout.FieldRole, self.name)
+        self.formLayout_2.setWidget(4, QFormLayout.FieldRole, self.name)
 
         self.label_9 = QLabel(self.pagelone)
         self.label_9.setObjectName(u"label_9")
         self.label_9.setFont(font3)
 
-        self.formLayout_2.setWidget(4, QFormLayout.LabelRole, self.label_9)
+        self.formLayout_2.setWidget(5, QFormLayout.LabelRole, self.label_9)
 
         self.addherno = QLineEdit(self.pagelone)
         self.addherno.setObjectName(u"addherno")
         self.addherno.setMinimumSize(QSize(0, 30))
         self.addherno.setMaximumSize(QSize(800, 16777215))
 
-        self.formLayout_2.setWidget(4, QFormLayout.FieldRole, self.addherno)
+        self.formLayout_2.setWidget(5, QFormLayout.FieldRole, self.addherno)
 
         self.label_12 = QLabel(self.pagelone)
         self.label_12.setObjectName(u"label_12")
         self.label_12.setFont(font3)
 
-        self.formLayout_2.setWidget(5, QFormLayout.LabelRole, self.label_12)
+        self.formLayout_2.setWidget(6, QFormLayout.LabelRole, self.label_12)
 
         self.amount = QLineEdit(self.pagelone)
         self.amount.setObjectName(u"amount")
         self.amount.setMinimumSize(QSize(0, 30))
         self.amount.setMaximumSize(QSize(800, 16777215))
 
-        self.formLayout_2.setWidget(5, QFormLayout.FieldRole, self.amount)
+        self.formLayout_2.setWidget(6, QFormLayout.FieldRole, self.amount)
 
         self.lable = QLabel(self.pagelone)
         self.lable.setObjectName(u"lable")
         self.lable.setFont(font3)
 
-        self.formLayout_2.setWidget(6, QFormLayout.LabelRole, self.lable)
+        self.formLayout_2.setWidget(7, QFormLayout.LabelRole, self.lable)
+
+        self.intrest_rate = QDoubleSpinBox(self.pagelone)
+        self.intrest_rate.setObjectName(u"intrest_rate")
+        self.intrest_rate.setMaximumSize(QSize(60, 16777215))
+
+        self.formLayout_2.setWidget(7, QFormLayout.FieldRole, self.intrest_rate)
 
         self.lable_2 = QLabel(self.pagelone)
         self.lable_2.setObjectName(u"lable_2")
         self.lable_2.setFont(font3)
 
-        self.formLayout_2.setWidget(7, QFormLayout.LabelRole, self.lable_2)
-
-        self.checkno = QLineEdit(self.pagelone)
-        self.checkno.setObjectName(u"checkno")
-        self.checkno.setMinimumSize(QSize(0, 30))
-        self.checkno.setMaximumSize(QSize(800, 16777215))
-
-        self.formLayout_2.setWidget(7, QFormLayout.FieldRole, self.checkno)
+        self.formLayout_2.setWidget(8, QFormLayout.LabelRole, self.lable_2)
 
         self.date_of_lone = QLabel(self.pagelone)
         self.date_of_lone.setObjectName(u"date_of_lone")
         self.date_of_lone.setFont(font3)
 
-        self.formLayout_2.setWidget(8, QFormLayout.LabelRole, self.date_of_lone)
+        self.formLayout_2.setWidget(9, QFormLayout.LabelRole, self.date_of_lone)
 
         self.date1_1 = QDateEdit(self.pagelone)
         self.date1_1.setObjectName(u"date1_1")
@@ -1235,39 +1222,39 @@ class Ui_MainWindow(object):
         self.date1_1.setMaximumSize(QSize(200, 16777215))
         self.date1_1.setCalendarPopup(True)
 
-        self.formLayout_2.setWidget(8, QFormLayout.FieldRole, self.date1_1)
+        self.formLayout_2.setWidget(9, QFormLayout.FieldRole, self.date1_1)
 
         self.date_of_lone_2 = QLabel(self.pagelone)
         self.date_of_lone_2.setObjectName(u"date_of_lone_2")
         self.date_of_lone_2.setFont(font3)
 
-        self.formLayout_2.setWidget(9, QFormLayout.LabelRole, self.date_of_lone_2)
+        self.formLayout_2.setWidget(10, QFormLayout.LabelRole, self.date_of_lone_2)
 
         self.jam1_2 = QLineEdit(self.pagelone)
         self.jam1_2.setObjectName(u"jam1_2")
         self.jam1_2.setMinimumSize(QSize(0, 30))
         self.jam1_2.setMaximumSize(QSize(800, 16777215))
 
-        self.formLayout_2.setWidget(9, QFormLayout.FieldRole, self.jam1_2)
+        self.formLayout_2.setWidget(10, QFormLayout.FieldRole, self.jam1_2)
 
         self.date_of_lone_3 = QLabel(self.pagelone)
         self.date_of_lone_3.setObjectName(u"date_of_lone_3")
         self.date_of_lone_3.setFont(font3)
 
-        self.formLayout_2.setWidget(10, QFormLayout.LabelRole, self.date_of_lone_3)
+        self.formLayout_2.setWidget(11, QFormLayout.LabelRole, self.date_of_lone_3)
 
         self.jam1_3 = QLineEdit(self.pagelone)
         self.jam1_3.setObjectName(u"jam1_3")
         self.jam1_3.setMinimumSize(QSize(0, 30))
         self.jam1_3.setMaximumSize(QSize(800, 16777215))
 
-        self.formLayout_2.setWidget(10, QFormLayout.FieldRole, self.jam1_3)
+        self.formLayout_2.setWidget(11, QFormLayout.FieldRole, self.jam1_3)
 
         self.remark = QLabel(self.pagelone)
         self.remark.setObjectName(u"remark")
         self.remark.setFont(font3)
 
-        self.formLayout_2.setWidget(11, QFormLayout.LabelRole, self.remark)
+        self.formLayout_2.setWidget(12, QFormLayout.LabelRole, self.remark)
 
         self.remark_2 = QComboBox(self.pagelone)
         self.remark_2.addItem("")
@@ -1277,11 +1264,11 @@ class Ui_MainWindow(object):
         self.remark_2.setMinimumSize(QSize(300, 30))
         self.remark_2.setMaximumSize(QSize(500, 16777215))
 
-        self.formLayout_2.setWidget(11, QFormLayout.FieldRole, self.remark_2)
+        self.formLayout_2.setWidget(12, QFormLayout.FieldRole, self.remark_2)
 
         self.verticalSpacer_5 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Minimum)
 
-        self.formLayout_2.setItem(12, QFormLayout.LabelRole, self.verticalSpacer_5)
+        self.formLayout_2.setItem(13, QFormLayout.LabelRole, self.verticalSpacer_5)
 
         self.approve_btn = QPushButton(self.pagelone)
         self.approve_btn.setObjectName(u"approve_btn")
@@ -1289,13 +1276,21 @@ class Ui_MainWindow(object):
         self.approve_btn.setMaximumSize(QSize(160, 16777215))
         self.approve_btn.setLayoutDirection(Qt.LeftToRight)
 
-        self.formLayout_2.setWidget(13, QFormLayout.LabelRole, self.approve_btn)
+        self.formLayout_2.setWidget(14, QFormLayout.LabelRole, self.approve_btn)
 
-        self.intrest_rate = QSpinBox(self.pagelone)
-        self.intrest_rate.setObjectName(u"intrest_rate")
-        self.intrest_rate.setMaximumSize(QSize(50, 16777215))
+        self.checkno = QLineEdit(self.pagelone)
+        self.checkno.setObjectName(u"checkno")
+        self.checkno.setMinimumSize(QSize(0, 30))
+        self.checkno.setMaximumSize(QSize(800, 16777215))
 
-        self.formLayout_2.setWidget(6, QFormLayout.FieldRole, self.intrest_rate)
+        self.formLayout_2.setWidget(8, QFormLayout.FieldRole, self.checkno)
+
+        self.error_3 = QLabel(self.pagelone)
+        self.error_3.setObjectName(u"error_3")
+        self.error_3.setStyleSheet(u"font: 8pt \"Terminal\";\n"
+"color:rgb(255, 0, 0)")
+
+        self.formLayout_2.setWidget(14, QFormLayout.FieldRole, self.error_3)
 
 
         self.gridLayout_11.addLayout(self.formLayout_2, 1, 0, 1, 1)
@@ -1376,28 +1371,28 @@ class Ui_MainWindow(object):
         self.menubar.setObjectName(u"menubar")
         self.menubar.setGeometry(QRect(0, 0, 1161, 26))
         MainWindow.setMenuBar(self.menubar)
-        QWidget.setTabOrder(self.lone_ID, self.name)
-        QWidget.setTabOrder(self.name, self.addherno)
-        QWidget.setTabOrder(self.addherno, self.amount)
-        QWidget.setTabOrder(self.amount, self.checkno)
-        QWidget.setTabOrder(self.checkno, self.date1_1)
-        QWidget.setTabOrder(self.date1_1, self.jam1_2)
-        QWidget.setTabOrder(self.jam1_2, self.jam1_3)
-        QWidget.setTabOrder(self.jam1_3, self.remark_2)
-        QWidget.setTabOrder(self.remark_2, self.approve_btn)
-        QWidget.setTabOrder(self.approve_btn, self.addhernumber)
-        QWidget.setTabOrder(self.addhernumber, self.accountno)
-        QWidget.setTabOrder(self.accountno, self.mobile1)
+        QWidget.setTabOrder(self.lone_ID, self.mobile1)
         QWidget.setTabOrder(self.mobile1, self.mobile2)
         QWidget.setTabOrder(self.mobile2, self.email)
-        QWidget.setTabOrder(self.email, self.balance)
-        QWidget.setTabOrder(self.balance, self.addinfo)
+        QWidget.setTabOrder(self.email, self.addinfo)
         QWidget.setTabOrder(self.addinfo, self.view_btn)
         QWidget.setTabOrder(self.view_btn, self.pushButton_8)
         QWidget.setTabOrder(self.pushButton_8, self.id)
         QWidget.setTabOrder(self.id, self.firstname)
         QWidget.setTabOrder(self.firstname, self.middlename)
-        QWidget.setTabOrder(self.middlename, self.lastname)
+        QWidget.setTabOrder(self.middlename, self.addhernumber)
+        QWidget.setTabOrder(self.addhernumber, self.pushButton)
+        QWidget.setTabOrder(self.pushButton, self.name)
+        QWidget.setTabOrder(self.name, self.addherno)
+        QWidget.setTabOrder(self.addherno, self.amount)
+        QWidget.setTabOrder(self.amount, self.intrest_rate)
+        QWidget.setTabOrder(self.intrest_rate, self.checkno)
+        QWidget.setTabOrder(self.checkno, self.date1_1)
+        QWidget.setTabOrder(self.date1_1, self.jam1_2)
+        QWidget.setTabOrder(self.jam1_2, self.jam1_3)
+        QWidget.setTabOrder(self.jam1_3, self.remark_2)
+        QWidget.setTabOrder(self.remark_2, self.approve_btn)
+        QWidget.setTabOrder(self.approve_btn, self.lastname)
         QWidget.setTabOrder(self.lastname, self.bloodgroup)
         QWidget.setTabOrder(self.bloodgroup, self.nomine)
         QWidget.setTabOrder(self.nomine, self.dob)
@@ -1424,13 +1419,15 @@ class Ui_MainWindow(object):
         QWidget.setTabOrder(self.viewall_btn, self.new_member_btn)
         QWidget.setTabOrder(self.new_member_btn, self.update_member_btn)
         QWidget.setTabOrder(self.update_member_btn, self.remove_member_btn)
-        QWidget.setTabOrder(self.remove_member_btn, self.collect_lone_btn)
-        QWidget.setTabOrder(self.collect_lone_btn, self.give_lone)
-        QWidget.setTabOrder(self.give_lone, self.add_saving)
-        QWidget.setTabOrder(self.add_saving, self.doj)
+        QWidget.setTabOrder(self.remove_member_btn, self.yrecord)
+        QWidget.setTabOrder(self.yrecord, self.give_lone)
+        QWidget.setTabOrder(self.give_lone, self.collection)
+        QWidget.setTabOrder(self.collection, self.doj)
         QWidget.setTabOrder(self.doj, self.tableWidget_2)
         QWidget.setTabOrder(self.tableWidget_2, self.dashboard_btn)
         QWidget.setTabOrder(self.dashboard_btn, self.Manage_btn)
+        QWidget.setTabOrder(self.Manage_btn, self.balance)
+        QWidget.setTabOrder(self.balance, self.accountno)
 
         self.retranslateUi(MainWindow)
 
@@ -1499,7 +1496,7 @@ class Ui_MainWindow(object):
         self.label_56.setText(QCoreApplication.translate("MainWindow", u"\u20b91000", None))
         self.total_lone.setText(QCoreApplication.translate("MainWindow", u"1000", None))
         self.label_3.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\">Total Member</p></body></html>", None))
-        self.label_4.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\">Total Lone</p></body></html>", None))
+        self.label_4.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\">Total LoneSaving</p></body></html>", None))
         self.total_member.setText(QCoreApplication.translate("MainWindow", u"1000", None))
         self.label_15.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\">Total Saving</p></body></html>", None))
         self.label_16.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\">Total lone</p></body></html>", None))
@@ -1512,9 +1509,9 @@ class Ui_MainWindow(object):
         self.new_member_btn.setText(QCoreApplication.translate("MainWindow", u"New Member", None))
         self.update_member_btn.setText(QCoreApplication.translate("MainWindow", u"Update Member", None))
         self.remove_member_btn.setText(QCoreApplication.translate("MainWindow", u"Remove Member", None))
-        self.collect_lone_btn.setText(QCoreApplication.translate("MainWindow", u"Collect Lone", None))
-        self.give_lone.setText(QCoreApplication.translate("MainWindow", u"Give Lone", None))
-        self.add_saving.setText(QCoreApplication.translate("MainWindow", u"Add Saving", None))
+        self.yrecord.setText(QCoreApplication.translate("MainWindow", u"Record", None))
+        self.give_lone.setText(QCoreApplication.translate("MainWindow", u"Give LoneSaving", None))
+        self.collection.setText(QCoreApplication.translate("MainWindow", u"Collection", None))
         self.groupBox_4.setTitle(QCoreApplication.translate("MainWindow", u"Basic information", None))
         self.label_40.setText(QCoreApplication.translate("MainWindow", u"ID", None))
         self.label_8.setText(QCoreApplication.translate("MainWindow", u"First Name", None))
@@ -1549,7 +1546,7 @@ class Ui_MainWindow(object):
 #if QT_CONFIG(whatsthis)
         self.loneview_btn.setWhatsThis(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\"><br/></p></body></html>", None))
 #endif // QT_CONFIG(whatsthis)
-        self.loneview_btn.setText(QCoreApplication.translate("MainWindow", u"Lone", None))
+        self.loneview_btn.setText(QCoreApplication.translate("MainWindow", u"LoneSaving", None))
 #if QT_CONFIG(whatsthis)
         self.transaction_detail_btn.setWhatsThis(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\"><br/></p></body></html>", None))
 #endif // QT_CONFIG(whatsthis)
@@ -1587,10 +1584,10 @@ class Ui_MainWindow(object):
         self.label_49.setText(QCoreApplication.translate("MainWindow", u"Opning balance", None))
         self.error.setText("")
         self.addinfo.setText(QCoreApplication.translate("MainWindow", u"Add information", None))
-        self.error_3.setText("")
-        self.label_10.setText(QCoreApplication.translate("MainWindow", u"Lone No", None))
+        self.label_10.setText(QCoreApplication.translate("MainWindow", u"LoneSaving No", None))
         self.lone_no.setText(QCoreApplication.translate("MainWindow", u"lone_NO:", None))
         self.label_13.setText(QCoreApplication.translate("MainWindow", u"ID", None))
+        self.pushButton.setText(QCoreApplication.translate("MainWindow", u"Find", None))
         self.label_11.setText(QCoreApplication.translate("MainWindow", u"Name", None))
         self.label_9.setText(QCoreApplication.translate("MainWindow", u"Addher Number", None))
         self.label_12.setText(QCoreApplication.translate("MainWindow", u"Amount", None))
@@ -1606,6 +1603,7 @@ class Ui_MainWindow(object):
         self.remark_2.setItemText(2, QCoreApplication.translate("MainWindow", u"Remark 3", None))
 
         self.approve_btn.setText(QCoreApplication.translate("MainWindow", u"Approve", None))
+        self.error_3.setText(QCoreApplication.translate("MainWindow", u"TextLabel", None))
         self.label_5.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:14pt; font-weight:600; text-decoration: underline; color:#4e8d2c;\">Transaction Details</span></p></body></html>", None))
     # retranslateUi
 

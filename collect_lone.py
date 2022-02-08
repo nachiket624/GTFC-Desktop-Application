@@ -179,7 +179,7 @@ class Ui_Dialog(object):
 
     def retranslateUi(self, Dialog):
         Dialog.setWindowTitle(QCoreApplication.translate("Dialog", u"Dialog", None))
-        self.label.setText(QCoreApplication.translate("Dialog", u"Lone No", None))
+        self.label.setText(QCoreApplication.translate("Dialog", u"LoneSaving No", None))
         self.find_btn.setText(QCoreApplication.translate("Dialog", u"Find", None))
         self.label_3.setText(QCoreApplication.translate("Dialog", u"Name", None))
         self.label_4.setText(QCoreApplication.translate("Dialog", u"Addher No", None))
