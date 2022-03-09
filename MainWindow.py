@@ -554,12 +554,12 @@ class Ui_MainWindow(object):
 
         self.gridLayout_23.addWidget(self.remove_member_btn, 0, 1, 1, 1)
 
-        self.yrecord = QPushButton(self.pageManage)
-        self.yrecord.setObjectName(u"yrecord")
-        sizePolicy1.setHeightForWidth(self.yrecord.sizePolicy().hasHeightForWidth())
-        self.yrecord.setSizePolicy(sizePolicy1)
+        self.collect_lone_btn = QPushButton(self.pageManage)
+        self.collect_lone_btn.setObjectName(u"collect_lone_btn")
+        sizePolicy1.setHeightForWidth(self.collect_lone_btn.sizePolicy().hasHeightForWidth())
+        self.collect_lone_btn.setSizePolicy(sizePolicy1)
 
-        self.gridLayout_23.addWidget(self.yrecord, 1, 0, 1, 1)
+        self.gridLayout_23.addWidget(self.collect_lone_btn, 1, 0, 1, 1)
 
         self.give_lone = QPushButton(self.pageManage)
         self.give_lone.setObjectName(u"give_lone")
@@ -1205,24 +1205,18 @@ class Ui_MainWindow(object):
 
         self.formLayout_2.setWidget(8, QFormLayout.LabelRole, self.lable_2)
 
+        self.checkno = QLineEdit(self.pagelone)
+        self.checkno.setObjectName(u"checkno")
+        self.checkno.setMinimumSize(QSize(0, 30))
+        self.checkno.setMaximumSize(QSize(800, 16777215))
+
+        self.formLayout_2.setWidget(8, QFormLayout.FieldRole, self.checkno)
+
         self.date_of_lone = QLabel(self.pagelone)
         self.date_of_lone.setObjectName(u"date_of_lone")
         self.date_of_lone.setFont(font3)
 
         self.formLayout_2.setWidget(9, QFormLayout.LabelRole, self.date_of_lone)
-
-        self.date1_1 = QDateEdit(self.pagelone)
-        self.date1_1.setObjectName(u"date1_1")
-        sizePolicy2 = QSizePolicy(QSizePolicy.Minimum, QSizePolicy.Minimum)
-        sizePolicy2.setHorizontalStretch(0)
-        sizePolicy2.setVerticalStretch(0)
-        sizePolicy2.setHeightForWidth(self.date1_1.sizePolicy().hasHeightForWidth())
-        self.date1_1.setSizePolicy(sizePolicy2)
-        self.date1_1.setMinimumSize(QSize(150, 0))
-        self.date1_1.setMaximumSize(QSize(200, 16777215))
-        self.date1_1.setCalendarPopup(True)
-
-        self.formLayout_2.setWidget(9, QFormLayout.FieldRole, self.date1_1)
 
         self.date_of_lone_2 = QLabel(self.pagelone)
         self.date_of_lone_2.setObjectName(u"date_of_lone_2")
@@ -1278,19 +1272,15 @@ class Ui_MainWindow(object):
 
         self.formLayout_2.setWidget(14, QFormLayout.LabelRole, self.approve_btn)
 
-        self.checkno = QLineEdit(self.pagelone)
-        self.checkno.setObjectName(u"checkno")
-        self.checkno.setMinimumSize(QSize(0, 30))
-        self.checkno.setMaximumSize(QSize(800, 16777215))
-
-        self.formLayout_2.setWidget(8, QFormLayout.FieldRole, self.checkno)
-
         self.error_3 = QLabel(self.pagelone)
         self.error_3.setObjectName(u"error_3")
-        self.error_3.setStyleSheet(u"font: 8pt \"Terminal\";\n"
-"color:rgb(255, 0, 0)")
 
         self.formLayout_2.setWidget(14, QFormLayout.FieldRole, self.error_3)
+
+        self.date1_1 = QDateEdit(self.pagelone)
+        self.date1_1.setObjectName(u"date1_1")
+
+        self.formLayout_2.setWidget(9, QFormLayout.FieldRole, self.date1_1)
 
 
         self.gridLayout_11.addLayout(self.formLayout_2, 1, 0, 1, 1)
@@ -1371,24 +1361,23 @@ class Ui_MainWindow(object):
         self.menubar.setObjectName(u"menubar")
         self.menubar.setGeometry(QRect(0, 0, 1161, 26))
         MainWindow.setMenuBar(self.menubar)
-        QWidget.setTabOrder(self.lone_ID, self.mobile1)
-        QWidget.setTabOrder(self.mobile1, self.mobile2)
-        QWidget.setTabOrder(self.mobile2, self.email)
-        QWidget.setTabOrder(self.email, self.addinfo)
-        QWidget.setTabOrder(self.addinfo, self.view_btn)
-        QWidget.setTabOrder(self.view_btn, self.pushButton_8)
+        QWidget.setTabOrder(self.email, self.mobile2)
+        QWidget.setTabOrder(self.mobile2, self.lone_ID)
+        QWidget.setTabOrder(self.lone_ID, self.pushButton)
+        QWidget.setTabOrder(self.pushButton, self.name)
+        QWidget.setTabOrder(self.name, self.addherno)
+        QWidget.setTabOrder(self.addherno, self.pushButton_8)
         QWidget.setTabOrder(self.pushButton_8, self.id)
         QWidget.setTabOrder(self.id, self.firstname)
         QWidget.setTabOrder(self.firstname, self.middlename)
         QWidget.setTabOrder(self.middlename, self.addhernumber)
-        QWidget.setTabOrder(self.addhernumber, self.pushButton)
-        QWidget.setTabOrder(self.pushButton, self.name)
-        QWidget.setTabOrder(self.name, self.addherno)
-        QWidget.setTabOrder(self.addherno, self.amount)
+        QWidget.setTabOrder(self.addhernumber, self.mobile1)
+        QWidget.setTabOrder(self.mobile1, self.addinfo)
+        QWidget.setTabOrder(self.addinfo, self.view_btn)
+        QWidget.setTabOrder(self.view_btn, self.amount)
         QWidget.setTabOrder(self.amount, self.intrest_rate)
         QWidget.setTabOrder(self.intrest_rate, self.checkno)
-        QWidget.setTabOrder(self.checkno, self.date1_1)
-        QWidget.setTabOrder(self.date1_1, self.jam1_2)
+        QWidget.setTabOrder(self.checkno, self.jam1_2)
         QWidget.setTabOrder(self.jam1_2, self.jam1_3)
         QWidget.setTabOrder(self.jam1_3, self.remark_2)
         QWidget.setTabOrder(self.remark_2, self.approve_btn)
@@ -1419,8 +1408,8 @@ class Ui_MainWindow(object):
         QWidget.setTabOrder(self.viewall_btn, self.new_member_btn)
         QWidget.setTabOrder(self.new_member_btn, self.update_member_btn)
         QWidget.setTabOrder(self.update_member_btn, self.remove_member_btn)
-        QWidget.setTabOrder(self.remove_member_btn, self.yrecord)
-        QWidget.setTabOrder(self.yrecord, self.give_lone)
+        QWidget.setTabOrder(self.remove_member_btn, self.collect_lone_btn)
+        QWidget.setTabOrder(self.collect_lone_btn, self.give_lone)
         QWidget.setTabOrder(self.give_lone, self.collection)
         QWidget.setTabOrder(self.collection, self.doj)
         QWidget.setTabOrder(self.doj, self.tableWidget_2)
@@ -1496,7 +1485,7 @@ class Ui_MainWindow(object):
         self.label_56.setText(QCoreApplication.translate("MainWindow", u"\u20b91000", None))
         self.total_lone.setText(QCoreApplication.translate("MainWindow", u"1000", None))
         self.label_3.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\">Total Member</p></body></html>", None))
-        self.label_4.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\">Total LoneSaving</p></body></html>", None))
+        self.label_4.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\">Total Lone</p></body></html>", None))
         self.total_member.setText(QCoreApplication.translate("MainWindow", u"1000", None))
         self.label_15.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\">Total Saving</p></body></html>", None))
         self.label_16.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\">Total lone</p></body></html>", None))
@@ -1509,9 +1498,9 @@ class Ui_MainWindow(object):
         self.new_member_btn.setText(QCoreApplication.translate("MainWindow", u"New Member", None))
         self.update_member_btn.setText(QCoreApplication.translate("MainWindow", u"Update Member", None))
         self.remove_member_btn.setText(QCoreApplication.translate("MainWindow", u"Remove Member", None))
-        self.yrecord.setText(QCoreApplication.translate("MainWindow", u"Record", None))
-        self.give_lone.setText(QCoreApplication.translate("MainWindow", u"Give LoneSaving", None))
-        self.collection.setText(QCoreApplication.translate("MainWindow", u"Collection", None))
+        self.collect_lone_btn.setText(QCoreApplication.translate("MainWindow", u"Collect Lone", None))
+        self.give_lone.setText(QCoreApplication.translate("MainWindow", u"Give Lone", None))
+        self.collection.setText(QCoreApplication.translate("MainWindow", u"Add Saving", None))
         self.groupBox_4.setTitle(QCoreApplication.translate("MainWindow", u"Basic information", None))
         self.label_40.setText(QCoreApplication.translate("MainWindow", u"ID", None))
         self.label_8.setText(QCoreApplication.translate("MainWindow", u"First Name", None))
@@ -1546,7 +1535,7 @@ class Ui_MainWindow(object):
 #if QT_CONFIG(whatsthis)
         self.loneview_btn.setWhatsThis(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\"><br/></p></body></html>", None))
 #endif // QT_CONFIG(whatsthis)
-        self.loneview_btn.setText(QCoreApplication.translate("MainWindow", u"LoneSaving", None))
+        self.loneview_btn.setText(QCoreApplication.translate("MainWindow", u"Lone", None))
 #if QT_CONFIG(whatsthis)
         self.transaction_detail_btn.setWhatsThis(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\"><br/></p></body></html>", None))
 #endif // QT_CONFIG(whatsthis)
@@ -1584,7 +1573,7 @@ class Ui_MainWindow(object):
         self.label_49.setText(QCoreApplication.translate("MainWindow", u"Opning balance", None))
         self.error.setText("")
         self.addinfo.setText(QCoreApplication.translate("MainWindow", u"Add information", None))
-        self.label_10.setText(QCoreApplication.translate("MainWindow", u"LoneSaving No", None))
+        self.label_10.setText(QCoreApplication.translate("MainWindow", u"Lone No", None))
         self.lone_no.setText(QCoreApplication.translate("MainWindow", u"lone_NO:", None))
         self.label_13.setText(QCoreApplication.translate("MainWindow", u"ID", None))
         self.pushButton.setText(QCoreApplication.translate("MainWindow", u"Find", None))
@@ -1594,7 +1583,6 @@ class Ui_MainWindow(object):
         self.lable.setText(QCoreApplication.translate("MainWindow", u"Intrest Rate", None))
         self.lable_2.setText(QCoreApplication.translate("MainWindow", u"Check Number", None))
         self.date_of_lone.setText(QCoreApplication.translate("MainWindow", u"Date", None))
-        self.date1_1.setDisplayFormat(QCoreApplication.translate("MainWindow", u"yyyy/M/d", None))
         self.date_of_lone_2.setText(QCoreApplication.translate("MainWindow", u"Jamindar 1", None))
         self.date_of_lone_3.setText(QCoreApplication.translate("MainWindow", u"Jamindar 2", None))
         self.remark.setText(QCoreApplication.translate("MainWindow", u"Remark", None))
@@ -1603,7 +1591,8 @@ class Ui_MainWindow(object):
         self.remark_2.setItemText(2, QCoreApplication.translate("MainWindow", u"Remark 3", None))
 
         self.approve_btn.setText(QCoreApplication.translate("MainWindow", u"Approve", None))
-        self.error_3.setText(QCoreApplication.translate("MainWindow", u"TextLabel", None))
+        self.error_3.setText(QCoreApplication.translate("MainWindow", u"info", None))
+        self.date1_1.setDisplayFormat(QCoreApplication.translate("MainWindow", u"yyyy/M/d", None))
         self.label_5.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:14pt; font-weight:600; text-decoration: underline; color:#4e8d2c;\">Transaction Details</span></p></body></html>", None))
     # retranslateUi
 

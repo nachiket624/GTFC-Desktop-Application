@@ -114,6 +114,14 @@ class lonedig(QtWidgets.QDialog,Ui_Dialog):
         trdate = self.sdate.text()
         traddher = self.saddher.text()
         trancationSavingLone.savingtr(tramount,trdate,trid,traddher)
+        remark = "saving"
+        tr_name = self.sname.text()
+        tr_addher = self.saddher.text()
+        tr_id = self.sname_3.text()
+        tr_amount = self.samount.text()
+        tr_data = self.sdate.text()
+        mainTransactionTable.transaction_saving(tr_id, tr_name, tr_addher, tr_data, tr_amount, remark)
+        self.clearfiledsaving()
         self.analyticsdate()
     def clearfiledsaving(self):
         self.sname_3.clear()
@@ -133,12 +141,5 @@ class lonedig(QtWidgets.QDialog,Ui_Dialog):
        conn.commit()
        conn.close()
        self.label_15.setText(str(total_month[0]))
-       remark = "saving"
-       tr_name = self.sname.text()
-       tr_addher = self.saddher.text()
-       tr_id = self.sname_3.text()
-       tr_amount = self.samount.text()
-       tr_data = self.sdate.text()
-       mainTransactionTable.transaction_saving(tr_id,tr_name,tr_addher,tr_data,tr_amount,remark)
-       self.clearfiledsaving()
+
 
