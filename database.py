@@ -95,6 +95,8 @@ def getdataloneupdate(lone_no,id,lastdate,new_transaction_date,amount,interast,t
     conn = mysql.connector.connect(host="localhost", user=username, password=userpass, database="green")
     cur = conn.cursor()
     print(lone_no)
+    totalAmounttopay = amount
+
     getdatalonevalue1 = (new_transaction_date,amount,interast,totalAmounttopay,totalIntersetpay,totalintersetamount,total_interest_he_pay)
     print("new lone date is ",new_transaction_date,", last date is ",lastdate)
     # print("""Update lone_info (last_transaction_date,Lone_take,Intrest,total_ammount_to_pay,Total_interest_pay,Total_interest_amount_pay,total_interest_he_pay) VALUES(%s,%s,%s,%s,%s,%s) Where id = """+str(id)+""" and last_transaction_date = '"""+str(lastdate)+"""'""",getdatalonevalue1)

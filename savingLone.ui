@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1099</width>
-    <height>904</height>
+    <width>1114</width>
+    <height>860</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -206,7 +206,7 @@ p, li { white-space: pre-wrap; }
      <item row="0" column="0">
       <widget class="QTabWidget" name="tabWidget">
        <property name="currentIndex">
-        <number>0</number>
+        <number>1</number>
        </property>
        <widget class="QWidget" name="tab">
         <attribute name="title">
@@ -214,6 +214,19 @@ p, li { white-space: pre-wrap; }
         </attribute>
         <layout class="QGridLayout" name="gridLayout_5">
          <item row="1" column="1">
+          <widget class="QLabel" name="label_20">
+           <property name="maximumSize">
+            <size>
+             <width>16777215</width>
+             <height>120</height>
+            </size>
+           </property>
+           <property name="text">
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:24pt; font-weight:600; text-decoration: underline;&quot;&gt;Saving&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="1">
           <widget class="QFrame" name="frame_2">
            <property name="frameShape">
             <enum>QFrame::StyledPanel</enum>
@@ -339,40 +352,6 @@ p, li { white-space: pre-wrap; }
                   </property>
                  </widget>
                 </item>
-                <item row="2" column="0">
-                 <widget class="QLabel" name="label_3">
-                  <property name="styleSheet">
-                   <string notr="true">QLabel{
-	font: 75 14pt &quot;Arial&quot;;
-}</string>
-                  </property>
-                  <property name="text">
-                   <string>Date</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="2" column="1">
-                 <widget class="QDateEdit" name="sdate">
-                  <property name="minimumSize">
-                   <size>
-                    <width>200</width>
-                    <height>30</height>
-                   </size>
-                  </property>
-                  <property name="maximumSize">
-                   <size>
-                    <width>300</width>
-                    <height>16777215</height>
-                   </size>
-                  </property>
-                  <property name="displayFormat">
-                   <string>yyyy/M/d</string>
-                  </property>
-                  <property name="calendarPopup">
-                   <bool>true</bool>
-                  </property>
-                 </widget>
-                </item>
                 <item row="3" column="0">
                  <widget class="QLabel" name="snamelabel">
                   <property name="styleSheet">
@@ -423,17 +402,45 @@ color:rgb(255, 122, 61);</string>
           </widget>
          </item>
          <item row="0" column="1">
-          <widget class="QLabel" name="label_20">
-           <property name="maximumSize">
-            <size>
-             <width>16777215</width>
-             <height>120</height>
-            </size>
+          <layout class="QHBoxLayout" name="horizontalLayout_8">
+           <property name="sizeConstraint">
+            <enum>QLayout::SetMinimumSize</enum>
            </property>
-           <property name="text">
-            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:24pt; font-weight:600; text-decoration: underline;&quot;&gt;Saving&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-           </property>
-          </widget>
+           <item>
+            <widget class="QLabel" name="label_3">
+             <property name="styleSheet">
+              <string notr="true">QLabel{
+	font: 75 14pt &quot;Arial&quot;;
+}</string>
+             </property>
+             <property name="text">
+              <string>Date</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QDateEdit" name="sdate">
+             <property name="minimumSize">
+              <size>
+               <width>200</width>
+               <height>30</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>300</width>
+               <height>16777215</height>
+              </size>
+             </property>
+             <property name="displayFormat">
+              <string>yyyy/M/d</string>
+             </property>
+             <property name="calendarPopup">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+          </layout>
          </item>
         </layout>
        </widget>
@@ -457,13 +464,16 @@ color:rgb(255, 122, 61);</string>
          </item>
          <item row="1" column="0">
           <layout class="QGridLayout" name="gridLayout_9">
+           <property name="spacing">
+            <number>8</number>
+           </property>
            <item row="0" column="0">
             <layout class="QHBoxLayout" name="horizontalLayout_6">
              <property name="spacing">
               <number>12</number>
              </property>
              <property name="rightMargin">
-              <number>280</number>
+              <number>220</number>
              </property>
              <item>
               <widget class="QLabel" name="label_38">
@@ -496,12 +506,156 @@ color:rgb(255, 122, 61);</string>
                <property name="text">
                 <string>Find</string>
                </property>
+               <property name="checkable">
+                <bool>false</bool>
+               </property>
+               <property name="default">
+                <bool>true</bool>
+               </property>
+               <property name="flat">
+                <bool>false</bool>
+               </property>
               </widget>
+             </item>
+            </layout>
+           </item>
+           <item row="1" column="1">
+            <layout class="QGridLayout" name="gridLayout_12">
+             <item row="0" column="0">
+              <layout class="QFormLayout" name="formLayout_8">
+               <property name="verticalSpacing">
+                <number>20</number>
+               </property>
+               <item row="0" column="0">
+                <widget class="QLabel" name="label_22">
+                 <property name="text">
+                  <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:600; text-decoration: underline; color:#000000;&quot;&gt;Lone Taken&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="1">
+                <widget class="QLabel" name="label_49">
+                 <property name="styleSheet">
+                  <string notr="true">font: 75 10pt &quot;MS Shell Dlg 2&quot;;
+color:rgb(255, 90, 35)</string>
+                 </property>
+                 <property name="text">
+                  <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:600; font-style:italic; color:#ff0000;&quot;&gt;0.0&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="0">
+                <widget class="QLabel" name="label_23">
+                 <property name="text">
+                  <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:600; text-decoration: underline; color:#000000;&quot;&gt;Intrest Rate&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="0">
+                <widget class="QLabel" name="label_44">
+                 <property name="text">
+                  <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:600; text-decoration: underline;&quot;&gt;Remaning Lone&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="1">
+                <widget class="QLabel" name="label_50">
+                 <property name="styleSheet">
+                  <string notr="true">font: 75 10pt &quot;MS Shell Dlg 2&quot;;
+color:rgb(255, 90, 35)</string>
+                 </property>
+                 <property name="text">
+                  <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:600; font-style:italic; color:#ff0000;&quot;&gt;0.0&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="3" column="0">
+                <widget class="QLabel" name="label_48">
+                 <property name="text">
+                  <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:600; text-decoration: underline;&quot;&gt;Total Intrest Paid&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="3" column="1">
+                <widget class="QLabel" name="label_54">
+                 <property name="styleSheet">
+                  <string notr="true">font: 75 10pt &quot;MS Shell Dlg 2&quot;;
+color:rgb(255, 90, 35)</string>
+                 </property>
+                 <property name="text">
+                  <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:600; font-style:italic; color:#ff0000;&quot;&gt;0.0&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="4" column="0">
+                <widget class="QLabel" name="label_51">
+                 <property name="text">
+                  <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:600; text-decoration: underline;&quot;&gt;Last Transaction Date&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="4" column="1">
+                <widget class="QLabel" name="label_56">
+                 <property name="styleSheet">
+                  <string notr="true">font: 75 10pt &quot;MS Shell Dlg 2&quot;;
+color:rgb(255, 90, 35)</string>
+                 </property>
+                 <property name="text">
+                  <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:600; font-style:italic; color:#ff0000;&quot;&gt;0.0&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="5" column="0">
+                <widget class="QLabel" name="label_52">
+                 <property name="text">
+                  <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:600; text-decoration: underline;&quot;&gt;Approve Date&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="5" column="1">
+                <widget class="QLabel" name="label_57">
+                 <property name="styleSheet">
+                  <string notr="true">font: 75 10pt &quot;MS Shell Dlg 2&quot;;
+color:rgb(255, 90, 35)</string>
+                 </property>
+                 <property name="text">
+                  <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:600; font-style:italic; color:#ff0000;&quot;&gt;0.0&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="6" column="0">
+                <spacer name="horizontalSpacer_3">
+                 <property name="orientation">
+                  <enum>Qt::Horizontal</enum>
+                 </property>
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>40</width>
+                   <height>20</height>
+                  </size>
+                 </property>
+                </spacer>
+               </item>
+               <item row="1" column="1">
+                <widget class="QLabel" name="label_53">
+                 <property name="styleSheet">
+                  <string notr="true">font: 75 10pt &quot;MS Shell Dlg 2&quot;;
+color:rgb(255, 90, 35)</string>
+                 </property>
+                 <property name="text">
+                  <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:600; font-style:italic; color:#ff0000;&quot;&gt;0.0&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
              </item>
             </layout>
            </item>
            <item row="2" column="0">
             <layout class="QGridLayout" name="gridLayout_11">
+             <property name="spacing">
+              <number>0</number>
+             </property>
              <item row="0" column="0">
               <widget class="QTableWidget" name="tableWidget_2">
                <property name="minimumSize">
@@ -537,11 +691,6 @@ color:rgb(255, 122, 61);</string>
                <column>
                 <property name="text">
                  <string>Month</string>
-                </property>
-               </column>
-               <column>
-                <property name="text">
-                 <string>Date</string>
                 </property>
                </column>
                <column>
@@ -623,98 +772,6 @@ color:rgb(255, 122, 61);</string>
              </item>
             </layout>
            </item>
-           <item row="1" column="1">
-            <layout class="QGridLayout" name="gridLayout_12">
-             <item row="0" column="0">
-              <layout class="QFormLayout" name="formLayout_8">
-               <item row="0" column="0">
-                <widget class="QLabel" name="label_22">
-                 <property name="text">
-                  <string>Lone Taken</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="1" column="0">
-                <widget class="QLabel" name="label_44">
-                 <property name="text">
-                  <string>Remaning Lone</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="3" column="0">
-                <widget class="QLabel" name="label_45">
-                 <property name="text">
-                  <string>Total Lone Pay</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="4" column="0">
-                <widget class="QLabel" name="label_46">
-                 <property name="text">
-                  <string>Total Intrest Pay</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="5" column="0">
-                <widget class="QLabel" name="label_47">
-                 <property name="text">
-                  <string>tTotal Intrest Paid</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="2" column="0">
-                <widget class="QLabel" name="label_48">
-                 <property name="text">
-                  <string>Remaning Intrest Pay</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="0" column="1">
-                <widget class="QLabel" name="label_49">
-                 <property name="text">
-                  <string>TextLabel</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="1" column="1">
-                <widget class="QLabel" name="label_50">
-                 <property name="text">
-                  <string>TextLabel</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="4" column="1">
-                <widget class="QLabel" name="label_51">
-                 <property name="text">
-                  <string>TextLabel</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="5" column="1">
-                <widget class="QLabel" name="label_52">
-                 <property name="text">
-                  <string>TextLabel</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="3" column="1">
-                <widget class="QLabel" name="label_53">
-                 <property name="text">
-                  <string>TextLabel</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="2" column="1">
-                <widget class="QLabel" name="label_54">
-                 <property name="text">
-                  <string>TextLabel</string>
-                 </property>
-                </widget>
-               </item>
-              </layout>
-             </item>
-            </layout>
-           </item>
            <item row="1" column="0">
             <layout class="QFormLayout" name="formLayout_7">
              <item row="0" column="0">
@@ -758,13 +815,65 @@ color:rgb(255, 122, 61);</string>
               </widget>
              </item>
              <item row="2" column="0">
+              <widget class="QLabel" name="label_42">
+               <property name="text">
+                <string>Amount</string>
+               </property>
+              </widget>
+             </item>
+             <item row="2" column="1">
+              <widget class="QLineEdit" name="collect_ammount_2">
+               <property name="maximumSize">
+                <size>
+                 <width>400</width>
+                 <height>16777215</height>
+                </size>
+               </property>
+              </widget>
+             </item>
+             <item row="3" column="0">
+              <widget class="QLabel" name="label_43">
+               <property name="text">
+                <string>Interst</string>
+               </property>
+              </widget>
+             </item>
+             <item row="3" column="1">
+              <widget class="QLabel" name="label_55">
+               <property name="text">
+                <string>TextLabel</string>
+               </property>
+              </widget>
+             </item>
+             <item row="4" column="1">
+              <layout class="QGridLayout" name="gridLayout_10">
+               <item row="0" column="0">
+                <widget class="QPushButton" name="collect_lone_btn_2">
+                 <property name="text">
+                  <string>collect</string>
+                 </property>
+                 <property name="default">
+                  <bool>false</bool>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </item>
+            </layout>
+           </item>
+           <item row="0" column="1">
+            <layout class="QHBoxLayout" name="horizontalLayout_14">
+             <item>
               <widget class="QLabel" name="label_41">
+               <property name="styleSheet">
+                <string notr="true">font: 87 10pt &quot;Arial Black&quot;;</string>
+               </property>
                <property name="text">
                 <string>Date</string>
                </property>
               </widget>
              </item>
-             <item row="2" column="1">
+             <item>
               <widget class="QDateEdit" name="collect_date_2">
                <property name="maximumSize">
                 <size>
@@ -777,48 +886,6 @@ color:rgb(255, 122, 61);</string>
                </property>
                <property name="calendarPopup">
                 <bool>true</bool>
-               </property>
-              </widget>
-             </item>
-             <item row="3" column="0">
-              <widget class="QLabel" name="label_42">
-               <property name="text">
-                <string>Amount</string>
-               </property>
-              </widget>
-             </item>
-             <item row="3" column="1">
-              <widget class="QLineEdit" name="collect_ammount_2">
-               <property name="maximumSize">
-                <size>
-                 <width>400</width>
-                 <height>16777215</height>
-                </size>
-               </property>
-              </widget>
-             </item>
-             <item row="4" column="0">
-              <widget class="QLabel" name="label_43">
-               <property name="text">
-                <string>Interst</string>
-               </property>
-              </widget>
-             </item>
-             <item row="5" column="1">
-              <layout class="QGridLayout" name="gridLayout_10">
-               <item row="0" column="0">
-                <widget class="QPushButton" name="collect_lone_btn_2">
-                 <property name="text">
-                  <string>collect</string>
-                 </property>
-                </widget>
-               </item>
-              </layout>
-             </item>
-             <item row="4" column="1">
-              <widget class="QLabel" name="label_55">
-               <property name="text">
-                <string>TextLabel</string>
                </property>
               </widget>
              </item>

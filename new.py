@@ -36,7 +36,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.setIcon()
 
         # ! ***************************** Dasboard *****************************
-        self.dashboard_btn.setStyleSheet('* {border: none;background-color: rgba(13, 9, 36,0);border-radius: 13;color: rgb(0, 0, 0);border-radius: 13;}')
+        self.dashboard_btn.setStyleSheet('* {border: none;background-color: #e9eef4;border-radius: 13;color: #000000;border-radius: 13;}')
 
         self.stackedWidget.setCurrentWidget(self.dashboard_page)
         self.dashboard_btn.clicked.connect(self.windashboard)
@@ -56,9 +56,9 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
     def WinManage(self):
         self.update_member_btn.clicked.connect(self.updatamember)
         self.stackedWidget.setCurrentWidget(self.pageManage)
-        self.dashboard_btn.setStyleSheet(
-            '* {border: none;background-color: rgba(13, 9, 36,0);border-radius: 13;color: rgb(0, 0, 0);border-radius: 13;}')
-        self.Manage_btn.setStyleSheet('* {background-color: rgb(0, 0, 0);color: rgb(218, 145, 0);border-radius: 13;}')
+        self.dashboard_btn.setStyleSheet('* {border: none;background-color: rgba(13, 9, 36,0);border-radius: 13;color: rgb(255, 255, 255);border-radius: 13;}')
+        self.Manage_btn.setStyleSheet('* {border: none;background-color: #e9eef4;border-radius: 13;color: #000000;border-radius: 13;}')
+        self.view_btn.setStyleSheet('* {border: none;background-color: rgba(13, 9, 36,0);border-radius: 13;color: rgb(255, 255, 255);border-radius: 13;}')
         self.give_lone.clicked.connect(self.giveloneerr)
         self.new_member_btn.clicked.connect(self.showaddmemberfuntionerr)
         self.collection.clicked.connect(self.callcollection)
@@ -69,9 +69,9 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.setWindowIcon(appIcon)
 
     def WinView(self):
-        self.Manage_btn.setStyleSheet('* {border: none;background-color: rgba(13, 9, 36,0);border-radius: 13;color: rgb(0, 0, 0);border-radius: 13;}')
-        self.view_btn.setStyleSheet('* {background-color: rgb(0, 0, 0);color: rgb(218, 145, 0);border-radius: 13;}')
-        self.view_btn.setStyleSheet('* {border: none;background-color: rgba(13, 9, 36,0);border-radius: 13;color: rgb(0, 0, 0);border-radius: 13;}')
+        self.Manage_btn.setStyleSheet('* {border: none;background-color: rgba(13, 9, 36,0);border-radius: 13;color: rgb(255, 255, 255);border-radius: 13;}')
+        self.dashboard_btn.setStyleSheet('* {border: none;background-color: rgba(13, 9, 36,0);border-radius: 13;color: rgb(255, 255, 255);border-radius: 13;}')
+        self.view_btn.setStyleSheet('* {border: none;background-color: #e9eef4;border-radius: 13;color: #000000;border-radius: 13;}')
 
         self.stackedWidget.setCurrentWidget(self.page_view)
         self.viewall_btn.clicked.connect(self.viewallfunction)
@@ -81,9 +81,11 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         # ! ***************************** Dashboard Function *****************************
     def windashboard(self):
         self.stackedWidget.setCurrentWidget(self.dashboard_page)
-        self.dashboard_btn.setStyleSheet('* {background-color: rgb(0, 0, 0);color: rgb(218, 145, 0);border-radius: 13;}')
-        self.Manage_btn.setStyleSheet('* {border: none;background-color: rgba(13, 9, 36,0);border-radius: 13;color: rgb(0, 0, 0);border-radius: 13;}')
-        self.view_btn.setStyleSheet('* {border: none;background-color: rgba(13, 9, 36,0);border-radius: 13;color: rgb(0, 0, 0);border-radius: 13;}')
+        self.dashboard_btn.setStyleSheet(
+            '* {border: none;background-color: #e9eef4;border-radius: 13;color: #000000;border-radius: 13;}')
+
+        self.Manage_btn.setStyleSheet('* {border: none;background-color: rgba(13, 9, 36,0);border-radius: 13;color: rgb(255, 255, 255);border-radius: 13;}')
+        self.view_btn.setStyleSheet('* {border: none;background-color: rgba(13, 9, 36,0);border-radius: 13;color: rgb(255, 255, 255);border-radius: 13;}')
 
 #  ******************************************************* Manage *******************************************************
 
@@ -241,6 +243,8 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.balance_2.clear()
 
     # ! ***************************** Manage  give lone Function *****************************
+
+
     def giveloneerr(self):
         self.lone_no.setText((str(database.lastlonen())))
         self.stackedWidget.setCurrentWidget(self.pagelone)
@@ -301,7 +305,21 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             return remaintime
 
 
-
+    def updateLone_no(self,addher,intrest,amount):
+        conn = mysql.connector.connect(host="localhost", user=username, password=userpass, database="green")
+        cur = conn.cursor()
+        cur.execute("""select Lone_no from lone_info where AddherNo = """+ str(addher) +""" and Intrest = """+ str(intrest) +""" and Lone_take = """+ str(amount) +""" order by last_transaction_date desc""")
+        lone_no = cur.fetchall()
+        cur.close()
+        conn.commit()
+        conn.close()
+        loneNo= [i[0] for i in lone_no]
+        conn = mysql.connector.connect(host="localhost", user=username, password=userpass, database="green")
+        cur = conn.cursor()
+        cur.execute("update lone set lone_no = "+str(loneNo[0])+" where addherNo = "+str(addher)+" and insrast_rate = "+str(intrest)+" and amount = "+str(amount))
+        cur.close()
+        conn.commit()
+        conn.close()
     def diff_month(self,d1, d2):
         return (d1.year - d2.year) * 12 + d1.month - d2.month
 
@@ -319,31 +337,40 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         print('total amount to pay is ',tatp)
         return tatp
 
-    def approveLone(self,loneid):
+    def approveLone(self):
         loneId = self.lone_ID.text()
         lonedate = self.date1_1.text()
         x5 = lonedate.replace("/", " ")
         datetime_object = datetime.strptime(x5, '%Y %m %d')
         print("datetime_object",datetime_object)
         intresrate = self.intrest_rate.text()
-
-    #   find id exist in the lone table
         conn = mysql.connector.connect(host="localhost", user=username, password=userpass, database="green")
         cur = conn.cursor()
-        cur.execute("select count(*) from lone where id = "+str(loneId))
-        idstatus = cur.fetchall()
-        print("Id Status",idstatus)
-        print("First element of idstatus ",idstatus[0])
-        first_tuple_elements = [a_tuple[0] for a_tuple in idstatus]
-        print("first element value ",first_tuple_elements)
+        cur.execute("""select count(*) from lone""")
+        count1 =  cur.fetchall()
+        cur.close()
+        conn.commit()
+        conn.close()
+        if count1[0] == 0:
+            pass
+    #   find id exist in the lone table
+        else:
+            conn = mysql.connector.connect(host="localhost", user=username, password=userpass, database="green")
+            cur = conn.cursor()
+            cur.execute("select count(*) from lone where id = "+str(loneId))
+            idstatus = cur.fetchall()
+            print("Id Status",idstatus)
+            print("First element of idstatus ",idstatus[0])
+            first_tuple_elements = [a_tuple[0] for a_tuple in idstatus]
+            print("first element value ",first_tuple_elements)
 
-        amount = self.amount.text()
-        lone_no = self.lone_no.text()
-        addher = self.addherno.text()
-        checkno = self.checkno.text()
-        jam1 = self.jam1_2.text()
-        jam2 = self.jam1_3.text()
-        remark = self.remark_2.currentText()
+            amount = self.amount.text()
+            lone_no = self.lone_no.text()
+            addher = self.addherno.text()
+            checkno = self.checkno.text()
+            jam1 = self.jam1_2.text()
+            jam2 = self.jam1_3.text()
+            remark = self.remark_2.currentText()
     # if idstatus id less equal to 0 then create new record else check last approve date
 
         if first_tuple_elements[0] == 0:
@@ -359,11 +386,11 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
             if rowcountoftabletransaction_detail == 0:
                 trNo = 1
-                insert_data = [trNo,loneId, full_name, addher, lonedate, amount, intresrate, lone_no, remark]
+                insert_data = [trNo,loneId, full_name, addher, lonedate, amount, intresrate, lone_no, checkno,remark]
                 conn = mysql.connector.connect(host="localhost", user=username, password=userpass, database="green")
                 cur = conn.cursor()
                 cur.execute(
-                    """INSERT INTO transaction_detail(transaction_no,Id, name, addher_no, date, amount, Intrest, lone_no, remark)VALUES(%s,%s,%s,%s,%s,%s,%s,%s)""",
+                    """INSERT INTO transaction_detail(transaction_no,Id, name, addher_no, date, amount, Intrest, lone_no, check_number,remark)VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s)""",
                     insert_data)
 
                 cur.close()
@@ -375,7 +402,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
                 time = self.get_last_pay_date(loneId, datetime_object)
                 intrestrate = self.intrestamountcal(amount, time, intresrate)
                 totalIntersetpay = str(intrestrate)
-                totalAmounttopay = 0
+                totalAmounttopay = int(self.amount.text())
                 totalintersetamount = 0
                 total_interest_he_pay = 0
                 lone_ID = self.lone_ID.text()
@@ -384,12 +411,14 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
                                      totalAmounttopay,
                                      totalIntersetpay, totalintersetamount, total_interest_he_pay)
 
+
+
             else:
-                insert_data = [loneId, full_name, addher, lonedate, amount, intresrate, lone_no, remark]
+                insert_data = [loneId, full_name, addher, lonedate, amount, intresrate, lone_no, checkno,remark]
                 conn = mysql.connector.connect(host="localhost", user=username, password=userpass, database="green")
                 cur = conn.cursor()
                 cur.execute(
-                    """INSERT INTO transaction_detail(Id, name, addher_no, date, amount, Intrest, lone_no, remark)VALUES(%s,%s,%s,%s,%s,%s,%s,%s)""",
+                    """INSERT INTO transaction_detail(Id, name, addher_no, date, amount, Intrest, lone_no, check_number,remark)VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s)""",
                     insert_data)
 
                 cur.close()
@@ -407,7 +436,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
                 time = self.get_last_pay_date(loneId, datetime_object)
                 intrestrate = self.intrestamountcal(amount, time, intresrate)
                 totalIntersetpay = str(intrestrate)
-                totalAmounttopay = 0
+                totalAmounttopay = int(self.amount.text())
                 totalintersetamount = 0
                 total_interest_he_pay = 0
                 lone_ID = self.lone_ID.text()
@@ -429,6 +458,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
                     conn.commit()
                     conn.close()
                     time = self.get_last_pay_date(loneId, datetime_object)
+                    self.updateLone_no(addher, intresrate, amount)
 
                 else:
                     insert_data = [ lone_no, amount, full_name, loneId, addher, intresrate, checkno, lonedate, jam1,
@@ -441,6 +471,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
                     cur.close()
                     conn.commit()
                     conn.close()
+                    self.updateLone_no(addher,intresrate,amount)
                     self.cleargivelonefiled()
 
 
@@ -478,8 +509,10 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
                                    remark]
                     conn = mysql.connector.connect(host="localhost", user=username, password=userpass, database="green")
                     cur = conn.cursor()
-                    print("""UPDATE lone SET amount = """+str(amount)+" where lone_no = "+loneId+" and lone_date  = '"+str(lastdate)+"'")
-                    cur.execute("""UPDATE lone SET amount = """+str(amount)+" where lone_no = "+loneId+" and lone_date  = '"+str(lastdate)+"'")
+                    print("Amount is : ",amount)
+
+                    # print("""UPDATE lone SET amount = """+str(amount)+" where lone_no = "+loneId+" and lone_date  = '"+str(lastdate)+"'")
+                    cur.execute("""UPDATE lone SET amount = """+str(amount)+" where id = "+loneId+" and lone_date  = '"+str(lastdate)+"'")
 
                     cur.close()
                     conn.commit()
@@ -487,12 +520,12 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
              #    new entry in transaction detail table
                     remark = "added new amount"
                     amount1 = self.amount.text()
-                    insert_data = [loneId, full_name, addher, lonedate, amount1, intresrate, lone_no, remark]
+                    insert_data = [loneId, full_name, addher, lonedate, amount1, intresrate, lone_no, checkno,remark]
                     conn = mysql.connector.connect(host="localhost", user=username, password=userpass, database="green")
                     cur = conn.cursor()
 
                     cur.execute(
-                        """INSERT INTO transaction_detail(Id, name, addher_no, date, amount, Intrest, lone_no, remark)VALUES(%s,%s,%s,%s,%s,%s,%s,%s)""",
+                        """INSERT INTO transaction_detail(Id, name, addher_no, date, amount, Intrest, lone_no,check_number, remark)VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s)""",
                         insert_data)
 
                     cur.close()
@@ -505,7 +538,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
                     intrestrate = self.intrestamountcal(amount, time, intresrate)
                     print("Intrestrate is ",intrestrate)
                     totalIntersetpay = str(intrestrate)
-                    totalAmounttopay = 0
+                    totalAmounttopay = int(self.amount.text())
                     totalintersetamount = 0
                     total_interest_he_pay = 0
                     lone_ID = self.lone_ID.text()
@@ -530,12 +563,12 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
                     conn.close()
                     #    new entry in transaction detail table
                     remark = "added new amount"
-                    insert_data = [loneId, full_name, addher, lonedate, amount, intresrate, lone_no, remark]
+                    insert_data = [loneId, full_name, addher, lonedate, amount, intresrate, lone_no,checkno, remark]
                     conn = mysql.connector.connect(host="localhost", user=username, password=userpass,
                                                    database="green")
                     cur = conn.cursor()
                     cur.execute(
-                        """INSERT INTO transaction_detail(Id, name, addher_no, date, amount, Intrest, lone_no, remark)VALUES(%s,%s,%s,%s,%s,%s,%s,%s)""",
+                        """INSERT INTO transaction_detail(Id, name, addher_no, date, amount, Intrest, lone_no,check_number, remark)VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s)""",
                         insert_data)
                     cur.close()
                     conn.commit()
@@ -551,7 +584,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
                     intrestrate = self.intrestamountcal(amount, time, intresrate)
                     print("Intrestrate is ", intrestrate)
                     totalIntersetpay = str(intrestrate)
-                    totalAmounttopay = 0
+                    totalAmounttopay = int(self.amount.text())
                     totalintersetamount = 0
                     total_interest_he_pay = 0
                     lone_ID = self.lone_ID.text()
@@ -579,12 +612,12 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
                 conn.close()
                 #    new entry in transaction detail table
                 remark = "added new amount"
-                insert_data = [loneId, full_name, addher, lonedate, amount, intresrate, lone_no, remark]
+                insert_data = [loneId, full_name, addher, lonedate, amount, intresrate, lone_no,checkno, remark]
                 conn = mysql.connector.connect(host="localhost", user=username, password=userpass,
                                                database="green")
                 cur = conn.cursor()
                 cur.execute(
-                    """INSERT INTO transaction_detail(Id, name, addher_no, date, amount, Intrest, lone_no, remark)VALUES(%s,%s,%s,%s,%s,%s,%s,%s)""",
+                    """INSERT INTO transaction_detail(Id, name, addher_no, date, amount, Intrest, lone_no, check_number,remark)VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s)""",
                     insert_data)
                 cur.close()
                 conn.commit()
@@ -600,7 +633,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
                 intrestrate = self.intrestamountcal(amount, time, intresrate)
                 print("Intrestrate is ", intrestrate)
                 totalIntersetpay = str(intrestrate)
-                totalAmounttopay = 0
+                totalAmounttopay = int(self.amount.text())
                 totalintersetamount = 0
                 total_interest_he_pay = 0
                 lone_ID = self.lone_ID.text()

@@ -17,7 +17,7 @@ class Ui_Dialog(object):
     def setupUi(self, Dialog):
         if not Dialog.objectName():
             Dialog.setObjectName(u"Dialog")
-        Dialog.resize(1099, 904)
+        Dialog.resize(1114, 860)
         self.gridLayout_2 = QGridLayout(Dialog)
         self.gridLayout_2.setObjectName(u"gridLayout_2")
         self.gridLayout = QGridLayout()
@@ -146,6 +146,12 @@ class Ui_Dialog(object):
         self.tab.setObjectName(u"tab")
         self.gridLayout_5 = QGridLayout(self.tab)
         self.gridLayout_5.setObjectName(u"gridLayout_5")
+        self.label_20 = QLabel(self.tab)
+        self.label_20.setObjectName(u"label_20")
+        self.label_20.setMaximumSize(QSize(16777215, 120))
+
+        self.gridLayout_5.addWidget(self.label_20, 1, 1, 1, 1)
+
         self.frame_2 = QFrame(self.tab)
         self.frame_2.setObjectName(u"frame_2")
         self.frame_2.setFrameShape(QFrame.StyledPanel)
@@ -226,22 +232,6 @@ class Ui_Dialog(object):
 
         self.formLayout_2.setWidget(1, QFormLayout.FieldRole, self.saddher)
 
-        self.label_3 = QLabel(self.frame_2)
-        self.label_3.setObjectName(u"label_3")
-        self.label_3.setStyleSheet(u"QLabel{\n"
-"	font: 75 14pt \"Arial\";\n"
-"}")
-
-        self.formLayout_2.setWidget(2, QFormLayout.LabelRole, self.label_3)
-
-        self.sdate = QDateEdit(self.frame_2)
-        self.sdate.setObjectName(u"sdate")
-        self.sdate.setMinimumSize(QSize(200, 30))
-        self.sdate.setMaximumSize(QSize(300, 16777215))
-        self.sdate.setCalendarPopup(True)
-
-        self.formLayout_2.setWidget(2, QFormLayout.FieldRole, self.sdate)
-
         self.snamelabel = QLabel(self.frame_2)
         self.snamelabel.setObjectName(u"snamelabel")
         self.snamelabel.setStyleSheet(u"QLabel{\n"
@@ -282,13 +272,29 @@ class Ui_Dialog(object):
         self.gridLayout_7.addLayout(self.gridLayout_4, 0, 0, 1, 1)
 
 
-        self.gridLayout_5.addWidget(self.frame_2, 1, 1, 1, 1)
+        self.gridLayout_5.addWidget(self.frame_2, 2, 1, 1, 1)
 
-        self.label_20 = QLabel(self.tab)
-        self.label_20.setObjectName(u"label_20")
-        self.label_20.setMaximumSize(QSize(16777215, 120))
+        self.horizontalLayout_8 = QHBoxLayout()
+        self.horizontalLayout_8.setObjectName(u"horizontalLayout_8")
+        self.horizontalLayout_8.setSizeConstraint(QLayout.SetMinimumSize)
+        self.label_3 = QLabel(self.tab)
+        self.label_3.setObjectName(u"label_3")
+        self.label_3.setStyleSheet(u"QLabel{\n"
+"	font: 75 14pt \"Arial\";\n"
+"}")
 
-        self.gridLayout_5.addWidget(self.label_20, 0, 1, 1, 1)
+        self.horizontalLayout_8.addWidget(self.label_3)
+
+        self.sdate = QDateEdit(self.tab)
+        self.sdate.setObjectName(u"sdate")
+        self.sdate.setMinimumSize(QSize(200, 30))
+        self.sdate.setMaximumSize(QSize(300, 16777215))
+        self.sdate.setCalendarPopup(True)
+
+        self.horizontalLayout_8.addWidget(self.sdate)
+
+
+        self.gridLayout_5.addLayout(self.horizontalLayout_8, 0, 1, 1, 1)
 
         self.tabWidget.addTab(self.tab, "")
         self.tab_2 = QWidget()
@@ -302,11 +308,12 @@ class Ui_Dialog(object):
         self.gridLayout_13.addWidget(self.label_21, 0, 0, 1, 1)
 
         self.gridLayout_9 = QGridLayout()
+        self.gridLayout_9.setSpacing(8)
         self.gridLayout_9.setObjectName(u"gridLayout_9")
         self.horizontalLayout_6 = QHBoxLayout()
         self.horizontalLayout_6.setSpacing(12)
         self.horizontalLayout_6.setObjectName(u"horizontalLayout_6")
-        self.horizontalLayout_6.setContentsMargins(-1, -1, 280, -1)
+        self.horizontalLayout_6.setContentsMargins(-1, -1, 220, -1)
         self.label_38 = QLabel(self.tab_2)
         self.label_38.setObjectName(u"label_38")
 
@@ -322,17 +329,107 @@ class Ui_Dialog(object):
         self.saving_find_btn = QPushButton(self.tab_2)
         self.saving_find_btn.setObjectName(u"saving_find_btn")
         self.saving_find_btn.setMaximumSize(QSize(120, 40))
+        self.saving_find_btn.setCheckable(False)
+        self.saving_find_btn.setFlat(False)
 
         self.horizontalLayout_6.addWidget(self.saving_find_btn)
 
 
         self.gridLayout_9.addLayout(self.horizontalLayout_6, 0, 0, 1, 1)
 
+        self.gridLayout_12 = QGridLayout()
+        self.gridLayout_12.setObjectName(u"gridLayout_12")
+        self.formLayout_8 = QFormLayout()
+        self.formLayout_8.setObjectName(u"formLayout_8")
+        self.formLayout_8.setVerticalSpacing(20)
+        self.label_22 = QLabel(self.tab_2)
+        self.label_22.setObjectName(u"label_22")
+
+        self.formLayout_8.setWidget(0, QFormLayout.LabelRole, self.label_22)
+
+        self.label_49 = QLabel(self.tab_2)
+        self.label_49.setObjectName(u"label_49")
+        self.label_49.setStyleSheet(u"font: 75 10pt \"MS Shell Dlg 2\";\n"
+"color:rgb(255, 90, 35)")
+
+        self.formLayout_8.setWidget(0, QFormLayout.FieldRole, self.label_49)
+
+        self.label_23 = QLabel(self.tab_2)
+        self.label_23.setObjectName(u"label_23")
+
+        self.formLayout_8.setWidget(1, QFormLayout.LabelRole, self.label_23)
+
+        self.label_44 = QLabel(self.tab_2)
+        self.label_44.setObjectName(u"label_44")
+
+        self.formLayout_8.setWidget(2, QFormLayout.LabelRole, self.label_44)
+
+        self.label_50 = QLabel(self.tab_2)
+        self.label_50.setObjectName(u"label_50")
+        self.label_50.setStyleSheet(u"font: 75 10pt \"MS Shell Dlg 2\";\n"
+"color:rgb(255, 90, 35)")
+
+        self.formLayout_8.setWidget(2, QFormLayout.FieldRole, self.label_50)
+
+        self.label_48 = QLabel(self.tab_2)
+        self.label_48.setObjectName(u"label_48")
+
+        self.formLayout_8.setWidget(3, QFormLayout.LabelRole, self.label_48)
+
+        self.label_54 = QLabel(self.tab_2)
+        self.label_54.setObjectName(u"label_54")
+        self.label_54.setStyleSheet(u"font: 75 10pt \"MS Shell Dlg 2\";\n"
+"color:rgb(255, 90, 35)")
+
+        self.formLayout_8.setWidget(3, QFormLayout.FieldRole, self.label_54)
+
+        self.label_51 = QLabel(self.tab_2)
+        self.label_51.setObjectName(u"label_51")
+
+        self.formLayout_8.setWidget(4, QFormLayout.LabelRole, self.label_51)
+
+        self.label_56 = QLabel(self.tab_2)
+        self.label_56.setObjectName(u"label_56")
+        self.label_56.setStyleSheet(u"font: 75 10pt \"MS Shell Dlg 2\";\n"
+"color:rgb(255, 90, 35)")
+
+        self.formLayout_8.setWidget(4, QFormLayout.FieldRole, self.label_56)
+
+        self.label_52 = QLabel(self.tab_2)
+        self.label_52.setObjectName(u"label_52")
+
+        self.formLayout_8.setWidget(5, QFormLayout.LabelRole, self.label_52)
+
+        self.label_57 = QLabel(self.tab_2)
+        self.label_57.setObjectName(u"label_57")
+        self.label_57.setStyleSheet(u"font: 75 10pt \"MS Shell Dlg 2\";\n"
+"color:rgb(255, 90, 35)")
+
+        self.formLayout_8.setWidget(5, QFormLayout.FieldRole, self.label_57)
+
+        self.horizontalSpacer_3 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.formLayout_8.setItem(6, QFormLayout.LabelRole, self.horizontalSpacer_3)
+
+        self.label_53 = QLabel(self.tab_2)
+        self.label_53.setObjectName(u"label_53")
+        self.label_53.setStyleSheet(u"font: 75 10pt \"MS Shell Dlg 2\";\n"
+"color:rgb(255, 90, 35)")
+
+        self.formLayout_8.setWidget(1, QFormLayout.FieldRole, self.label_53)
+
+
+        self.gridLayout_12.addLayout(self.formLayout_8, 0, 0, 1, 1)
+
+
+        self.gridLayout_9.addLayout(self.gridLayout_12, 1, 1, 1, 1)
+
         self.gridLayout_11 = QGridLayout()
+        self.gridLayout_11.setSpacing(0)
         self.gridLayout_11.setObjectName(u"gridLayout_11")
         self.tableWidget_2 = QTableWidget(self.tab_2)
-        if (self.tableWidget_2.columnCount() < 5):
-            self.tableWidget_2.setColumnCount(5)
+        if (self.tableWidget_2.columnCount() < 4):
+            self.tableWidget_2.setColumnCount(4)
         __qtablewidgetitem = QTableWidgetItem()
         self.tableWidget_2.setHorizontalHeaderItem(0, __qtablewidgetitem)
         __qtablewidgetitem1 = QTableWidgetItem()
@@ -341,34 +438,32 @@ class Ui_Dialog(object):
         self.tableWidget_2.setHorizontalHeaderItem(2, __qtablewidgetitem2)
         __qtablewidgetitem3 = QTableWidgetItem()
         self.tableWidget_2.setHorizontalHeaderItem(3, __qtablewidgetitem3)
-        __qtablewidgetitem4 = QTableWidgetItem()
-        self.tableWidget_2.setHorizontalHeaderItem(4, __qtablewidgetitem4)
         if (self.tableWidget_2.rowCount() < 12):
             self.tableWidget_2.setRowCount(12)
+        __qtablewidgetitem4 = QTableWidgetItem()
+        self.tableWidget_2.setItem(0, 0, __qtablewidgetitem4)
         __qtablewidgetitem5 = QTableWidgetItem()
-        self.tableWidget_2.setItem(0, 0, __qtablewidgetitem5)
+        self.tableWidget_2.setItem(1, 0, __qtablewidgetitem5)
         __qtablewidgetitem6 = QTableWidgetItem()
-        self.tableWidget_2.setItem(1, 0, __qtablewidgetitem6)
+        self.tableWidget_2.setItem(2, 0, __qtablewidgetitem6)
         __qtablewidgetitem7 = QTableWidgetItem()
-        self.tableWidget_2.setItem(2, 0, __qtablewidgetitem7)
+        self.tableWidget_2.setItem(3, 0, __qtablewidgetitem7)
         __qtablewidgetitem8 = QTableWidgetItem()
-        self.tableWidget_2.setItem(3, 0, __qtablewidgetitem8)
+        self.tableWidget_2.setItem(4, 0, __qtablewidgetitem8)
         __qtablewidgetitem9 = QTableWidgetItem()
-        self.tableWidget_2.setItem(4, 0, __qtablewidgetitem9)
+        self.tableWidget_2.setItem(5, 0, __qtablewidgetitem9)
         __qtablewidgetitem10 = QTableWidgetItem()
-        self.tableWidget_2.setItem(5, 0, __qtablewidgetitem10)
+        self.tableWidget_2.setItem(6, 0, __qtablewidgetitem10)
         __qtablewidgetitem11 = QTableWidgetItem()
-        self.tableWidget_2.setItem(6, 0, __qtablewidgetitem11)
+        self.tableWidget_2.setItem(7, 0, __qtablewidgetitem11)
         __qtablewidgetitem12 = QTableWidgetItem()
-        self.tableWidget_2.setItem(7, 0, __qtablewidgetitem12)
+        self.tableWidget_2.setItem(8, 0, __qtablewidgetitem12)
         __qtablewidgetitem13 = QTableWidgetItem()
-        self.tableWidget_2.setItem(8, 0, __qtablewidgetitem13)
+        self.tableWidget_2.setItem(9, 0, __qtablewidgetitem13)
         __qtablewidgetitem14 = QTableWidgetItem()
-        self.tableWidget_2.setItem(9, 0, __qtablewidgetitem14)
+        self.tableWidget_2.setItem(10, 0, __qtablewidgetitem14)
         __qtablewidgetitem15 = QTableWidgetItem()
-        self.tableWidget_2.setItem(10, 0, __qtablewidgetitem15)
-        __qtablewidgetitem16 = QTableWidgetItem()
-        self.tableWidget_2.setItem(11, 0, __qtablewidgetitem16)
+        self.tableWidget_2.setItem(11, 0, __qtablewidgetitem15)
         self.tableWidget_2.setObjectName(u"tableWidget_2")
         self.tableWidget_2.setMinimumSize(QSize(0, 300))
         self.tableWidget_2.setSelectionMode(QAbstractItemView.SingleSelection)
@@ -380,76 +475,6 @@ class Ui_Dialog(object):
 
 
         self.gridLayout_9.addLayout(self.gridLayout_11, 2, 0, 1, 1)
-
-        self.gridLayout_12 = QGridLayout()
-        self.gridLayout_12.setObjectName(u"gridLayout_12")
-        self.formLayout_8 = QFormLayout()
-        self.formLayout_8.setObjectName(u"formLayout_8")
-        self.label_22 = QLabel(self.tab_2)
-        self.label_22.setObjectName(u"label_22")
-
-        self.formLayout_8.setWidget(0, QFormLayout.LabelRole, self.label_22)
-
-        self.label_44 = QLabel(self.tab_2)
-        self.label_44.setObjectName(u"label_44")
-
-        self.formLayout_8.setWidget(1, QFormLayout.LabelRole, self.label_44)
-
-        self.label_45 = QLabel(self.tab_2)
-        self.label_45.setObjectName(u"label_45")
-
-        self.formLayout_8.setWidget(3, QFormLayout.LabelRole, self.label_45)
-
-        self.label_46 = QLabel(self.tab_2)
-        self.label_46.setObjectName(u"label_46")
-
-        self.formLayout_8.setWidget(4, QFormLayout.LabelRole, self.label_46)
-
-        self.label_47 = QLabel(self.tab_2)
-        self.label_47.setObjectName(u"label_47")
-
-        self.formLayout_8.setWidget(5, QFormLayout.LabelRole, self.label_47)
-
-        self.label_48 = QLabel(self.tab_2)
-        self.label_48.setObjectName(u"label_48")
-
-        self.formLayout_8.setWidget(2, QFormLayout.LabelRole, self.label_48)
-
-        self.label_49 = QLabel(self.tab_2)
-        self.label_49.setObjectName(u"label_49")
-
-        self.formLayout_8.setWidget(0, QFormLayout.FieldRole, self.label_49)
-
-        self.label_50 = QLabel(self.tab_2)
-        self.label_50.setObjectName(u"label_50")
-
-        self.formLayout_8.setWidget(1, QFormLayout.FieldRole, self.label_50)
-
-        self.label_51 = QLabel(self.tab_2)
-        self.label_51.setObjectName(u"label_51")
-
-        self.formLayout_8.setWidget(4, QFormLayout.FieldRole, self.label_51)
-
-        self.label_52 = QLabel(self.tab_2)
-        self.label_52.setObjectName(u"label_52")
-
-        self.formLayout_8.setWidget(5, QFormLayout.FieldRole, self.label_52)
-
-        self.label_53 = QLabel(self.tab_2)
-        self.label_53.setObjectName(u"label_53")
-
-        self.formLayout_8.setWidget(3, QFormLayout.FieldRole, self.label_53)
-
-        self.label_54 = QLabel(self.tab_2)
-        self.label_54.setObjectName(u"label_54")
-
-        self.formLayout_8.setWidget(2, QFormLayout.FieldRole, self.label_54)
-
-
-        self.gridLayout_12.addLayout(self.formLayout_8, 0, 0, 1, 1)
-
-
-        self.gridLayout_9.addLayout(self.gridLayout_12, 1, 1, 1, 1)
 
         self.formLayout_7 = QFormLayout()
         self.formLayout_7.setObjectName(u"formLayout_7")
@@ -476,33 +501,26 @@ class Ui_Dialog(object):
 
         self.formLayout_7.setWidget(1, QFormLayout.FieldRole, self.addhere_no_2)
 
-        self.label_41 = QLabel(self.tab_2)
-        self.label_41.setObjectName(u"label_41")
-
-        self.formLayout_7.setWidget(2, QFormLayout.LabelRole, self.label_41)
-
-        self.collect_date_2 = QDateEdit(self.tab_2)
-        self.collect_date_2.setObjectName(u"collect_date_2")
-        self.collect_date_2.setMaximumSize(QSize(100, 16777215))
-        self.collect_date_2.setCalendarPopup(True)
-
-        self.formLayout_7.setWidget(2, QFormLayout.FieldRole, self.collect_date_2)
-
         self.label_42 = QLabel(self.tab_2)
         self.label_42.setObjectName(u"label_42")
 
-        self.formLayout_7.setWidget(3, QFormLayout.LabelRole, self.label_42)
+        self.formLayout_7.setWidget(2, QFormLayout.LabelRole, self.label_42)
 
         self.collect_ammount_2 = QLineEdit(self.tab_2)
         self.collect_ammount_2.setObjectName(u"collect_ammount_2")
         self.collect_ammount_2.setMaximumSize(QSize(400, 16777215))
 
-        self.formLayout_7.setWidget(3, QFormLayout.FieldRole, self.collect_ammount_2)
+        self.formLayout_7.setWidget(2, QFormLayout.FieldRole, self.collect_ammount_2)
 
         self.label_43 = QLabel(self.tab_2)
         self.label_43.setObjectName(u"label_43")
 
-        self.formLayout_7.setWidget(4, QFormLayout.LabelRole, self.label_43)
+        self.formLayout_7.setWidget(3, QFormLayout.LabelRole, self.label_43)
+
+        self.label_55 = QLabel(self.tab_2)
+        self.label_55.setObjectName(u"label_55")
+
+        self.formLayout_7.setWidget(3, QFormLayout.FieldRole, self.label_55)
 
         self.gridLayout_10 = QGridLayout()
         self.gridLayout_10.setObjectName(u"gridLayout_10")
@@ -512,15 +530,28 @@ class Ui_Dialog(object):
         self.gridLayout_10.addWidget(self.collect_lone_btn_2, 0, 0, 1, 1)
 
 
-        self.formLayout_7.setLayout(5, QFormLayout.FieldRole, self.gridLayout_10)
-
-        self.label_55 = QLabel(self.tab_2)
-        self.label_55.setObjectName(u"label_55")
-
-        self.formLayout_7.setWidget(4, QFormLayout.FieldRole, self.label_55)
+        self.formLayout_7.setLayout(4, QFormLayout.FieldRole, self.gridLayout_10)
 
 
         self.gridLayout_9.addLayout(self.formLayout_7, 1, 0, 1, 1)
+
+        self.horizontalLayout_14 = QHBoxLayout()
+        self.horizontalLayout_14.setObjectName(u"horizontalLayout_14")
+        self.label_41 = QLabel(self.tab_2)
+        self.label_41.setObjectName(u"label_41")
+        self.label_41.setStyleSheet(u"font: 87 10pt \"Arial Black\";")
+
+        self.horizontalLayout_14.addWidget(self.label_41)
+
+        self.collect_date_2 = QDateEdit(self.tab_2)
+        self.collect_date_2.setObjectName(u"collect_date_2")
+        self.collect_date_2.setMaximumSize(QSize(100, 16777215))
+        self.collect_date_2.setCalendarPopup(True)
+
+        self.horizontalLayout_14.addWidget(self.collect_date_2)
+
+
+        self.gridLayout_9.addLayout(self.horizontalLayout_14, 0, 1, 1, 1)
 
 
         self.gridLayout_13.addLayout(self.gridLayout_9, 1, 0, 1, 1)
@@ -536,7 +567,9 @@ class Ui_Dialog(object):
 
         self.retranslateUi(Dialog)
 
-        self.tabWidget.setCurrentIndex(0)
+        self.tabWidget.setCurrentIndex(1)
+        self.saving_find_btn.setDefault(True)
+        self.collect_lone_btn_2.setDefault(False)
 
 
         QMetaObject.connectSlotsByName(Dialog)
@@ -563,80 +596,78 @@ class Ui_Dialog(object):
         self.dateEdit.setDisplayFormat(QCoreApplication.translate("Dialog", u"yyyy/M/d", None))
         self.analytics_data_find.setText(QCoreApplication.translate("Dialog", u"Find", None))
         self.pushButton.setText(QCoreApplication.translate("Dialog", u"PushButton", None))
+        self.label_20.setText(QCoreApplication.translate("Dialog", u"<html><head/><body><p align=\"center\"><span style=\" font-size:24pt; font-weight:600; text-decoration: underline;\">Saving</span></p></body></html>", None))
         self.label_7.setText(QCoreApplication.translate("Dialog", u"ID", None))
         self.sfind_btn.setText(QCoreApplication.translate("Dialog", u"Find", None))
         self.scollect_btn.setText(QCoreApplication.translate("Dialog", u"Collect", None))
         self.label.setText(QCoreApplication.translate("Dialog", u"Name", None))
         self.label_2.setText(QCoreApplication.translate("Dialog", u"Addher No", None))
-        self.label_3.setText(QCoreApplication.translate("Dialog", u"Date", None))
-        self.sdate.setDisplayFormat(QCoreApplication.translate("Dialog", u"yyyy/M/d", None))
         self.snamelabel.setText(QCoreApplication.translate("Dialog", u"Amount", None))
         self.snamelabel_2.setText(QCoreApplication.translate("Dialog", u"Total Saving", None))
         self.member_total_saving.setText("")
-        self.label_20.setText(QCoreApplication.translate("Dialog", u"<html><head/><body><p align=\"center\"><span style=\" font-size:24pt; font-weight:600; text-decoration: underline;\">Saving</span></p></body></html>", None))
+        self.label_3.setText(QCoreApplication.translate("Dialog", u"Date", None))
+        self.sdate.setDisplayFormat(QCoreApplication.translate("Dialog", u"yyyy/M/d", None))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab), QCoreApplication.translate("Dialog", u"Tab 1", None))
         self.label_21.setText(QCoreApplication.translate("Dialog", u"<html><head/><body><p align=\"center\"><span style=\" font-size:24pt; font-weight:600; text-decoration: underline;\">Loan</span></p></body></html>", None))
         self.label_38.setText(QCoreApplication.translate("Dialog", u"Lone No", None))
         self.saving_find_btn.setText(QCoreApplication.translate("Dialog", u"Find", None))
+        self.label_22.setText(QCoreApplication.translate("Dialog", u"<html><head/><body><p><span style=\" font-size:10pt; font-weight:600; text-decoration: underline; color:#000000;\">Lone Taken</span></p></body></html>", None))
+        self.label_49.setText(QCoreApplication.translate("Dialog", u"<html><head/><body><p><span style=\" font-size:10pt; font-weight:600; font-style:italic; color:#ff0000;\">0.0</span></p></body></html>", None))
+        self.label_23.setText(QCoreApplication.translate("Dialog", u"<html><head/><body><p><span style=\" font-size:10pt; font-weight:600; text-decoration: underline; color:#000000;\">Intrest Rate</span></p></body></html>", None))
+        self.label_44.setText(QCoreApplication.translate("Dialog", u"<html><head/><body><p><span style=\" font-size:10pt; font-weight:600; text-decoration: underline;\">Remaning Lone</span></p></body></html>", None))
+        self.label_50.setText(QCoreApplication.translate("Dialog", u"<html><head/><body><p><span style=\" font-size:10pt; font-weight:600; font-style:italic; color:#ff0000;\">0.0</span></p></body></html>", None))
+        self.label_48.setText(QCoreApplication.translate("Dialog", u"<html><head/><body><p><span style=\" font-size:10pt; font-weight:600; text-decoration: underline;\">Total Intrest Paid</span></p></body></html>", None))
+        self.label_54.setText(QCoreApplication.translate("Dialog", u"<html><head/><body><p><span style=\" font-size:10pt; font-weight:600; font-style:italic; color:#ff0000;\">0.0</span></p></body></html>", None))
+        self.label_51.setText(QCoreApplication.translate("Dialog", u"<html><head/><body><p><span style=\" font-size:10pt; font-weight:600; text-decoration: underline;\">Last Transaction Date</span></p></body></html>", None))
+        self.label_56.setText(QCoreApplication.translate("Dialog", u"<html><head/><body><p><span style=\" font-size:10pt; font-weight:600; font-style:italic; color:#ff0000;\">0.0</span></p></body></html>", None))
+        self.label_52.setText(QCoreApplication.translate("Dialog", u"<html><head/><body><p><span style=\" font-size:10pt; font-weight:600; text-decoration: underline;\">Approve Date</span></p></body></html>", None))
+        self.label_57.setText(QCoreApplication.translate("Dialog", u"<html><head/><body><p><span style=\" font-size:10pt; font-weight:600; font-style:italic; color:#ff0000;\">0.0</span></p></body></html>", None))
+        self.label_53.setText(QCoreApplication.translate("Dialog", u"<html><head/><body><p><span style=\" font-size:10pt; font-weight:600; font-style:italic; color:#ff0000;\">0.0</span></p></body></html>", None))
         ___qtablewidgetitem = self.tableWidget_2.horizontalHeaderItem(0)
         ___qtablewidgetitem.setText(QCoreApplication.translate("Dialog", u"Month", None));
         ___qtablewidgetitem1 = self.tableWidget_2.horizontalHeaderItem(1)
-        ___qtablewidgetitem1.setText(QCoreApplication.translate("Dialog", u"Date", None));
+        ___qtablewidgetitem1.setText(QCoreApplication.translate("Dialog", u"Amount", None));
         ___qtablewidgetitem2 = self.tableWidget_2.horizontalHeaderItem(2)
-        ___qtablewidgetitem2.setText(QCoreApplication.translate("Dialog", u"Amount", None));
+        ___qtablewidgetitem2.setText(QCoreApplication.translate("Dialog", u"Interest", None));
         ___qtablewidgetitem3 = self.tableWidget_2.horizontalHeaderItem(3)
-        ___qtablewidgetitem3.setText(QCoreApplication.translate("Dialog", u"Interest", None));
-        ___qtablewidgetitem4 = self.tableWidget_2.horizontalHeaderItem(4)
-        ___qtablewidgetitem4.setText(QCoreApplication.translate("Dialog", u"Total", None));
+        ___qtablewidgetitem3.setText(QCoreApplication.translate("Dialog", u"Total", None));
 
         __sortingEnabled = self.tableWidget_2.isSortingEnabled()
         self.tableWidget_2.setSortingEnabled(False)
-        ___qtablewidgetitem5 = self.tableWidget_2.item(0, 0)
-        ___qtablewidgetitem5.setText(QCoreApplication.translate("Dialog", u"January", None));
-        ___qtablewidgetitem6 = self.tableWidget_2.item(1, 0)
-        ___qtablewidgetitem6.setText(QCoreApplication.translate("Dialog", u" February", None));
-        ___qtablewidgetitem7 = self.tableWidget_2.item(2, 0)
-        ___qtablewidgetitem7.setText(QCoreApplication.translate("Dialog", u" March", None));
-        ___qtablewidgetitem8 = self.tableWidget_2.item(3, 0)
-        ___qtablewidgetitem8.setText(QCoreApplication.translate("Dialog", u"April", None));
-        ___qtablewidgetitem9 = self.tableWidget_2.item(4, 0)
-        ___qtablewidgetitem9.setText(QCoreApplication.translate("Dialog", u"May", None));
-        ___qtablewidgetitem10 = self.tableWidget_2.item(5, 0)
-        ___qtablewidgetitem10.setText(QCoreApplication.translate("Dialog", u"June", None));
-        ___qtablewidgetitem11 = self.tableWidget_2.item(6, 0)
-        ___qtablewidgetitem11.setText(QCoreApplication.translate("Dialog", u"July", None));
-        ___qtablewidgetitem12 = self.tableWidget_2.item(7, 0)
-        ___qtablewidgetitem12.setText(QCoreApplication.translate("Dialog", u"August", None));
-        ___qtablewidgetitem13 = self.tableWidget_2.item(8, 0)
-        ___qtablewidgetitem13.setText(QCoreApplication.translate("Dialog", u"September", None));
-        ___qtablewidgetitem14 = self.tableWidget_2.item(9, 0)
-        ___qtablewidgetitem14.setText(QCoreApplication.translate("Dialog", u"October", None));
-        ___qtablewidgetitem15 = self.tableWidget_2.item(10, 0)
-        ___qtablewidgetitem15.setText(QCoreApplication.translate("Dialog", u"November", None));
-        ___qtablewidgetitem16 = self.tableWidget_2.item(11, 0)
-        ___qtablewidgetitem16.setText(QCoreApplication.translate("Dialog", u"December", None));
+        ___qtablewidgetitem4 = self.tableWidget_2.item(0, 0)
+        ___qtablewidgetitem4.setText(QCoreApplication.translate("Dialog", u"January", None));
+        ___qtablewidgetitem5 = self.tableWidget_2.item(1, 0)
+        ___qtablewidgetitem5.setText(QCoreApplication.translate("Dialog", u" February", None));
+        ___qtablewidgetitem6 = self.tableWidget_2.item(2, 0)
+        ___qtablewidgetitem6.setText(QCoreApplication.translate("Dialog", u" March", None));
+        ___qtablewidgetitem7 = self.tableWidget_2.item(3, 0)
+        ___qtablewidgetitem7.setText(QCoreApplication.translate("Dialog", u"April", None));
+        ___qtablewidgetitem8 = self.tableWidget_2.item(4, 0)
+        ___qtablewidgetitem8.setText(QCoreApplication.translate("Dialog", u"May", None));
+        ___qtablewidgetitem9 = self.tableWidget_2.item(5, 0)
+        ___qtablewidgetitem9.setText(QCoreApplication.translate("Dialog", u"June", None));
+        ___qtablewidgetitem10 = self.tableWidget_2.item(6, 0)
+        ___qtablewidgetitem10.setText(QCoreApplication.translate("Dialog", u"July", None));
+        ___qtablewidgetitem11 = self.tableWidget_2.item(7, 0)
+        ___qtablewidgetitem11.setText(QCoreApplication.translate("Dialog", u"August", None));
+        ___qtablewidgetitem12 = self.tableWidget_2.item(8, 0)
+        ___qtablewidgetitem12.setText(QCoreApplication.translate("Dialog", u"September", None));
+        ___qtablewidgetitem13 = self.tableWidget_2.item(9, 0)
+        ___qtablewidgetitem13.setText(QCoreApplication.translate("Dialog", u"October", None));
+        ___qtablewidgetitem14 = self.tableWidget_2.item(10, 0)
+        ___qtablewidgetitem14.setText(QCoreApplication.translate("Dialog", u"November", None));
+        ___qtablewidgetitem15 = self.tableWidget_2.item(11, 0)
+        ___qtablewidgetitem15.setText(QCoreApplication.translate("Dialog", u"December", None));
         self.tableWidget_2.setSortingEnabled(__sortingEnabled)
 
-        self.label_22.setText(QCoreApplication.translate("Dialog", u"Lone Taken", None))
-        self.label_44.setText(QCoreApplication.translate("Dialog", u"Remaning Lone", None))
-        self.label_45.setText(QCoreApplication.translate("Dialog", u"Total Lone Pay", None))
-        self.label_46.setText(QCoreApplication.translate("Dialog", u"Total Intrest Pay", None))
-        self.label_47.setText(QCoreApplication.translate("Dialog", u"tTotal Intrest Paid", None))
-        self.label_48.setText(QCoreApplication.translate("Dialog", u"Remaning Intrest Pay", None))
-        self.label_49.setText(QCoreApplication.translate("Dialog", u"TextLabel", None))
-        self.label_50.setText(QCoreApplication.translate("Dialog", u"TextLabel", None))
-        self.label_51.setText(QCoreApplication.translate("Dialog", u"TextLabel", None))
-        self.label_52.setText(QCoreApplication.translate("Dialog", u"TextLabel", None))
-        self.label_53.setText(QCoreApplication.translate("Dialog", u"TextLabel", None))
-        self.label_54.setText(QCoreApplication.translate("Dialog", u"TextLabel", None))
         self.label_39.setText(QCoreApplication.translate("Dialog", u"Name", None))
         self.label_40.setText(QCoreApplication.translate("Dialog", u"Addher No", None))
-        self.label_41.setText(QCoreApplication.translate("Dialog", u"Date", None))
-        self.collect_date_2.setDisplayFormat(QCoreApplication.translate("Dialog", u"yyyy/M/d", None))
         self.label_42.setText(QCoreApplication.translate("Dialog", u"Amount", None))
         self.label_43.setText(QCoreApplication.translate("Dialog", u"Interst", None))
-        self.collect_lone_btn_2.setText(QCoreApplication.translate("Dialog", u"collect", None))
         self.label_55.setText(QCoreApplication.translate("Dialog", u"TextLabel", None))
+        self.collect_lone_btn_2.setText(QCoreApplication.translate("Dialog", u"collect", None))
+        self.label_41.setText(QCoreApplication.translate("Dialog", u"Date", None))
+        self.collect_date_2.setDisplayFormat(QCoreApplication.translate("Dialog", u"yyyy/M/d", None))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_2), QCoreApplication.translate("Dialog", u"Tab 2", None))
     # retranslateUi
 
