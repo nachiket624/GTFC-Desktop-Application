@@ -1,5 +1,6 @@
 import sys
 import os
+import operator
 from datetime import date
 import datetime
 from PySide2 import QtWidgets
@@ -20,7 +21,7 @@ from PySide2.QtCore import QDate,QDateTime
 from updatainformation import *
 import updatainformation
 import create_databasees
-
+from datetime import datetime
 # from biodata import Ui_Dialog1
 username = os.environ.get('db_user')
 userpass = os.environ.get('db_pass')
@@ -35,7 +36,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.setIcon()
 
         # ! ***************************** Dasboard *****************************
-        self.dashboard_btn.setStyleSheet('* {border: none;background-color: rgba(13, 9, 36,0);border-radius: 13;color: rgb(0, 0, 0);border-radius: 13;}')
+        self.dashboard_btn.setStyleSheet('* {border: none;background-color: #e9eef4;border-radius: 13;color: #000000;border-radius: 13;}')
 
         self.stackedWidget.setCurrentWidget(self.dashboard_page)
         self.dashboard_btn.clicked.connect(self.windashboard)
@@ -55,9 +56,9 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
     def WinManage(self):
         self.update_member_btn.clicked.connect(self.updatamember)
         self.stackedWidget.setCurrentWidget(self.pageManage)
-        self.dashboard_btn.setStyleSheet(
-            '* {border: none;background-color: rgba(13, 9, 36,0);border-radius: 13;color: rgb(0, 0, 0);border-radius: 13;}')
-        self.Manage_btn.setStyleSheet('* {background-color: rgb(0, 0, 0);color: rgb(218, 145, 0);border-radius: 13;}')
+        self.dashboard_btn.setStyleSheet('* {border: none;background-color: rgba(13, 9, 36,0);border-radius: 13;color: rgb(255, 255, 255);border-radius: 13;}')
+        self.Manage_btn.setStyleSheet('* {border: none;background-color: #e9eef4;border-radius: 13;color: #000000;border-radius: 13;}')
+        self.view_btn.setStyleSheet('* {border: none;background-color: rgba(13, 9, 36,0);border-radius: 13;color: rgb(255, 255, 255);border-radius: 13;}')
         self.give_lone.clicked.connect(self.giveloneerr)
         self.new_member_btn.clicked.connect(self.showaddmemberfuntionerr)
         self.collection.clicked.connect(self.callcollection)
@@ -68,9 +69,9 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.setWindowIcon(appIcon)
 
     def WinView(self):
-        self.Manage_btn.setStyleSheet('* {border: none;background-color: rgba(13, 9, 36,0);border-radius: 13;color: rgb(0, 0, 0);border-radius: 13;}')
-        self.view_btn.setStyleSheet('* {background-color: rgb(0, 0, 0);color: rgb(218, 145, 0);border-radius: 13;}')
-        self.view_btn.setStyleSheet('* {border: none;background-color: rgba(13, 9, 36,0);border-radius: 13;color: rgb(0, 0, 0);border-radius: 13;}')
+        self.Manage_btn.setStyleSheet('* {border: none;background-color: rgba(13, 9, 36,0);border-radius: 13;color: rgb(255, 255, 255);border-radius: 13;}')
+        self.dashboard_btn.setStyleSheet('* {border: none;background-color: rgba(13, 9, 36,0);border-radius: 13;color: rgb(255, 255, 255);border-radius: 13;}')
+        self.view_btn.setStyleSheet('* {border: none;background-color: #e9eef4;border-radius: 13;color: #000000;border-radius: 13;}')
 
         self.stackedWidget.setCurrentWidget(self.page_view)
         self.viewall_btn.clicked.connect(self.viewallfunction)
@@ -80,9 +81,11 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         # ! ***************************** Dashboard Function *****************************
     def windashboard(self):
         self.stackedWidget.setCurrentWidget(self.dashboard_page)
-        self.dashboard_btn.setStyleSheet('* {background-color: rgb(0, 0, 0);color: rgb(218, 145, 0);border-radius: 13;}')
-        self.Manage_btn.setStyleSheet('* {border: none;background-color: rgba(13, 9, 36,0);border-radius: 13;color: rgb(0, 0, 0);border-radius: 13;}')
-        self.view_btn.setStyleSheet('* {border: none;background-color: rgba(13, 9, 36,0);border-radius: 13;color: rgb(0, 0, 0);border-radius: 13;}')
+        self.dashboard_btn.setStyleSheet(
+            '* {border: none;background-color: #e9eef4;border-radius: 13;color: #000000;border-radius: 13;}')
+
+        self.Manage_btn.setStyleSheet('* {border: none;background-color: rgba(13, 9, 36,0);border-radius: 13;color: rgb(255, 255, 255);border-radius: 13;}')
+        self.view_btn.setStyleSheet('* {border: none;background-color: rgba(13, 9, 36,0);border-radius: 13;color: rgb(255, 255, 255);border-radius: 13;}')
 
 #  ******************************************************* Manage *******************************************************
 
@@ -239,60 +242,453 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.email_2.clear()
         self.balance_2.clear()
 
-
-
-
     # ! ***************************** Manage  give lone Function *****************************
-    def lonefunction(self):
 
-        lone_no = self.lone_no.text()
-        name = self.name.text()
-        addher = self.addherno.text()
-        addher2 = addher
-        amount = self.amount.text()
-        interast = str(self.intrest_rate.value())
-        checkno = self.checkno.text()
-        date1 = self.date1_1.text()
-        jam1 = self.jam1_2.text()
-        jam2 = self.jam1_3.text()
-        remark = str(self.remark_2.currentText())
 
-        lone_info = [lone_no, name, addher, amount, interast, checkno, date1, jam1, jam2, remark]
-        if len(name) == 0 or len(jam1) == 0 or len(jam2) == 0 or len(amount) == 0:
-            self.error_3.setText("Place input all filed")
-        else:
-            conn = mysql.connector.connect(host="localhost", user=username, password=userpass, database="green")
-            cur = conn.cursor()
-            cur.execute("""INSERT INTO lone (lone_no, appliername, addherNo, amount, insrast_rate, check_number, lone_date, Jamindar1, Jamindar2, remark) values(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)""",lone_info)
-            cur.close()
-            conn.commit()
-            conn.close()
-            totalAmounttopay = amount
-            # si = (p * t * r) / 100
-            totalIntersetpay = (int(totalAmounttopay)*12*float(interast))/100
-            totalintersetamount = 1000
-            total_interset_he_pay = 1001
-            tr_type = "LoneSaving Approve"
-            database.getdatalone(lone_no,name,addher,amount,interast,totalAmounttopay,totalIntersetpay,totalintersetamount,total_interset_he_pay)
-            loneInfo.setlone(lone_no,amount,date1,addher,interast,name,tr_type)
-            self.give_lone_clear()
     def giveloneerr(self):
+        self.lone_no.setText((str(database.lastlonen())))
         self.stackedWidget.setCurrentWidget(self.pagelone)
+        self.pushButton.clicked.connect(self.findloneById)
         lone_no1 = lastlonen()
         # lone_no = self.loneno.setText(str(lone_no1))
         lone_np = self.lone_no.setText(str(lone_no1))
-        self.approve_btn.clicked.connect(self.lonefunction)
-    def give_lone_clear(self):
-        self.lone_no.clear()
+        self.approve_btn.clicked.connect(self.approveLone)
+    def findloneById(self):
+        loneId = self.lone_ID.text()
+        if loneId.isnumeric():
+            self.error_3.setText(" ")
+            conn = mysql.connector.connect(host="localhost", user=username, password=userpass, database="green")
+            cur = conn.cursor()
+            cur.execute("""select * from memberinfo where id = """ + loneId)
+            iddata = (cur.fetchone())
+            global full_name
+            full_name = str(iddata[1]) + " " + str(iddata[2]) + " " + str(iddata[3])
+            self.name.setText(full_name)
+            self.addherno.setText(str(iddata[8]))
+            now = QDate.currentDate()
+            self.date1_1.setDate(now)
+            cur.close()
+            conn.commit()
+            conn.close()
+        else:
+            msg = QtWidgets.QMessageBox(self)
+            msg.setIcon(QMessageBox.Information)
+            msg.setText("Place Enter Valid ID")
+            msg.setInformativeText("ID Should Present in Database")
+            msg.setWindowTitle("Input Error")
+            # msg.setDetailedText("The details are as follows:")
+            msg.setStandardButtons(QMessageBox.Ok)
+            msg.exec_()
+
+    def get_last_pay_date(self,loneId,datetime_object):
+        #     this function give last pay data from lone info table
+        conn = mysql.connector.connect(host="localhost", user=username, password=userpass, database="green")
+        cur = conn.cursor()
+        cur.execute("""SELECT count(*) from transaction_detail""")
+        rowcountoftable = cur.fetchall()
+        rowcountoftable = [a_tuple[0] for a_tuple in rowcountoftable]
+        if rowcountoftable == 0:
+            conn = mysql.connector.connect(host="localhost", user=username, password=userpass, database="green")
+            cur = conn.cursor()
+            cur.execute("select last_transaction_date from lone_info where id = " + str(loneId) + " order by last_transaction_date desc")
+            lastdate = cur.fetchone()
+            print("last lone date is ", lastdate)
+            # find difference in the date
+            lastdate = lastdate[0]
+            lastdatediff = (self.diff_month(datetime_object, lastdate))
+
+            remaintime = 12 - int(lastdatediff)
+            print("Remain time is ",remaintime)
+            return  remaintime
+        else:
+            remaintime = 0
+            return remaintime
+
+
+    def updateLone_no(self,addher,intrest,amount):
+        conn = mysql.connector.connect(host="localhost", user=username, password=userpass, database="green")
+        cur = conn.cursor()
+        cur.execute("""select Lone_no from lone_info where AddherNo = """+ str(addher) +""" and Intrest = """+ str(intrest) +""" and Lone_take = """+ str(amount) +""" order by last_transaction_date desc""")
+        lone_no = cur.fetchall()
+        cur.close()
+        conn.commit()
+        conn.close()
+        loneNo= [i[0] for i in lone_no]
+        conn = mysql.connector.connect(host="localhost", user=username, password=userpass, database="green")
+        cur = conn.cursor()
+        cur.execute("update lone set lone_no = "+str(loneNo[0])+" where addherNo = "+str(addher)+" and insrast_rate = "+str(intrest)+" and amount = "+str(amount))
+        cur.close()
+        conn.commit()
+        conn.close()
+    def diff_month(self,d1, d2):
+        return (d1.year - d2.year) * 12 + d1.month - d2.month
+
+    def intrestamountcal(self,amount,time,interest):
+    #     this function calculate addition of amount and interest rate
+        print("Total amount to pay function call")
+        print("the data is ",amount,time,interest)
+        amount = float(amount)
+        time = int(time)
+        interest = float(interest)
+        print("Type of amount ",type(amount))
+        print("Type of time ",type(time))
+        print("Type of intrest rate ",type(interest))
+        tatp = (amount*interest*12)/100
+        print('total amount to pay is ',tatp)
+        return tatp
+
+    def approveLone(self):
+        loneId = self.lone_ID.text()
+        lonedate = self.date1_1.text()
+        x5 = lonedate.replace("/", " ")
+        datetime_object = datetime.strptime(x5, '%Y %m %d')
+        print("datetime_object",datetime_object)
+        intresrate = self.intrest_rate.text()
+        conn = mysql.connector.connect(host="localhost", user=username, password=userpass, database="green")
+        cur = conn.cursor()
+        cur.execute("""select count(*) from lone""")
+        count1 =  cur.fetchall()
+        cur.close()
+        conn.commit()
+        conn.close()
+        if count1[0] == 0:
+            pass
+    #   find id exist in the lone table
+        else:
+            conn = mysql.connector.connect(host="localhost", user=username, password=userpass, database="green")
+            cur = conn.cursor()
+            cur.execute("select count(*) from lone where id = "+str(loneId))
+            idstatus = cur.fetchall()
+            print("Id Status",idstatus)
+            print("First element of idstatus ",idstatus[0])
+            first_tuple_elements = [a_tuple[0] for a_tuple in idstatus]
+            print("first element value ",first_tuple_elements)
+
+            amount = self.amount.text()
+            lone_no = self.lone_no.text()
+            addher = self.addherno.text()
+            checkno = self.checkno.text()
+            jam1 = self.jam1_2.text()
+            jam2 = self.jam1_3.text()
+            remark = self.remark_2.currentText()
+    # if idstatus id less equal to 0 then create new record else check last approve date
+
+        if first_tuple_elements[0] == 0:
+            print("Create new record")
+            conn = mysql.connector.connect(host="localhost", user=username, password=userpass, database="green")
+            cur = conn.cursor()
+            cur.execute("select count(*) from transaction_detail")
+            rowcountoftabletransaction_detail = cur.fetchall()
+            rowcountoftabletransaction_detail = [a_tuple[0] for a_tuple in rowcountoftabletransaction_detail]
+            print("the type rowcountoftablelonetransaction ",type(rowcountoftabletransaction_detail))
+            print("Row count is ", rowcountoftabletransaction_detail[0])
+
+
+            if rowcountoftabletransaction_detail == 0:
+                trNo = 1
+                insert_data = [trNo,loneId, full_name, addher, lonedate, amount, intresrate, lone_no, checkno,remark]
+                conn = mysql.connector.connect(host="localhost", user=username, password=userpass, database="green")
+                cur = conn.cursor()
+                cur.execute(
+                    """INSERT INTO transaction_detail(transaction_no,Id, name, addher_no, date, amount, Intrest, lone_no, check_number,remark)VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s)""",
+                    insert_data)
+
+                cur.close()
+                conn.commit()
+                conn.close()
+                print("New record inserted in transaction_detail table")
+                # getdatalone(lone_no, name, addher, amount, interast, totalAmounttopay, totalIntersetpay,
+                #             totalintersetamount, total_interest_he_pay):
+                time = self.get_last_pay_date(loneId, datetime_object)
+                intrestrate = self.intrestamountcal(amount, time, intresrate)
+                totalIntersetpay = str(intrestrate)
+                totalAmounttopay = int(self.amount.text())
+                totalintersetamount = 0
+                total_interest_he_pay = 0
+                lone_ID = self.lone_ID.text()
+                last_transaction_date = lonedate
+                database.getdatalone(lone_no, lone_ID, full_name, addher, last_transaction_date, amount, intresrate,
+                                     totalAmounttopay,
+                                     totalIntersetpay, totalintersetamount, total_interest_he_pay)
+
+
+
+            else:
+                insert_data = [loneId, full_name, addher, lonedate, amount, intresrate, lone_no, checkno,remark]
+                conn = mysql.connector.connect(host="localhost", user=username, password=userpass, database="green")
+                cur = conn.cursor()
+                cur.execute(
+                    """INSERT INTO transaction_detail(Id, name, addher_no, date, amount, Intrest, lone_no, check_number,remark)VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s)""",
+                    insert_data)
+
+                cur.close()
+                conn.commit()
+                conn.close()
+
+                print("New record inserted in transaction_detail table")
+
+                conn = mysql.connector.connect(host="localhost", user=username, password=userpass, database="green")
+                cur = conn.cursor()
+                cur.execute("select count(*) from lone")
+                rowcountoftable = cur.fetchall()
+                rowcountoftable = [a_tuple[0] for a_tuple in rowcountoftable]
+                print("Row count is ", rowcountoftable[0])
+                time = self.get_last_pay_date(loneId, datetime_object)
+                intrestrate = self.intrestamountcal(amount, time, intresrate)
+                totalIntersetpay = str(intrestrate)
+                totalAmounttopay = int(self.amount.text())
+                totalintersetamount = 0
+                total_interest_he_pay = 0
+                lone_ID = self.lone_ID.text()
+                last_transaction_date = lonedate
+                database.getdatalone(lone_no, lone_ID, full_name, addher, last_transaction_date, amount, intresrate,
+                                     totalAmounttopay,
+                                     totalIntersetpay, totalintersetamount, total_interest_he_pay)
+
+                if rowcountoftable == 0:
+                    first = 1
+                    insert_data = [first, lone_no, amount, full_name, loneId, addher, intresrate, checkno, lonedate, jam1,
+                                   jam2, remark]
+                    conn = mysql.connector.connect(host="localhost", user=username, password=userpass, database="green")
+                    cur = conn.cursor()
+                    cur.execute(
+                        """INSERT INTO lone(no,lone_no, amount, appliername, id, addherNo, insrast_rate, check_number, lone_date, Jamindar1, Jamindar2, remark)VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)""",
+                        insert_data)
+                    cur.close()
+                    conn.commit()
+                    conn.close()
+                    time = self.get_last_pay_date(loneId, datetime_object)
+                    self.updateLone_no(addher, intresrate, amount)
+
+                else:
+                    insert_data = [ lone_no, amount, full_name, loneId, addher, intresrate, checkno, lonedate, jam1,
+                                   jam2, remark]
+                    conn = mysql.connector.connect(host="localhost", user=username, password=userpass, database="green")
+                    cur = conn.cursor()
+                    cur.execute(
+                        """INSERT INTO lone(lone_no, amount, appliername, id, addherNo, insrast_rate, check_number, lone_date, Jamindar1, Jamindar2, remark)VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)""",
+                        insert_data)
+                    cur.close()
+                    conn.commit()
+                    conn.close()
+                    self.updateLone_no(addher,intresrate,amount)
+                    self.cleargivelonefiled()
+
+
+        else:
+            #         check latest record
+            conn = mysql.connector.connect(host="localhost", user=username, password=userpass, database="green")
+            cur = conn.cursor()
+            cur.execute("select lone_date,amount from lone where id = "+str(loneId)+" order by lone_date desc")
+            lastdate1 = cur.fetchone()
+            print("last lone date is ",lastdate1)
+            # find difference in the date
+            lastdate = lastdate1[0]
+            loneamount = float(lastdate1[1])
+            lastdatediff = (self.diff_month(datetime_object, lastdate))
+            print("last date difference is ", lastdatediff)
+
+             # if the difference is 0 than add amount
+            if lastdatediff == 0:
+                # check intrest rate
+                conn = mysql.connector.connect(host="localhost", user=username, password=userpass, database="green")
+                cur = conn.cursor()
+                cur.execute(""" select insrast_rate from lone where lone_date = '"""+str(lastdate)+"""' order by lone_date desc""")
+                lastintrestrate = cur.fetchone()
+                print("The last intrest rate is ",lastintrestrate)
+                lastintrestrate = float(lastintrestrate[0])
+                print("The float value of last intrest rate is ",lastintrestrate)
+                if float(intresrate) == float(lastintrestrate):
+                    print("It's time to update value")
+                    # update value using last date and update this value amount and date
+                    # create new record in lone lonetransaction and update record in lone and lone info
+                #   new entery in lone table
+                    remark = "added new amount"
+                    amount = float(amount)+float(loneamount)
+                    insert_data = [lone_no, amount, full_name, loneId, addher, intresrate, checkno, lonedate, jam1, jam2,
+                                   remark]
+                    conn = mysql.connector.connect(host="localhost", user=username, password=userpass, database="green")
+                    cur = conn.cursor()
+                    print("Amount is : ",amount)
+
+                    # print("""UPDATE lone SET amount = """+str(amount)+" where lone_no = "+loneId+" and lone_date  = '"+str(lastdate)+"'")
+                    cur.execute("""UPDATE lone SET amount = """+str(amount)+" where id = "+loneId+" and lone_date  = '"+str(lastdate)+"'")
+
+                    cur.close()
+                    conn.commit()
+                    conn.close()
+             #    new entry in transaction detail table
+                    remark = "added new amount"
+                    amount1 = self.amount.text()
+                    insert_data = [loneId, full_name, addher, lonedate, amount1, intresrate, lone_no, checkno,remark]
+                    conn = mysql.connector.connect(host="localhost", user=username, password=userpass, database="green")
+                    cur = conn.cursor()
+
+                    cur.execute(
+                        """INSERT INTO transaction_detail(Id, name, addher_no, date, amount, Intrest, lone_no,check_number, remark)VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s)""",
+                        insert_data)
+
+                    cur.close()
+                    conn.commit()
+                    conn.close()
+                    print("New record inserted in transaction_detail table")
+
+                    # time = self.get_last_pay_date(loneId, datetime_object)
+                    time = 12
+                    intrestrate = self.intrestamountcal(amount, time, intresrate)
+                    print("Intrestrate is ",intrestrate)
+                    totalIntersetpay = str(intrestrate)
+                    totalAmounttopay = int(self.amount.text())
+                    totalintersetamount = 0
+                    total_interest_he_pay = 0
+                    lone_ID = self.lone_ID.text()
+                    new_transaction_date = lonedate
+                    lastlonedate = lastdate
+                    database.getdataloneupdate(lone_no, lone_ID, lastlonedate,new_transaction_date, amount, intresrate,totalAmounttopay,totalIntersetpay, totalintersetamount, total_interest_he_pay)
+                    self.cleargivelonefiled()
+                else:
+                    remark = self.remark_2.currentText()
+                    amount = float(amount)
+                    insert_data = [lone_no, amount, full_name, loneId, addher, intresrate, checkno, lonedate, jam1,
+                                   jam2,
+                                   remark]
+                    conn = mysql.connector.connect(host="localhost", user=username, password=userpass,
+                                                   database="green")
+                    cur = conn.cursor()
+                    cur.execute(
+                        """INSERT INTO lone(lone_no, amount, appliername, id, addherNo, insrast_rate, check_number, lone_date, Jamindar1, Jamindar2, remark)VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)""",
+                        insert_data)
+                    cur.close()
+                    conn.commit()
+                    conn.close()
+                    #    new entry in transaction detail table
+                    remark = "added new amount"
+                    insert_data = [loneId, full_name, addher, lonedate, amount, intresrate, lone_no,checkno, remark]
+                    conn = mysql.connector.connect(host="localhost", user=username, password=userpass,
+                                                   database="green")
+                    cur = conn.cursor()
+                    cur.execute(
+                        """INSERT INTO transaction_detail(Id, name, addher_no, date, amount, Intrest, lone_no,check_number, remark)VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s)""",
+                        insert_data)
+                    cur.close()
+                    conn.commit()
+                    conn.close()
+                    print("New record inserted in transaction_detail table")
+
+                    time = 12
+                    intresrate = self.intrest_rate.text()
+                    amount = self.amount.text()
+                    print("the String amount is ", amount)
+                    amount = float(amount)
+                    print("The float amount is ", amount)
+                    intrestrate = self.intrestamountcal(amount, time, intresrate)
+                    print("Intrestrate is ", intrestrate)
+                    totalIntersetpay = str(intrestrate)
+                    totalAmounttopay = int(self.amount.text())
+                    totalintersetamount = 0
+                    total_interest_he_pay = 0
+                    lone_ID = self.lone_ID.text()
+                    new_transaction_date = lonedate
+                    lastlonedate = lastdate
+                    print("The amount is ", amount)
+                    remark = self.remark_2.currentText()
+                    database.getdatalone(lone_no, lone_ID, full_name, addher, new_transaction_date, amount, intresrate,
+                                         totalAmounttopay, totalIntersetpay, totalintersetamount, total_interest_he_pay)
+                self.cleargivelonefiled()
+            else:
+                remark = self.remark_2.currentText()
+                amount = float(amount)
+                insert_data = [lone_no, amount, full_name, loneId, addher, intresrate, checkno, lonedate, jam1,
+                               jam2,
+                               remark]
+                conn = mysql.connector.connect(host="localhost", user=username, password=userpass,
+                                               database="green")
+                cur = conn.cursor()
+                cur.execute(
+                    """INSERT INTO lone(lone_no, amount, appliername, id, addherNo, insrast_rate, check_number, lone_date, Jamindar1, Jamindar2, remark)VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)""",
+                    insert_data)
+                cur.close()
+                conn.commit()
+                conn.close()
+                #    new entry in transaction detail table
+                remark = "added new amount"
+                insert_data = [loneId, full_name, addher, lonedate, amount, intresrate, lone_no,checkno, remark]
+                conn = mysql.connector.connect(host="localhost", user=username, password=userpass,
+                                               database="green")
+                cur = conn.cursor()
+                cur.execute(
+                    """INSERT INTO transaction_detail(Id, name, addher_no, date, amount, Intrest, lone_no, check_number,remark)VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s)""",
+                    insert_data)
+                cur.close()
+                conn.commit()
+                conn.close()
+                print("New record inserted in transaction_detail table")
+
+                time = 12
+                intresrate = self.intrest_rate.text()
+                amount = self.amount.text()
+                print("the String amount is ", amount)
+                amount = float(amount)
+                print("The float amount is ", amount)
+                intrestrate = self.intrestamountcal(amount, time, intresrate)
+                print("Intrestrate is ", intrestrate)
+                totalIntersetpay = str(intrestrate)
+                totalAmounttopay = int(self.amount.text())
+                totalintersetamount = 0
+                total_interest_he_pay = 0
+                lone_ID = self.lone_ID.text()
+                new_transaction_date = lonedate
+                lastlonedate = lastdate
+                print("The amount is ", amount)
+                remark = self.remark_2.currentText()
+                database.getdatalone(lone_no, lone_ID, full_name, addher, new_transaction_date, amount, intresrate,
+                                     totalAmounttopay, totalIntersetpay, totalintersetamount, total_interest_he_pay)
+            self.cleargivelonefiled()
+    def cleargivelonefiled(self):
+        self.lone_ID.clear()
         self.name.clear()
         self.addherno.clear()
         self.amount.clear()
-        self.intrest_rate.setValue(0)
+        self.intrest_rate.clear()
         self.checkno.clear()
         self.date1_1.setDate(QDate(2000,1,1))
         self.jam1_2.clear()
         self.jam1_3.clear()
         self.remark_2.setCurrentIndex(0)
+
+
+    def updatedata(self,loneapprovedata1,iddata,loneId,lonedate,intresrate):
+        self.lone_no.setText(str(loneapprovedata1))
+        print("Add amount")
+        amount = self.amount.text()
+        conn = mysql.connector.connect(host="localhost", user=username, password=userpass, database="green")
+        cur = conn.cursor()
+        cur.execute(
+            """select amount from lone where AddherNo = """ + str(iddata) + """ ORDER BY lone_date DESC""")
+        loneamount = (cur.fetchone())
+        print(loneamount)
+        loneamount = loneamount[0]
+        print("loneamount = ", loneamount, " amount = ", amount)
+        sum_amount = float(loneamount) + float(amount)
+        print("sum is ", sum_amount)
+        lone_no = self.lone_no.text()
+        addher = self.addherno.text()
+        checkno = self.checkno.text()
+        jam1 = self.jam1_2.text()
+        jam2 = self.jam1_3.text()
+        remark = self.remark_2.currentText()
+        insert_data = [lone_no, sum_amount, full_name, loneId, addher, intresrate, checkno, lonedate, jam1,
+                       jam2,
+                       remark]
+        print("insert data ", insert_data)
+        conn = mysql.connector.connect(host="localhost", user=username, password=userpass, database="green")
+        cur = conn.cursor()
+        cur.execute(
+            """INSERT INTO lone(lone_no, amount, appliername, id, addherNo, insrast_rate, check_number, lone_date, Jamindar1, Jamindar2, remark)VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)""",
+            insert_data)
+        cur.close()
+        conn.commit()
+        conn.close()
     #  ******************************************************* View *******************************************************
 
     # ! ***************************** View Information table *****************************

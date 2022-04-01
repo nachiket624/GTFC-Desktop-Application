@@ -59,15 +59,54 @@ def lastlonen():
 
 
 # This function create add new lone detail into lone info table
-def getdatalone(lone_no,name,addher,amount,interast,totalAmounttopay,totalIntersetpay,totalintersetamount,total_interest_he_pay):
+def getdatalone(lone_no,id,name,addher,last_transaction_date,amount,interast,totalAmounttopay,totalIntersetpay,totalintersetamount,total_interest_he_pay):
+    print("the amount is getlone functrion is ",amount)
+    conn = mysql.connector.connect(host="localhost", user=username, password=userpass, database="green")
+    cur = conn.cursor()
+    cur.execute("""SELECT count(*) from lone_info""")
+    rowcountoftable = cur.fetchall()
+    rowcountoftable = [a_tuple[0] for a_tuple in rowcountoftable]
+    print("Row count is ", rowcountoftable[0])
+
+    if rowcountoftable == 0:
+        lone_no = 1
+        conn = mysql.connector.connect(host="localhost", user=username, password=userpass, database="green")
+        cur = conn.cursor()
+        print(lone_no)
+        getdatalonevalue1 = (lone_no,id,name,addher,last_transaction_date,amount,interast,totalAmounttopay,totalIntersetpay,totalintersetamount,total_interest_he_pay)
+        cur.execute("""INSERT INTO lone_info (Lone_no,id,Name,AddherNo,last_transaction_date,Lone_take,Intrest,total_ammount_to_pay,Total_interest_pay,Total_interest_amount_pay,total_interest_he_pay) VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)""",getdatalonevalue1)
+        cur.close()
+        conn.commit()
+        conn.close()
+    else:
+        conn = mysql.connector.connect(host="localhost", user=username, password=userpass, database="green")
+        cur = conn.cursor()
+        print(lone_no)
+        getdatalonevalue1 = (
+        id, name, addher, last_transaction_date, amount, interast, totalAmounttopay, totalIntersetpay,
+        totalintersetamount, total_interest_he_pay)
+        cur.execute(
+            """INSERT INTO lone_info (id,Name,AddherNo,last_transaction_date,Lone_take,Intrest,total_ammount_to_pay,Total_interest_pay,Total_interest_amount_pay,total_interest_he_pay) VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)""",
+            getdatalonevalue1)
+        cur.close()
+        conn.commit()
+        conn.close()
+def getdataloneupdate(lone_no,id,lastdate,new_transaction_date,amount,interast,totalAmounttopay,totalIntersetpay,totalintersetamount,total_interest_he_pay):
     conn = mysql.connector.connect(host="localhost", user=username, password=userpass, database="green")
     cur = conn.cursor()
     print(lone_no)
-    getdatalonevalue1 = (lone_no,name,addher,amount,interast,totalAmounttopay,totalIntersetpay,totalintersetamount,total_interest_he_pay)
-    cur.execute("""INSERT INTO lone_info (Lone_no,Name,AddherNo,Lone_take,Intrest,total_ammount_to_pay,Total_interest_pay,Total_interest_amount_pay,total_interest_he_pay) VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s)""",getdatalonevalue1)
+    totalAmounttopay = amount
+
+    getdatalonevalue1 = (new_transaction_date,amount,interast,totalAmounttopay,totalIntersetpay,totalintersetamount,total_interest_he_pay)
+    print("new lone date is ",new_transaction_date,", last date is ",lastdate)
+    # print("""Update lone_info (last_transaction_date,Lone_take,Intrest,total_ammount_to_pay,Total_interest_pay,Total_interest_amount_pay,total_interest_he_pay) VALUES(%s,%s,%s,%s,%s,%s) Where id = """+str(id)+""" and last_transaction_date = '"""+str(lastdate)+"""'""",getdatalonevalue1)
+    print("UPDATE lone_info SET last_transaction_date = '"+str(getdatalonevalue1[0])+"', Lone_take = "+str(getdatalonevalue1[1])+", Intrest = "+str(getdatalonevalue1[2])+", total_ammount_to_pay = "+str(getdatalonevalue1[3])+", Total_interest_pay = "+str(getdatalonevalue1[4])+", Total_interest_amount_pay = "+str(getdatalonevalue1[5])+", total_interest_he_pay = "+str(getdatalonevalue1[6])+" Where id = "+str(id)+" and last_transaction_date = '"+str(lastdate)+"'")
+    cur.execute("UPDATE lone_info SET Lone_take = "+str(getdatalonevalue1[1])+", Intrest = "+str(getdatalonevalue1[2])+", total_ammount_to_pay = "+str(getdatalonevalue1[3])+", Total_interest_pay = "+str(getdatalonevalue1[4])+", Total_interest_amount_pay = "+str(getdatalonevalue1[5])+", total_interest_he_pay = "+str(getdatalonevalue1[6])+", last_transaction_date = '"+str(getdatalonevalue1[0])+"' Where id = "+str(id)+" and last_transaction_date = '"+str(lastdate)+"'")
     cur.close()
     conn.commit()
     conn.close()
+
+
 def count_transaction_detail():
     conn = mysql.connector.connect(host="localhost", user=username, password=userpass, database="green")
     cur = conn.cursor()

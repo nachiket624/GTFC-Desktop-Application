@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1161</width>
-    <height>701</height>
+    <width>1140</width>
+    <height>697</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -25,11 +25,29 @@
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">background-color:#ecf2f7</string>
+  </property>
   <widget class="QWidget" name="centralwidget">
    <property name="styleSheet">
     <string notr="true"/>
    </property>
    <layout class="QGridLayout" name="gridLayout_2">
+    <property name="leftMargin">
+     <number>0</number>
+    </property>
+    <property name="topMargin">
+     <number>0</number>
+    </property>
+    <property name="rightMargin">
+     <number>0</number>
+    </property>
+    <property name="bottomMargin">
+     <number>0</number>
+    </property>
+    <property name="spacing">
+     <number>0</number>
+    </property>
     <item row="0" column="0">
      <widget class="QFrame" name="frame">
       <property name="sizePolicy">
@@ -55,7 +73,7 @@
        <enum>Qt::LeftToRight</enum>
       </property>
       <property name="styleSheet">
-       <string notr="true">BACKGROUND-COLOR:qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:0, stop:0 rgba(238, 238, 238, 255), stop:1 rgba(255, 255, 255, 255));</string>
+       <string notr="true">BACKGROUND-COLOR:#354052</string>
       </property>
       <property name="frameShape">
        <enum>QFrame::StyledPanel</enum>
@@ -64,6 +82,21 @@
        <enum>QFrame::Raised</enum>
       </property>
       <layout class="QGridLayout" name="gridLayout">
+       <property name="leftMargin">
+        <number>0</number>
+       </property>
+       <property name="topMargin">
+        <number>0</number>
+       </property>
+       <property name="rightMargin">
+        <number>0</number>
+       </property>
+       <property name="bottomMargin">
+        <number>0</number>
+       </property>
+       <property name="spacing">
+        <number>0</number>
+       </property>
        <item row="0" column="0">
         <layout class="QVBoxLayout" name="verticalLayout">
          <property name="spacing">
@@ -73,12 +106,15 @@
           <enum>QLayout::SetDefaultConstraint</enum>
          </property>
          <property name="leftMargin">
-          <number>5</number>
+          <number>0</number>
+         </property>
+         <property name="topMargin">
+          <number>100</number>
          </property>
          <property name="bottomMargin">
           <number>0</number>
          </property>
-         <item>
+         <item alignment="Qt::AlignHCenter">
           <widget class="QPushButton" name="dashboard_btn">
            <property name="sizePolicy">
             <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
@@ -88,22 +124,23 @@
            </property>
            <property name="minimumSize">
             <size>
-             <width>120</width>
-             <height>50</height>
+             <width>0</width>
+             <height>0</height>
             </size>
            </property>
            <property name="maximumSize">
             <size>
-             <width>100</width>
+             <width>7567</width>
              <height>40</height>
             </size>
            </property>
            <property name="font">
             <font>
              <family>Arial Black</family>
-             <pointsize>9</pointsize>
-             <weight>75</weight>
-             <bold>true</bold>
+             <pointsize>11</pointsize>
+             <weight>10</weight>
+             <italic>false</italic>
+             <bold>false</bold>
              <kerning>true</kerning>
             </font>
            </property>
@@ -111,14 +148,16 @@
             <string>Button</string>
            </property>
            <property name="layoutDirection">
-            <enum>Qt::LeftToRight</enum>
+            <enum>Qt::RightToLeft</enum>
            </property>
            <property name="styleSheet">
             <string notr="true">QPushButton {
+	
+	font: 87 11pt &quot;Arial Black&quot;;
 	border: none;
 	background-color: rgba(13, 9, 36,0);
 	border-radius: 13;
-	color: rgb(0, 0, 0)
+	color: rgb(255, 255, 255)
 }
 
 QPushButton:hover {
@@ -127,11 +166,11 @@ QPushButton:hover {
 }
 
 QPushButton:pressed {
-	background-color: rgb(0, 0, 0);
+	background-color:  rgba(13, 9, 36,0);;
 }</string>
            </property>
            <property name="text">
-            <string>Dashbard</string>
+            <string>Dashbard </string>
            </property>
            <property name="icon">
             <iconset resource="dashboard.qrc">
@@ -167,7 +206,7 @@ QPushButton:pressed {
            </property>
           </spacer>
          </item>
-         <item>
+         <item alignment="Qt::AlignHCenter">
           <widget class="QPushButton" name="Manage_btn">
            <property name="sizePolicy">
             <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
@@ -183,16 +222,17 @@ QPushButton:pressed {
            </property>
            <property name="maximumSize">
             <size>
-             <width>100</width>
+             <width>3423</width>
              <height>50</height>
             </size>
            </property>
            <property name="font">
             <font>
              <family>Arial Black</family>
-             <pointsize>9</pointsize>
-             <weight>75</weight>
-             <bold>true</bold>
+             <pointsize>12</pointsize>
+             <weight>10</weight>
+             <italic>false</italic>
+             <bold>false</bold>
              <kerning>true</kerning>
             </font>
            </property>
@@ -200,14 +240,16 @@ QPushButton:pressed {
             <string>Button</string>
            </property>
            <property name="layoutDirection">
-            <enum>Qt::LeftToRight</enum>
+            <enum>Qt::RightToLeft</enum>
            </property>
            <property name="styleSheet">
             <string notr="true">QPushButton {
+font: 87 12pt &quot;Arial Black&quot;;
+
 	border: none;
 	background-color: rgba(13, 9, 36,0);
 	border-radius: 13;
-	color: rgb(0, 0, 0)
+	color:rgb(255, 255, 255)
 }
 
 QPushButton:hover {
@@ -220,7 +262,7 @@ QPushButton:pressed {
 }</string>
            </property>
            <property name="text">
-            <string>Manage</string>
+            <string>Manage </string>
            </property>
            <property name="icon">
             <iconset resource="dashboard.qrc">
@@ -256,7 +298,7 @@ QPushButton:pressed {
            </property>
           </spacer>
          </item>
-         <item>
+         <item alignment="Qt::AlignHCenter">
           <widget class="QPushButton" name="view_btn">
            <property name="sizePolicy">
             <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
@@ -272,16 +314,17 @@ QPushButton:pressed {
            </property>
            <property name="maximumSize">
             <size>
-             <width>100</width>
+             <width>3242</width>
              <height>50</height>
             </size>
            </property>
            <property name="font">
             <font>
              <family>Arial Black</family>
-             <pointsize>9</pointsize>
-             <weight>75</weight>
-             <bold>true</bold>
+             <pointsize>12</pointsize>
+             <weight>10</weight>
+             <italic>false</italic>
+             <bold>false</bold>
              <kerning>true</kerning>
             </font>
            </property>
@@ -289,14 +332,15 @@ QPushButton:pressed {
             <string>Button</string>
            </property>
            <property name="layoutDirection">
-            <enum>Qt::LeftToRight</enum>
+            <enum>Qt::RightToLeft</enum>
            </property>
            <property name="styleSheet">
             <string notr="true">QPushButton {
+font: 87 12pt &quot;Arial Black&quot;;
 	border: none;
 	background-color: rgba(13, 9, 36,0);
 	border-radius: 13;
-	color: rgb(0, 0, 0)
+	color: rgb(255, 255, 255)
 }
 
 QPushButton:hover {
@@ -309,7 +353,7 @@ QPushButton:pressed {
 }</string>
            </property>
            <property name="text">
-            <string>View</string>
+            <string>View </string>
            </property>
            <property name="icon">
             <iconset resource="dashboard.qrc">
@@ -345,7 +389,7 @@ QPushButton:pressed {
            </property>
           </spacer>
          </item>
-         <item>
+         <item alignment="Qt::AlignHCenter">
           <widget class="QPushButton" name="pushButton_8">
            <property name="sizePolicy">
             <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
@@ -361,16 +405,17 @@ QPushButton:pressed {
            </property>
            <property name="maximumSize">
             <size>
-             <width>100</width>
+             <width>32423</width>
              <height>40</height>
             </size>
            </property>
            <property name="font">
             <font>
              <family>Arial Black</family>
-             <pointsize>9</pointsize>
-             <weight>75</weight>
-             <bold>true</bold>
+             <pointsize>12</pointsize>
+             <weight>10</weight>
+             <italic>false</italic>
+             <bold>false</bold>
              <kerning>true</kerning>
             </font>
            </property>
@@ -378,14 +423,18 @@ QPushButton:pressed {
             <string/>
            </property>
            <property name="layoutDirection">
-            <enum>Qt::LeftToRight</enum>
+            <enum>Qt::RightToLeft</enum>
+           </property>
+           <property name="autoFillBackground">
+            <bool>false</bool>
            </property>
            <property name="styleSheet">
             <string notr="true">QPushButton {
+font: 87 12pt &quot;Arial Black&quot;;
 	border: none;
 	background-color: rgba(13, 9, 36,0);
 	border-radius: 13;
-	color: rgb(0, 0, 0)
+	color:rgb(255, 255, 255)
 }
 
 QPushButton:hover {
@@ -398,7 +447,7 @@ QPushButton:pressed {
 }</string>
            </property>
            <property name="text">
-            <string>Exit</string>
+            <string>Exit </string>
            </property>
            <property name="icon">
             <iconset resource="dashboard.qrc">
@@ -441,6 +490,9 @@ QPushButton:pressed {
     </item>
     <item row="0" column="1">
      <widget class="QFrame" name="frame_2">
+      <property name="styleSheet">
+       <string notr="true"/>
+      </property>
       <property name="frameShape">
        <enum>QFrame::StyledPanel</enum>
       </property>
@@ -448,20 +500,53 @@ QPushButton:pressed {
        <enum>QFrame::Raised</enum>
       </property>
       <layout class="QGridLayout" name="gridLayout_3">
+       <property name="leftMargin">
+        <number>0</number>
+       </property>
+       <property name="topMargin">
+        <number>0</number>
+       </property>
+       <property name="rightMargin">
+        <number>0</number>
+       </property>
+       <property name="bottomMargin">
+        <number>0</number>
+       </property>
+       <property name="spacing">
+        <number>0</number>
+       </property>
        <item row="1" column="0">
         <widget class="QStackedWidget" name="stackedWidget">
          <property name="styleSheet">
-          <string notr="true"/>
+          <string notr="true">background-color:#ecf2f7</string>
          </property>
          <property name="currentIndex">
-          <number>8</number>
+          <number>3</number>
          </property>
          <widget class="QWidget" name="dashboard_page">
+          <property name="styleSheet">
+           <string notr="true">background-color:#ecf2f7</string>
+          </property>
           <layout class="QGridLayout" name="gridLayout_16">
+           <property name="leftMargin">
+            <number>0</number>
+           </property>
+           <property name="topMargin">
+            <number>0</number>
+           </property>
+           <property name="rightMargin">
+            <number>0</number>
+           </property>
+           <property name="bottomMargin">
+            <number>0</number>
+           </property>
+           <property name="spacing">
+            <number>0</number>
+           </property>
            <item row="0" column="0">
             <widget class="QWidget" name="widget1" native="true">
              <property name="styleSheet">
-              <string notr="true">QWidget#widget1{background-color:qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(211, 211, 211, 255), stop:0.661692 rgba(255, 255, 255, 255))}</string>
+              <string notr="true">QWidget#widget1{background-color:background-color:#ecf2f7}</string>
              </property>
              <layout class="QGridLayout" name="gridLayout_22">
               <item row="0" column="0">
@@ -478,6 +563,21 @@ QPushButton:pressed {
                    <enum>QFrame::Raised</enum>
                   </property>
                   <layout class="QVBoxLayout" name="verticalLayout_2">
+                   <property name="spacing">
+                    <number>0</number>
+                   </property>
+                   <property name="leftMargin">
+                    <number>0</number>
+                   </property>
+                   <property name="topMargin">
+                    <number>0</number>
+                   </property>
+                   <property name="rightMargin">
+                    <number>0</number>
+                   </property>
+                   <property name="bottomMargin">
+                    <number>0</number>
+                   </property>
                    <item>
                     <layout class="QFormLayout" name="formLayout">
                      <property name="labelAlignment">
@@ -671,11 +771,12 @@ font: 10pt &quot;Arial&quot;;</string>
                   <item row="1" column="1">
                    <widget class="QLabel" name="total_lone">
                     <property name="styleSheet">
-                     <string notr="true">padding: 2px;
+                     <string notr="true">padding: 40px;
 font: 75 22pt &quot;MS Sans Serif&quot;;
-color:rgb(255, 85, 0);
-background-color:qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(255, 218, 0, 255), stop:1 rgba(221, 83, 0, 255));
- border-radius: 25px;</string>
+color:rgb(255, 255, 255);
+background-color:#4fa5e1;
+
+border-radius: 30px;</string>
                     </property>
                     <property name="text">
                      <string>1000</string>
@@ -684,6 +785,12 @@ background-color:qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba
                   </item>
                   <item row="0" column="0">
                    <widget class="QLabel" name="label_3">
+                    <property name="maximumSize">
+                     <size>
+                      <width>16777215</width>
+                      <height>453</height>
+                     </size>
+                    </property>
                     <property name="styleSheet">
                      <string notr="true">QLabel#label_3{
 font: 12pt &quot;MS Shell Dlg 2&quot;;
@@ -706,18 +813,19 @@ opacity: 0;
 }</string>
                     </property>
                     <property name="text">
-                     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;Total Lone&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;Total Loan&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                     </property>
                    </widget>
                   </item>
                   <item row="1" column="0">
                    <widget class="QLabel" name="total_member">
                     <property name="styleSheet">
-                     <string notr="true">padding: 2px;
+                     <string notr="true">padding: 40px;
 font: 75 22pt &quot;MS Sans Serif&quot;;
-color:rgb(255, 85, 0);
-background-color:qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(198, 100, 206, 255), stop:1 rgba(255, 255, 255, 255));
- border-radius: 25px;</string>
+color:rgb(255, 255, 255);
+background-color:#4fa5e1;
+
+border-radius: 30px;</string>
                     </property>
                     <property name="text">
                      <string>1000</string>
@@ -729,6 +837,12 @@ background-color:qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba
                   </item>
                   <item row="0" column="2">
                    <widget class="QLabel" name="label_15">
+                    <property name="maximumSize">
+                     <size>
+                      <width>16777215</width>
+                      <height>500</height>
+                     </size>
+                    </property>
                     <property name="styleSheet">
                      <string notr="true">QLabel#label_15
 {
@@ -738,7 +852,7 @@ opacity: 0;
 }</string>
                     </property>
                     <property name="text">
-                     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;Total Saving&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                     <string>Total Saving</string>
                     </property>
                    </widget>
                   </item>
@@ -753,18 +867,19 @@ opacity: 0;
 }</string>
                     </property>
                     <property name="text">
-                     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;Total lone&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;Total Loan&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                     </property>
                    </widget>
                   </item>
                   <item row="1" column="2">
                    <widget class="QLabel" name="total_lone_3">
                     <property name="styleSheet">
-                     <string notr="true">padding: 2px;
+                     <string notr="true">padding: 40px;
 font: 75 22pt &quot;MS Sans Serif&quot;;
-color:rgb(255, 85, 0);
-background-color:qlineargradient(spread:pad, x1:0, y1:0, x2:0.95, y2:0.965909, stop:0 rgba(134, 9, 55, 255), stop:1 rgba(206, 159, 255, 255));
- border-radius: 25px;</string>
+color:rgb(255, 255, 255);
+background-color:#4fa5e1;
+
+border-radius: 30px;</string>
                     </property>
                     <property name="text">
                      <string>1000</string>
@@ -774,11 +889,12 @@ background-color:qlineargradient(spread:pad, x1:0, y1:0, x2:0.95, y2:0.965909, s
                   <item row="1" column="3">
                    <widget class="QLabel" name="total_lone_4">
                     <property name="styleSheet">
-                     <string notr="true">padding: 2px;
+                     <string notr="true">padding: 40px;
 font: 75 22pt &quot;MS Sans Serif&quot;;
-color:rgb(255, 85, 0);
-background-color:qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0.988636, stop:0 rgba(0, 55, 141, 255), stop:1 rgba(74, 255, 255, 255));
- border-radius: 25px;</string>
+color:rgb(255, 255, 255);
+background-color:#4fa5e1;
+
+border-radius: 30px;</string>
                     </property>
                     <property name="text">
                      <string>1000</string>
@@ -840,7 +956,7 @@ background-color:qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0.988636, stop
                 </property>
                 <property name="styleSheet">
                  <string notr="true">QHeaderView::section {
-    background-color: #646464;
+    background-color: #f1f1f1;
     padding: 4px;
     font-size: 14pt;
     border-style: none;
@@ -1018,37 +1134,63 @@ QHeaderView::section:vertical
          </widget>
          <widget class="QWidget" name="page_2"/>
          <widget class="QWidget" name="pageManage">
+          <property name="styleSheet">
+           <string notr="true">QPushButton{padding: 40px;
+	font: 87 10pt &quot;Arial Black&quot;;
+color:rgb(0, 0, 0);
+border-radius: 30px;
+background-color:#ffa872;}</string>
+          </property>
           <layout class="QGridLayout" name="gridLayout_6">
+           <property name="leftMargin">
+            <number>10</number>
+           </property>
+           <property name="topMargin">
+            <number>10</number>
+           </property>
+           <property name="rightMargin">
+            <number>5</number>
+           </property>
+           <property name="bottomMargin">
+            <number>5</number>
+           </property>
+           <property name="spacing">
+            <number>0</number>
+           </property>
            <item row="1" column="2">
             <layout class="QGridLayout" name="gridLayout_23">
-             <item row="0" column="0">
-              <widget class="QPushButton" name="new_member_btn">
+             <property name="leftMargin">
+              <number>10</number>
+             </property>
+             <property name="topMargin">
+              <number>10</number>
+             </property>
+             <property name="rightMargin">
+              <number>10</number>
+             </property>
+             <property name="bottomMargin">
+              <number>10</number>
+             </property>
+             <property name="horizontalSpacing">
+              <number>20</number>
+             </property>
+             <property name="verticalSpacing">
+              <number>40</number>
+             </property>
+             <item row="0" column="1">
+              <widget class="QPushButton" name="remove_member_btn">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
                  <horstretch>0</horstretch>
                  <verstretch>0</verstretch>
                 </sizepolicy>
                </property>
-               <property name="font">
-                <font>
-                 <family>Verdana</family>
-                 <weight>75</weight>
-                 <italic>false</italic>
-                 <bold>true</bold>
-                </font>
-               </property>
-               <property name="whatsThis">
-                <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-               </property>
-               <property name="styleSheet">
-                <string notr="true"/>
-               </property>
                <property name="text">
-                <string>New Member</string>
+                <string>Remove</string>
                </property>
                <property name="icon">
                 <iconset resource="manage.qrc">
-                 <normaloff>:/manage_icon/image/manage/AddMember.png</normaloff>:/manage_icon/image/manage/AddMember.png</iconset>
+                 <normaloff>:/manage_icon/image/manage/remove member - Copy.png</normaloff>:/manage_icon/image/manage/remove member - Copy.png</iconset>
                </property>
                <property name="iconSize">
                 <size>
@@ -1067,7 +1209,7 @@ QHeaderView::section:vertical
                 </sizepolicy>
                </property>
                <property name="text">
-                <string>Update Member</string>
+                <string>Update</string>
                </property>
                <property name="icon">
                 <iconset resource="manage.qrc">
@@ -1081,31 +1223,8 @@ QHeaderView::section:vertical
                </property>
               </widget>
              </item>
-             <item row="0" column="1">
-              <widget class="QPushButton" name="remove_member_btn">
-               <property name="sizePolicy">
-                <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-                 <horstretch>0</horstretch>
-                 <verstretch>0</verstretch>
-                </sizepolicy>
-               </property>
-               <property name="text">
-                <string>Remove Member</string>
-               </property>
-               <property name="icon">
-                <iconset resource="manage.qrc">
-                 <normaloff>:/manage_icon/image/manage/remove member - Copy.png</normaloff>:/manage_icon/image/manage/remove member - Copy.png</iconset>
-               </property>
-               <property name="iconSize">
-                <size>
-                 <width>150</width>
-                 <height>150</height>
-                </size>
-               </property>
-              </widget>
-             </item>
              <item row="1" column="0">
-              <widget class="QPushButton" name="yrecord">
+              <widget class="QPushButton" name="collect_lone_btn">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
                  <horstretch>0</horstretch>
@@ -1113,7 +1232,7 @@ QHeaderView::section:vertical
                 </sizepolicy>
                </property>
                <property name="text">
-                <string>Record</string>
+                <string>Collect Lone</string>
                </property>
               </widget>
              </item>
@@ -1139,7 +1258,45 @@ QHeaderView::section:vertical
                 </sizepolicy>
                </property>
                <property name="text">
-                <string>Collection</string>
+                <string>Add Saving</string>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="0">
+              <widget class="QPushButton" name="new_member_btn">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="font">
+                <font>
+                 <family>Arial Black</family>
+                 <pointsize>10</pointsize>
+                 <weight>10</weight>
+                 <italic>false</italic>
+                 <bold>false</bold>
+                </font>
+               </property>
+               <property name="whatsThis">
+                <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+               </property>
+               <property name="styleSheet">
+                <string notr="true"/>
+               </property>
+               <property name="text">
+                <string>Add</string>
+               </property>
+               <property name="icon">
+                <iconset resource="manage.qrc">
+                 <normaloff>:/manage_icon/image/manage/AddMember.png</normaloff>:/manage_icon/image/manage/AddMember.png</iconset>
+               </property>
+               <property name="iconSize">
+                <size>
+                 <width>150</width>
+                 <height>150</height>
+                </size>
                </property>
               </widget>
              </item>
@@ -2356,6 +2513,22 @@ color:rgb(255, 0, 0)</string>
                  </property>
                 </widget>
                </item>
+               <item row="8" column="1">
+                <widget class="QLineEdit" name="checkno">
+                 <property name="minimumSize">
+                  <size>
+                   <width>0</width>
+                   <height>30</height>
+                  </size>
+                 </property>
+                 <property name="maximumSize">
+                  <size>
+                   <width>800</width>
+                   <height>16777215</height>
+                  </size>
+                 </property>
+                </widget>
+               </item>
                <item row="9" column="0">
                 <widget class="QLabel" name="date_of_lone">
                  <property name="font">
@@ -2366,34 +2539,6 @@ color:rgb(255, 0, 0)</string>
                  </property>
                  <property name="text">
                   <string>Date</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="9" column="1">
-                <widget class="QDateEdit" name="date1_1">
-                 <property name="sizePolicy">
-                  <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
-                   <horstretch>0</horstretch>
-                   <verstretch>0</verstretch>
-                  </sizepolicy>
-                 </property>
-                 <property name="minimumSize">
-                  <size>
-                   <width>150</width>
-                   <height>0</height>
-                  </size>
-                 </property>
-                 <property name="maximumSize">
-                  <size>
-                   <width>200</width>
-                   <height>16777215</height>
-                  </size>
-                 </property>
-                 <property name="displayFormat">
-                  <string>yyyy/M/d</string>
-                 </property>
-                 <property name="calendarPopup">
-                  <bool>true</bool>
                  </property>
                 </widget>
                </item>
@@ -2537,30 +2682,17 @@ color:rgb(255, 0, 0)</string>
                  </property>
                 </widget>
                </item>
-               <item row="8" column="1">
-                <widget class="QLineEdit" name="checkno">
-                 <property name="minimumSize">
-                  <size>
-                   <width>0</width>
-                   <height>30</height>
-                  </size>
-                 </property>
-                 <property name="maximumSize">
-                  <size>
-                   <width>800</width>
-                   <height>16777215</height>
-                  </size>
+               <item row="14" column="1">
+                <widget class="QLabel" name="error_3">
+                 <property name="text">
+                  <string>info</string>
                  </property>
                 </widget>
                </item>
-               <item row="14" column="1">
-                <widget class="QLabel" name="error_3">
-                 <property name="styleSheet">
-                  <string notr="true">font: 8pt &quot;Terminal&quot;;
-color:rgb(255, 0, 0)</string>
-                 </property>
-                 <property name="text">
-                  <string>TextLabel</string>
+               <item row="9" column="1">
+                <widget class="QDateEdit" name="date1_1">
+                 <property name="displayFormat">
+                  <string>yyyy/M/d</string>
                  </property>
                 </widget>
                </item>
@@ -2786,36 +2918,25 @@ QHeaderView::section:vertical
     </item>
    </layout>
   </widget>
-  <widget class="QMenuBar" name="menubar">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>1161</width>
-     <height>26</height>
-    </rect>
-   </property>
-  </widget>
  </widget>
  <tabstops>
-  <tabstop>lone_ID</tabstop>
-  <tabstop>mobile1</tabstop>
-  <tabstop>mobile2</tabstop>
   <tabstop>email</tabstop>
-  <tabstop>addinfo</tabstop>
-  <tabstop>view_btn</tabstop>
+  <tabstop>mobile2</tabstop>
+  <tabstop>lone_ID</tabstop>
+  <tabstop>pushButton</tabstop>
+  <tabstop>name</tabstop>
+  <tabstop>addherno</tabstop>
   <tabstop>pushButton_8</tabstop>
   <tabstop>id</tabstop>
   <tabstop>firstname</tabstop>
   <tabstop>middlename</tabstop>
   <tabstop>addhernumber</tabstop>
-  <tabstop>pushButton</tabstop>
-  <tabstop>name</tabstop>
-  <tabstop>addherno</tabstop>
+  <tabstop>mobile1</tabstop>
+  <tabstop>addinfo</tabstop>
+  <tabstop>view_btn</tabstop>
   <tabstop>amount</tabstop>
   <tabstop>intrest_rate</tabstop>
   <tabstop>checkno</tabstop>
-  <tabstop>date1_1</tabstop>
   <tabstop>jam1_2</tabstop>
   <tabstop>jam1_3</tabstop>
   <tabstop>remark_2</tabstop>
@@ -2847,7 +2968,7 @@ QHeaderView::section:vertical
   <tabstop>new_member_btn</tabstop>
   <tabstop>update_member_btn</tabstop>
   <tabstop>remove_member_btn</tabstop>
-  <tabstop>yrecord</tabstop>
+  <tabstop>collect_lone_btn</tabstop>
   <tabstop>give_lone</tabstop>
   <tabstop>collection</tabstop>
   <tabstop>doj</tabstop>
